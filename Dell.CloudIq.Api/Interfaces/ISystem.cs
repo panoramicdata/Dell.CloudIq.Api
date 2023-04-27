@@ -22,13 +22,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a datastore by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The datastore ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<DataStore> DatastoreAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/datastores/{id}")]
+	Task<DataStore> GetDatastoreAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get DataStores
@@ -41,11 +41,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> DatastoresAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/datastores")]
+	Task<CollectionResponse> GetDatastoresAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Drive
@@ -53,13 +53,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a drive by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The drive ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<Drive> DriveAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/drives/{id}")]
+	Task<Drive> GetDriveAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Drives
@@ -72,11 +72,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> DrivesAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/drives")]
+	Task<CollectionResponse> GetDrivesAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Filesystem
@@ -84,13 +84,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a filesystem by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The filesystem ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<Filesystem> FilesystemAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/filesystems/{id}")]
+	Task<Filesystem> GetFilesystemAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Filesystems
@@ -103,11 +103,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> FilesystemsAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/filesystems")]
+	Task<CollectionResponse> GetFilesystemsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Firmware
@@ -115,13 +115,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a server firmware by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The server firmware ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<Firmware> FirmwareAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/firmwares/{id}")]
+	Task<Firmware> GetFirmwareAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Firmwares
@@ -134,11 +134,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> FirmwaresAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/firmwares")]
+	Task<CollectionResponse> GetFirmwaresAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Host
@@ -146,13 +146,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a host by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The host ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<Host> HostAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/hosts/{id}")]
+	Task<Host> GetHostAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Hosts
@@ -165,11 +165,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> HostsAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/hosts")]
+	Task<CollectionResponse> GetHostsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Pool
@@ -177,13 +177,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a pool by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The pool ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<Pool> PoolAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/pools/{id}")]
+	Task<Pool> GetPoolAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Pools
@@ -196,11 +196,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> PoolsAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/pools")]
+	Task<CollectionResponse> GetPoolsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Port
@@ -208,13 +208,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a port by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The port ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<Port> PortAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/ports/{id}")]
+	Task<Port> GetPortAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Ports
@@ -227,11 +227,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> PortsAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/ports")]
+	Task<CollectionResponse> GetPortsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a System
@@ -239,13 +239,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a system by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The system ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CloudIQSystem> SystemAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/systems/{id}")]
+	Task<CloudIQSystem> GetSystemAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Systems
@@ -258,11 +258,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> SystemsAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/systems")]
+	Task<CollectionResponse> GetSystemsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Volume
@@ -270,13 +270,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a volume by its ID.
 	/// </remarks>
-	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="id">The volume ID to retrieve</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+	/// <param name="select">By default, all properties are returned in resource instances. This can be very expensive - large and slow for large collection responses in particular. This allows the client to select the specific properties that they need, which in addition to the performance benefits for the client and server, also documents the dependencies of the client code, and makes it more resilient to changes on the server side. If the select query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<Volume> VolumeAsync(string select, string id, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/volumes/{id}")]
+	Task<Volume> GetVolumeAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Volumes
@@ -289,11 +289,11 @@ public interface ISystem
 	/// <param name="order">Sorts the result set by the properties specified. Ascending order is default if not specified. If the order query contains a tag key that has special characters (such as a dot, dash, or underscore), then the user needs to enclose such keys within parentheses (). Examples are tags(dot.key.0), tags(dash-key-0), or tags(underscore_0). If the key does not contain any special characters, then examples of what the user can use are tags.BusinessUnit or tags(BusinessUnit).</param>
 	/// <param name="limit">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
 	/// <param name="offset">Optional page size desired for the response. Default value may be platform specified, either globally or per resource type. If paging is supported, the max size should be limited also, whether or not the client specifies a limit. A reasonable max page size in on the order of 1000 items but can vary. Smaller could be better for large instance representations.</param>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<CollectionResponse> VolumesAsync(string filter, string select, string order, int? limit, int? offset, string xIdentityToken, CancellationToken cancellationToken);
+	[Get("/rest/v1/volumes")]
+	Task<CollectionResponse> GetVolumesAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Metrics
@@ -301,11 +301,11 @@ public interface ISystem
 	/// <remarks>
 	/// Perform a metrics query to the system. Responses are always in timestamp granularity - either all requested data for a timestamp is returned, or none.
 	/// </remarks>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<MetricsResponseEntries> PostRestV1MetricsQueryAsync(MetricsQuery body, string xIdentityToken, CancellationToken cancellationToken);
+	[Post("/rest/v1/metrics/query")]
+	Task<MetricsResponseEntries> PostMetricsQueryAsync([Body] MetricsQuery body, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Metric Metadata
@@ -313,12 +313,13 @@ public interface ISystem
 	/// <remarks>
 	/// Get a metric metadata by its ID.
 	/// </remarks>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+
 	/// <param name="id">Unique identifier of the metric metadata instance.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<MetricMetadataInstance> GetMetricMetadataInstanceAsync(string xIdentityToken, string id, CancellationToken cancellationToken);
+	[Get("/rest/v1/metric-metadata/{id}")]
+	Task<MetricMetadataInstance> GetMetricMetadataInstanceAsync(string id, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Metric Metadata
@@ -326,11 +327,12 @@ public interface ISystem
 	/// <remarks>
 	/// Get a list of all the metric metadata.
 	/// </remarks>
-	/// <param name="xIdentityToken">The JWT Token as provided by the marketplace-api-gateway.</param>
+
 	/// <param name="filter">This filters rows in a query, by constraining the result to rows matching the property condition specified.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
-	Task<MetricMetadataInstances> GetMetricMetadataCollectionAsync(string xIdentityToken, string filter, CancellationToken cancellationToken);
+	[Get("/rest/v1/metric-metadata")]
+	Task<MetricMetadataInstances> GetMetricMetadataCollectionAsync([Query(CollectionFormat.Multi)] string filter, CancellationToken cancellationToken);
 
 }
