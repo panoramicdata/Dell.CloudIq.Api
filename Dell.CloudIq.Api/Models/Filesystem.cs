@@ -19,13 +19,6 @@ public partial class Filesystem
 	public string SystemId { get; set; }
 
 	/// <summary>
-	/// DEPRECATED - Unique identifier for the device or appliance.
-	/// </summary>
-	[JsonProperty("system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	[System.Obsolete]
-	public string System { get; set; }
-
-	/// <summary>
 	/// The system type for the file system.
 	/// </summary>
 	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]

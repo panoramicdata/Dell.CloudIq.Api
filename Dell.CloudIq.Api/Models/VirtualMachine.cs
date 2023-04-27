@@ -19,13 +19,6 @@ public partial class VirtualMachine
 	public string SystemId { get; set; }
 
 	/// <summary>
-	/// DEPRECATED - Unique identifier for the system managing this virtual machine.
-	/// </summary>
-	[JsonProperty("system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	[System.Obsolete]
-	public string System { get; set; }
-
-	/// <summary>
 	/// Type of the system for the virtual machine, the value should be one of: VXRAIL/VMWARE.
 	/// </summary>
 	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]

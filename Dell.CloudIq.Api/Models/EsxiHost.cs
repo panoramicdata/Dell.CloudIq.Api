@@ -19,13 +19,6 @@ public partial class EsxiHost
 	public string SystemId { get; set; }
 
 	/// <summary>
-	/// DEPRECATED - Unique identifier for the system.
-	/// </summary>
-	[JsonProperty("system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	[System.Obsolete]
-	public string System { get; set; }
-
-	/// <summary>
 	/// Type of the system, the value should be one of: VXRAIL/VMWARE.
 	/// </summary>
 	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]

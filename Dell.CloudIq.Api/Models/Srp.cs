@@ -19,13 +19,6 @@ public partial class Srp
 	public string SystemId { get; set; }
 
 	/// <summary>
-	/// DEPRECATED - Unique identifier for the system.
-	/// </summary>
-	[JsonProperty("system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	[System.Obsolete]
-	public string System { get; set; }
-
-	/// <summary>
 	/// The type of the system.
 	/// </summary>
 	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]

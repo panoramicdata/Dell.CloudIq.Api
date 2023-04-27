@@ -19,13 +19,6 @@ public partial class StorageGroup
 	public string SystemId { get; set; }
 
 	/// <summary>
-	/// DEPRECATED - Unique identifier for the system.
-	/// </summary>
-	[JsonProperty("system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	[System.Obsolete]
-	public string System { get; set; }
-
-	/// <summary>
 	/// Type of the system for the storage group.
 	/// </summary>
 	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]

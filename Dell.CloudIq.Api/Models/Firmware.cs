@@ -19,13 +19,6 @@ public partial class Firmware
 	public string SystemId { get; set; }
 
 	/// <summary>
-	/// DEPRECATED - System for which firmware information is for.
-	/// </summary>
-	[JsonProperty("system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	[System.Obsolete]
-	public string System { get; set; }
-
-	/// <summary>
 	/// Type of system for which firmware information is for.
 	/// </summary>
 	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
