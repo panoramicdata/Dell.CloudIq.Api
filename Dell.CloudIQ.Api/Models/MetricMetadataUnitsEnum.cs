@@ -1,4 +1,4 @@
-namespace Dell.CloudIQ.Api;
+namespace Dell.CloudIq.Api;
 
 /// <summary>
 /// These are the various supported units for metrics.

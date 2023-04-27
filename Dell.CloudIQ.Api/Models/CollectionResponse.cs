@@ -1,7 +1,10 @@
-namespace Dell.CloudIQ.Api;
+namespace Dell.CloudIq.Api;
 
 /// <summary>
-/// A collection is a list of instances along with metadata about that query. A successful collection query returns a '200' with a list of instances in the response body. \nAn empty collection response (whether due to no instances at all, or due to filtering out all the existing instances) is not an error. It still returns a '200', but the "results": [] list is empty.
+/// A collection is a list of instances along with metadata about that query. 
+/// A successful collection query returns a '200' with a list of instances in the response body.
+/// An empty collection response (whether due to no instances at all, or due to filtering out all the existing instances) is not an error. 
+/// It still returns a '200', but the "results": [] list is empty.
 /// </summary>
 public partial class CollectionResponse
 {

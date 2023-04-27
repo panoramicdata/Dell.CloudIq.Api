@@ -1,4 +1,6 @@
-namespace Dell.CloudIQ.Api;
+using System.Net;
+
+namespace Dell.CloudIq.Api;
 
 /// <summary>
 /// A standard response body used for all non-2xx REST responses.
@@ -6,7 +8,7 @@ namespace Dell.CloudIQ.Api;
 public partial class ErrorResponse
 {
 	[JsonProperty("http_status_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	public HTTPStatusEnum HttpStatusCode { get; set; }
+	public HttpStatusCode HttpStatusCode { get; set; }
 
 	[JsonProperty("messages", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
 	public List<ErrorMessages> Messages { get; set; }

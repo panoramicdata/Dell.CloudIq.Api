@@ -1,4 +1,4 @@
-namespace Dell.CloudIQ.Api;
+namespace Dell.CloudIq.Api;
 
 /// <summary>
 /// Basic information about the system.

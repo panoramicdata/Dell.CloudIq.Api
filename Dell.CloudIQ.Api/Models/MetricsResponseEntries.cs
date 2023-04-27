@@ -1,4 +1,4 @@
-namespace Dell.CloudIQ.Api;
+namespace Dell.CloudIq.Api;
 
 /// <summary>
 /// Metrics Query Responses

@@ -1,4 +1,4 @@
-namespace Dell.CloudIQ.Api;
+namespace Dell.CloudIq.Api;
 
 /// <summary>
 /// These are the resource types that support metrics.

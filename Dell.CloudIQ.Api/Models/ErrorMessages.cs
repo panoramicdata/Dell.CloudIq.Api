@@ -1,4 +1,4 @@
-namespace Dell.CloudIQ.Api;
+namespace Dell.CloudIq.Api;
 
 /// <summary>
 /// A message describing the failure, a contributing factor to the \nfailure, or possibly the aftermath of the failure.

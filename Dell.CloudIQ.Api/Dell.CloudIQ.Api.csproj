@@ -10,8 +10,8 @@
 		<PackageLicenseUrl></PackageLicenseUrl>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<!--<PackageIcon>Icon.png</PackageIcon>-->
-		<PackageTags>Dell CloudIQ API REST</PackageTags>
-		<Title>Dell.CloudIQ.Api</Title>
+		<PackageTags>Dell CloudIQ API REST Client</PackageTags>
+		<Title>Dell.CloudIq.Api</Title>
 		<Description>A .NET API client for Dell's CloudIQ REST API</Description>
 		<Summary>A .NET API client for Dell CloudIQ</Summary>
 		<Company>Panoramic Data Limited</Company>

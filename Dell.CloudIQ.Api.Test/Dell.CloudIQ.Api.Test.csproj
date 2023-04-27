@@ -31,7 +31,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Dell.CloudIQ.Api\Dell.CloudIQ.Api.csproj" />
+		<ProjectReference Include="..\Dell.CloudIq.Api\Dell.CloudIq.Api.csproj" />
 	</ItemGroup>
 
 </Project>
