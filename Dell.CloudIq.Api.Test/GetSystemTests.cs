@@ -26,4 +26,26 @@ public class GetSystemTests : TestBase
 		
 		systems.Should().NotBeNull();
 	}
+
+	[Fact]
+	public async Task GetSystems_WithFilter_ReturnsList()
+	{
+		var clientOptions = GetClientOptions();
+		var client = new CloudIQClient(clientOptions, _logger);
+
+		var systems = await client.System.GetSystemsAsync(filter: "type eq 'POWEREDGE'");
+
+		systems.Should().NotBeNull();
+	}
+
+	[Fact]
+	public async Task GetSystems_WithSelect_ReturnsList()
+	{
+		var clientOptions = GetClientOptions();
+		var client = new CloudIQClient(clientOptions, _logger);
+
+		var systems = await client.System.GetSystemsAsync(select:new(){"id","model"});
+
+		systems.Should().NotBeNull();
+	}
 }

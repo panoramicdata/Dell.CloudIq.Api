@@ -264,7 +264,7 @@ public interface ISystem
 	[Get("/rest/v1/systems")]
 	Task<CollectionResponse> GetSystemsAsync(
 		string? filter = null,
-		string? select = null,
+		List<string>? select = null,
 		string? order = null,
 		int? limit = null,
 		int? offset = null,
