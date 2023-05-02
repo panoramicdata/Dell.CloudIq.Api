@@ -1,15 +1,24 @@
-﻿namespace Dell.CloudIq.Api;
+﻿using Microsoft.Extensions.Logging;
+
+namespace Dell.CloudIq.Api;
 
 public class CloudIQClient
 {
 	private readonly CloudIQClientOptions _clientOptions;
+	private readonly ILogger _logger;
 
-	public CloudIQClient(CloudIQClientOptions clientOptions)
+	public CloudIQClient(
+		CloudIQClientOptions clientOptions,
+		ILogger logger)
 	{
 		_clientOptions = clientOptions;
-
-		var httpClient = new HttpClient();
+		_logger = logger;
+		var handler = new AuthenticatedHttpClientHandler(clientOptions, logger);
+		var httpClient = new HttpClient(handler);
 		var refitSettings = new RefitSettings();
+
+		// TODO: Add the authenticating client handler
+		// This handler will manage initiating authentication (logging in)
 
 		Compute = RestService.For<ICompute>(httpClient, refitSettings);
 		Hci = RestService.For<IHci>(httpClient, refitSettings);
