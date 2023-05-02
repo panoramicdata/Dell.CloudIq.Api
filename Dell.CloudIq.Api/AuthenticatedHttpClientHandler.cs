@@ -1,6 +1,8 @@
 ﻿using Dell.CloudIq.Api.Exceptions;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
+using System.Text.Json.Nodes;
 
 namespace Dell.CloudIq.Api;
 
@@ -8,7 +10,7 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 {
 	private readonly CloudIQClientOptions _clientOptions;
 	private readonly ILogger _logger;
-	private string? _apiToken;
+	private ApiToken? _apiToken;
 
 	public AuthenticatedHttpClientHandler(
 		CloudIQClientOptions clientOptions,
@@ -22,19 +24,40 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 		HttpRequestMessage request,
 		CancellationToken cancellationToken)
 	{
-		if (string.IsNullOrEmpty(_apiToken))
+		var requestId = Guid.NewGuid();
+		if (_apiToken is null)
 		{
 			_apiToken = await GenerateApiTokenAsync(cancellationToken);
 		}
-		// TODO: Implement the authentication
-		// This code is simply to make the code compile and should be removed
-		await Task.Delay(500);
-		return null!;
+
+		request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken.AccessToken);
+
+		if (_logger.IsEnabled(LogLevel.Debug))
+		{
+			var url = request.RequestUri!.ToString();
+			var headers = string.Join("\n", request.Headers.Select(h => $"{h.Key}: {string.Join(", ", h.Value.Select(v => v))}"));
+			var body = request.Content is not null
+				? await request.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false) 
+				: string.Empty;
+			var jObject = JsonConvert.DeserializeObject<JObject>(body);
+			if (jObject is not null)
+			{
+				body = JsonConvert.SerializeObject(jObject, Formatting.Indented);
+			}
+
+			_logger.LogDebug("{RequestId}: REQUEST: URL: {Url}\nHeaders: {Headers}\nBody: {Body}", requestId, url, headers, body);
+		}
+
+		var httpResponse = await base
+			.SendAsync(request, cancellationToken)
+			.ConfigureAwait(false);
+
+		return httpResponse;
 	}
 
-	private async Task<string> GenerateApiTokenAsync(CancellationToken cancellationToken)
+	private async Task<ApiToken> GenerateApiTokenAsync(CancellationToken cancellationToken)
 	{
-		using var httpClient = new HttpClient()
+		using var httpClient = new HttpClient
 		{
 			BaseAddress = new ($"{_clientOptions.BaseUri}/auth/oauth/v2/token")
 		};
@@ -68,6 +91,8 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 			.ReadAsStringAsync(cancellationToken)
 			.ConfigureAwait(false);
 
-		return stringResponse;
+		var tokenResponse = JsonConvert.DeserializeObject<ApiToken>(stringResponse);
+
+		return tokenResponse ?? throw new AuthenticationException("ApiToken not returned.");
 	}
 }

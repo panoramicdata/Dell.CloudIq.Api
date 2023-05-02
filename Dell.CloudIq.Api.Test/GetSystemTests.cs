@@ -1,19 +1,26 @@
 ﻿using FluentAssertions;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xunit.Abstractions;
 
 namespace Dell.CloudIq.Api.Test;
 public class GetSystemTests : TestBase
 {
+	private readonly ITestOutputHelper _testOutputHelper;
+	private readonly ILogger _logger;
+
+	public GetSystemTests(ITestOutputHelper testOutputHelper)
+	{
+		_testOutputHelper = testOutputHelper;
+		_logger = testOutputHelper.BuildLogger();
+	}
+
 	[Fact]
 	public async Task GetSystems_ReturnsList()
 	{ 
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, NullLogger.Instance);
+		var client = new CloudIQClient(clientOptions, _logger);
 
 		var systems = await client.System.GetSystemsAsync();
 		

@@ -14,7 +14,10 @@ public class CloudIQClient
 		_clientOptions = clientOptions;
 		_logger = logger;
 		var handler = new AuthenticatedHttpClientHandler(clientOptions, logger);
-		var httpClient = new HttpClient(handler);
+		var httpClient = new HttpClient(handler)
+		{
+			BaseAddress = new($"{_clientOptions.BaseUri}/cloudiq")
+		};
 		var refitSettings = new RefitSettings();
 
 		// TODO: Add the authenticating client handler

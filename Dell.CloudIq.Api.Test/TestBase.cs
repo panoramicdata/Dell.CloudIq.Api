@@ -11,15 +11,14 @@ public class TestBase
 	protected CloudIQClientOptions GetClientOptions()
 	{
 		var builder = new ConfigurationBuilder()
-			.SetBasePath(Environment.CurrentDirectory)
-			.AddUserSecrets<CloudIQClientOptions>();
+			.AddUserSecrets<TestBase>();
 
 		var configuration = builder.Build();
 
 		return new CloudIQClientOptions { 
-			ClientId = configuration["Config:ClientId"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.ClientId)),
-			ClientSecret = configuration["Config:ClientSecret"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.ClientSecret)),
-			BaseUri = configuration["Config:BaseUri"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.BaseUri))
+			ClientId = configuration["ClientId"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.ClientId)),
+			ClientSecret = configuration["ClientSecret"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.ClientSecret)),
+			BaseUri = configuration["BaseUri"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.BaseUri))
 		};
 	}
 }
