@@ -11,6 +11,9 @@ public class CloudIQClient
 		var httpClient = new HttpClient();
 		var refitSettings = new RefitSettings();
 
+		// TODO: Add the authenticating client handler
+		// This handler will manage initiating authentication (logging in)
+
 		Compute = RestService.For<ICompute>(httpClient, refitSettings);
 		Hci = RestService.For<IHci>(httpClient, refitSettings);
 		Network = RestService.For<INetwork>(httpClient, refitSettings);
