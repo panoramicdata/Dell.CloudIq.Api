@@ -22,6 +22,7 @@ public class CloudIQClient
 		var jsonSerializerOptions = new System.Text.Json.JsonSerializerOptions();
 		jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 
+		//TODO: Set the jsonSerializerOptions.UnmappedMemberHandling when .Net8 is released. https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/missing-members?source=recommendations
 		var refitSettings = new RefitSettings()
 		{
 			ContentSerializer = new SystemTextJsonContentSerializer(jsonSerializerOptions)
