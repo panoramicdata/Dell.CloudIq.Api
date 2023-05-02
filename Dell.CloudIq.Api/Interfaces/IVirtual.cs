@@ -31,6 +31,6 @@ public interface IVirtual
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/virtual_machines")]
-	Task<CollectionResponse> MachinesAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<VirtualMachine>> MachinesAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
 
 }

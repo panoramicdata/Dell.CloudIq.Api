@@ -31,5 +31,5 @@ public interface IServer
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/server_systems")]
-	Task<CollectionResponse> SystemsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<ServerSystem>> SystemsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
 }

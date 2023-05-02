@@ -31,5 +31,5 @@ public interface IResource
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_resource_pools")]
-	Task<CollectionResponse> GetPoolsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Srp>> GetPoolsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
 }

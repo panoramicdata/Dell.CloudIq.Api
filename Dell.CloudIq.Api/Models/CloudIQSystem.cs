@@ -70,7 +70,7 @@ public partial class CloudIQSystem
 	/// Expiration date for the service contract of the system.
 	/// </summary>
 	[JsonProperty("contract_expiration_date_timestamp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	public System.DateTimeOffset ContractExpirationDateTimestamp { get; set; }
+	public long ContractExpirationDateTimestamp { get; set; }
 
 	/// <summary>
 	/// The contract number
@@ -142,7 +142,7 @@ public partial class CloudIQSystem
 	/// Last time that CloudIQ received data from the system.
 	/// </summary>
 	[JsonProperty("last_contact_timestamp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-	public System.DateTimeOffset LastContactTimestamp { get; set; }
+	public long LastContactTimestamp { get; set; }
 
 	/// <summary>
 	/// Location where the system can be found.

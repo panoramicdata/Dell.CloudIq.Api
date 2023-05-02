@@ -31,7 +31,7 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_groups")]
-	Task<CollectionResponse> GetGroupsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<StorageGroup>> GetGroupsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a StorageSystem
@@ -62,6 +62,6 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_systems")]
-	Task<CollectionResponse> GetSystemsAsync( string filter,  string select,  string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<StorageSystem>> GetSystemsAsync( string filter,  string select,  string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 }
