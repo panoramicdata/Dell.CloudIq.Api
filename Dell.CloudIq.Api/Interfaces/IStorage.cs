@@ -14,7 +14,7 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_groups/{id}")]
-	Task<StorageGroup> GetGroupAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<StorageGroup> GetGroupAsync(string id,  string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get StorageGroups
@@ -31,7 +31,7 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_groups")]
-	Task<CollectionResponse> GetGroupsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetGroupsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a StorageSystem
@@ -45,7 +45,7 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_systems/{id}")]
-	Task<StorageSystem> GetSystemAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<StorageSystem> GetSystemAsync(string id,  string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get StorageSystems
@@ -62,6 +62,6 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_systems")]
-	Task<CollectionResponse> GetSystemsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetSystemsAsync( string filter,  string select,  string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 }

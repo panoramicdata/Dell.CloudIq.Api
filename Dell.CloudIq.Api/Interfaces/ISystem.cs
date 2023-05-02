@@ -28,7 +28,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/datastores/{id}")]
-	Task<DataStore> GetDatastoreAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<DataStore> GetDatastoreAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get DataStores
@@ -45,7 +45,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/datastores")]
-	Task<CollectionResponse> GetDatastoresAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetDatastoresAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Drive
@@ -59,7 +59,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/drives/{id}")]
-	Task<Drive> GetDriveAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<Drive> GetDriveAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Drives
@@ -76,7 +76,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/drives")]
-	Task<CollectionResponse> GetDrivesAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetDrivesAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Filesystem
@@ -90,7 +90,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/filesystems/{id}")]
-	Task<Filesystem> GetFilesystemAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<Filesystem> GetFilesystemAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Filesystems
@@ -107,7 +107,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/filesystems")]
-	Task<CollectionResponse> GetFilesystemsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetFilesystemsAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Firmware
@@ -121,7 +121,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/firmwares/{id}")]
-	Task<Firmware> GetFirmwareAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<Firmware> GetFirmwareAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Firmwares
@@ -138,7 +138,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/firmwares")]
-	Task<CollectionResponse> GetFirmwaresAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetFirmwaresAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Host
@@ -152,7 +152,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/hosts/{id}")]
-	Task<Host> GetHostAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<Host> GetHostAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Hosts
@@ -169,7 +169,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/hosts")]
-	Task<CollectionResponse> GetHostsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetHostsAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Pool
@@ -183,7 +183,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/pools/{id}")]
-	Task<Pool> GetPoolAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<Pool> GetPoolAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Pools
@@ -200,7 +200,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/pools")]
-	Task<CollectionResponse> GetPoolsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetPoolsAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a Port
@@ -214,7 +214,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/ports/{id}")]
-	Task<Port> GetPortAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<Port> GetPortAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Ports
@@ -231,7 +231,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/ports")]
-	Task<CollectionResponse> GetPortsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetPortsAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get a System
@@ -245,7 +245,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/systems/{id}")]
-	Task<CloudIQSystem> GetSystemAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<CloudIQSystem> GetSystemAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Systems
@@ -263,11 +263,11 @@ public interface ISystem
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/systems")]
 	Task<CollectionResponse> GetSystemsAsync(
-		[Query(CollectionFormat.Multi)] string? filter = null, 
-		[Query(CollectionFormat.Multi)] string? select = null, 
-		[Query(CollectionFormat.Multi)] string? order = null, 
-		[Query(CollectionFormat.Multi)] int? limit = null, 
-		[Query(CollectionFormat.Multi)] int? offset = null, 
+		string? filter = null,
+		string? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
 		CancellationToken? cancellationToken = default);
 
 	/// <summary>
@@ -282,7 +282,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/volumes/{id}")]
-	Task<Volume> GetVolumeAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<Volume> GetVolumeAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Volumes
@@ -299,7 +299,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/volumes")]
-	Task<CollectionResponse> GetVolumesAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetVolumesAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get Metrics
@@ -339,6 +339,6 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/metric-metadata")]
-	Task<MetricMetadataInstances> GetMetricMetadataCollectionAsync([Query(CollectionFormat.Multi)] string filter, CancellationToken cancellationToken);
+	Task<MetricMetadataInstances> GetMetricMetadataCollectionAsync(string filter, CancellationToken cancellationToken);
 
 }

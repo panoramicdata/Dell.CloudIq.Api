@@ -14,7 +14,7 @@ public interface IVirtual
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/virtual_machines/{id}")]
-	Task<VirtualMachine> GetMachineAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<VirtualMachine> GetMachineAsync(string id,  string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get VirtualMachines
@@ -31,6 +31,6 @@ public interface IVirtual
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/virtual_machines")]
-	Task<CollectionResponse> MachinesAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> MachinesAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
 
 }

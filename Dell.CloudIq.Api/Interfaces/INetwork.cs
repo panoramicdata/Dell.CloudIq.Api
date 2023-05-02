@@ -14,7 +14,7 @@ public interface INetwork
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/network_systems/{id}")]
-	Task<NetworkSystem> GetSystemAsync(string id, [Query(CollectionFormat.Multi)] string select, CancellationToken cancellationToken);
+	Task<NetworkSystem> GetSystemAsync(string id,  string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get NetworkSystems
@@ -31,5 +31,5 @@ public interface INetwork
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/network_systems")]
-	Task<CollectionResponse> GetSystemsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetSystemsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
 }
