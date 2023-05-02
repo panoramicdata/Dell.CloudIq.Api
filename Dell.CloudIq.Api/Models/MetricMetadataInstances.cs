@@ -5,7 +5,7 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public partial class MetricMetadataInstances
 {
-	[JsonProperty("results")]
+	[JsonPropertyName("results")]
 	public List<MetricMetadataInstance> Results { get; set; }
 
 

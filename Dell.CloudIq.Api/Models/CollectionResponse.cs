@@ -8,10 +8,10 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public partial class CollectionResponse<T>
 {
-	[JsonProperty("paging")]
+	[JsonPropertyName("paging")]
 	public Paging Paging { get; set; }
 
-	[JsonProperty("results")]
+	[JsonPropertyName("results")]
 	public List<T> Results { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

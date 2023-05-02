@@ -5,11 +5,11 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public partial class MetricsResponseEntry
 {
-	[JsonProperty("id")]
+	[JsonPropertyName("id")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	public string Id { get; set; }
 
-	[JsonProperty("timestamps")]
+	[JsonPropertyName("timestamps")]
 	public List<MetricsValueEntry> Timestamps { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

@@ -8,68 +8,67 @@ public partial class DataStore
 	/// <summary>
 	/// Unique identifier of the datastore object.
 	/// </summary>
-	[JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-	[Required(AllowEmptyStrings = true)]
+	[JsonPropertyName("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Unique identifier of the system managing this datastore.
 	/// </summary>
-	[JsonProperty("system_id")]
+	[JsonPropertyName("system_id")]
 	public string SystemId { get; set; }
 
 	/// <summary>
 	/// System type for the datastore, the value should be one of: VXRAIL/VMWARE.
 	/// </summary>
-	[JsonProperty("system_type")]
+	[JsonPropertyName("system_type")]
 	public string SystemType { get; set; }
 
 	/// <summary>
 	/// Path used to connect to the datastore.
 	/// </summary>
-	[JsonProperty("export_path")]
+	[JsonPropertyName("export_path")]
 	public string ExportPath { get; set; }
 
 	/// <summary>
 	/// Free size of the datastore - Unit: bytes
 	/// </summary>
-	[JsonProperty("free_size")]
+	[JsonPropertyName("free_size")]
 	public long FreeSize { get; set; }
 
 	/// <summary>
 	/// Name of the datastore.
 	/// </summary>
-	[JsonProperty("object_name")]
+	[JsonPropertyName("object_name")]
 	public string ObjectName { get; set; }
 
 	/// <summary>
 	/// Type of the object, which is always DATASTORE.
 	/// </summary>
-	[JsonProperty("object_type")]
+	[JsonPropertyName("object_type")]
 	public string ObjectType { get; set; }
 
 	/// <summary>
 	/// Total size of the datastore - Unit: bytes
 	/// </summary>
-	[JsonProperty("total_size")]
+	[JsonPropertyName("total_size")]
 	public long TotalSize { get; set; }
 
 	/// <summary>
 	/// Type of datastore in vSphere.
 	/// </summary>
-	[JsonProperty("type")]
+	[JsonPropertyName("type")]
 	public string Type { get; set; }
 
 	/// <summary>
 	/// Percentage of datastore capacity that is being used.
 	/// </summary>
-	[JsonProperty("used_percent")]
+	[JsonPropertyName("used_percent")]
 	public double UsedPercent { get; set; }
 
 	/// <summary>
 	/// Used size of the datastore - Unit: bytes
 	/// </summary>
-	[JsonProperty("used_size")]
+	[JsonPropertyName("used_size")]
 	public long UsedSize { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

@@ -1,7 +1,7 @@
 ﻿using Dell.CloudIq.Api.Exceptions;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 
 namespace Dell.CloudIq.Api;
@@ -11,6 +11,10 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 	private readonly CloudIQClientOptions _clientOptions;
 	private readonly ILogger _logger;
 	private ApiToken? _apiToken;
+	private readonly JsonSerializerOptions _serializerOptions = new()
+	{
+		WriteIndented = true
+	};
 
 	public AuthenticatedHttpClientHandler(
 		CloudIQClientOptions clientOptions,
@@ -39,12 +43,23 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 			var body = request.Content is not null
 				? await request.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false) 
 				: string.Empty;
-			var jObject = JsonConvert.DeserializeObject<JObject>(body);
-			if (jObject is not null)
-			{
-				body = JsonConvert.SerializeObject(jObject, Formatting.Indented);
-			}
 
+			try
+			{
+				if (!string.IsNullOrWhiteSpace(body))
+				{
+					var jObject = JsonSerializer.Deserialize<object>(body);
+					if (jObject is not null)
+					{
+						body = JsonSerializer.Serialize(jObject, options: _serializerOptions);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				_logger.LogWarning(ex, "Could not reformat JSON request body: {Message}", ex.Message);
+			}
+			
 			_logger.LogDebug("{RequestId}: REQUEST: URL: {Url}\nHeaders: {Headers}\nBody: {Body}", requestId, url, headers, body);
 		}
 
@@ -91,7 +106,7 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 			.ReadAsStringAsync(cancellationToken)
 			.ConfigureAwait(false);
 
-		var tokenResponse = JsonConvert.DeserializeObject<ApiToken>(stringResponse);
+		var tokenResponse = JsonSerializer.Deserialize<ApiToken>(stringResponse);
 
 		return tokenResponse ?? throw new AuthenticationException("ApiToken not returned.");
 	}

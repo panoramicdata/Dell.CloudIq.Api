@@ -18,10 +18,7 @@ public class CloudIQClient
 		{
 			BaseAddress = new($"{_clientOptions.BaseUri}/cloudiq")
 		};
-		var refitSettings = new RefitSettings()
-		{
-			ContentSerializer = new NewtonsoftJsonContentSerializer()
-		};
+		var refitSettings = new RefitSettings();
 
 		// TODO: Add the authenticating client handler
 		// This handler will manage initiating authentication (logging in)

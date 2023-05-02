@@ -7,10 +7,10 @@ namespace Dell.CloudIq.Api;
 /// </summary>  
 public partial class ErrorResponse
 {
-	[JsonProperty("http_status_code")]
+	[JsonPropertyName("http_status_code")]
 	public HttpStatusCode HttpStatusCode { get; set; }
 
-	[JsonProperty("messages")]
+	[JsonPropertyName("messages")]
 	public List<ErrorMessages> Messages { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

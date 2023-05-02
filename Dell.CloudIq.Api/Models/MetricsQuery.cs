@@ -6,10 +6,10 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public partial class MetricsQuery
 {
-	[JsonProperty("resource_type", Required = Newtonsoft.Json.Required.Always)]
-	[Required(AllowEmptyStrings = true)]
+	[JsonPropertyName("resource_type")]
+	
 	[StringLength(int.MaxValue, MinimumLength = 1)]
-	[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+	
 	public MetricMetadataResourceTypeEnum ResourceType { get; set; }
 
 	/// <summary>
@@ -17,7 +17,7 @@ public partial class MetricsQuery
 	/// <br/>resource_type specified above.
 	/// <br/>
 	/// </summary>
-	[JsonProperty("ids", Required = Newtonsoft.Json.Required.Always)]
+	[JsonPropertyName("ids")]
 	[Required]
 	[MinLength(1)]
 	[MaxLength(999)]
@@ -28,15 +28,15 @@ public partial class MetricsQuery
 	/// <br/>Must be valid for resource_type, according to metric catalog.
 	/// <br/>
 	/// </summary>
-	[JsonProperty("metrics", Required = Newtonsoft.Json.Required.Always)]
+	[JsonPropertyName("metrics")]
 	[Required]
 	[MinLength(1)]
 	[MaxLength(99)]
 	public List<string> Metrics { get; set; } = new List<string>();
 
-	[JsonProperty("interval")]
+	[JsonPropertyName("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
-	[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+	
 	public MetricsIntervalEnum Interval { get; set; }
 
 	/// <summary>
@@ -47,7 +47,7 @@ public partial class MetricsQuery
 	/// <br/>ensure that no duplicates or excluded metrics occur.
 	/// <br/>
 	/// </summary>
-	[JsonProperty("from")]
+	[JsonPropertyName("from")]
 	public System.DateTimeOffset From { get; set; }
 
 	/// <summary>
@@ -56,7 +56,7 @@ public partial class MetricsQuery
 	/// <br/>requested metrics.
 	/// <br/>
 	/// </summary>
-	[JsonProperty("to")]
+	[JsonPropertyName("to")]
 	public System.DateTimeOffset To { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

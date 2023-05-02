@@ -1,18 +1,16 @@
-﻿using System.Runtime.Serialization;
+﻿namespace Dell.CloudIq.Api;
 
-namespace Dell.CloudIq.Api;
-[DataContract]
 internal class ApiToken
 {
-	[DataMember (Name = "access_token")]
+	[JsonPropertyName("access_token")]
 	public string AccessToken { get; set; } = string.Empty;
 
-	[DataMember(Name = "token_type")]
+	[JsonPropertyName("token_type")]
 	public string TokenType { get; set; } = string.Empty;
 
-	[DataMember(Name = "expires_in")]
+	[JsonPropertyName("expires_in")]
 	public int ExpiresIn { get; set; } = 0;
 
-	[DataMember(Name = "scope")]
+	[JsonPropertyName("scope")]
 	public string Scope { get; set; } = string.Empty;
 }
