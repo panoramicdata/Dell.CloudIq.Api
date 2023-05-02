@@ -262,7 +262,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/systems")]
-	Task<CollectionResponse> GetSystemsAsync([Query(CollectionFormat.Multi)] string filter, [Query(CollectionFormat.Multi)] string select, [Query(CollectionFormat.Multi)] string order, [Query(CollectionFormat.Multi)] int? limit, [Query(CollectionFormat.Multi)] int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse> GetSystemsAsync(
+		[Query(CollectionFormat.Multi)] string? filter = null, 
+		[Query(CollectionFormat.Multi)] string? select = null, 
+		[Query(CollectionFormat.Multi)] string? order = null, 
+		[Query(CollectionFormat.Multi)] int? limit = null, 
+		[Query(CollectionFormat.Multi)] int? offset = null, 
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get a Volume
