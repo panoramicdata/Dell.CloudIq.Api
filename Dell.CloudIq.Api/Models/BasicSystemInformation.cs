@@ -8,37 +8,37 @@ public partial class BasicSystemInformation
 	/// <summary>
 	/// Unique identifier of the basic-system-info. This is a singleton, so the id is always "0"
 	/// </summary>
-	[JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// System name.
 	/// </summary>
-	[JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("name")]
 	public string Name { get; set; }
 
 	/// <summary>
 	/// System model.
 	/// </summary>
-	[JsonProperty("model", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("model")]
 	public string Model { get; set; }
 
 	/// <summary>
 	/// System service tag.
 	/// </summary>
-	[JsonProperty("service_tag", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("service_tag")]
 	public string ServiceTag { get; set; }
 
 	/// <summary>
 	/// Software release version.
 	/// </summary>
-	[JsonProperty("release_version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("release_version")]
 	public string ReleaseVersion { get; set; }
 
 	/// <summary>
 	/// List of supported API versions, in major.minor format (no leading "v" and no patch number).
 	/// </summary>
-	[JsonProperty("supported_api_versions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("supported_api_versions")]
 	public List<string> SupportedApiVersions { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

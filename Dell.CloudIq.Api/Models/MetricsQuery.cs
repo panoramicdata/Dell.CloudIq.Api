@@ -34,7 +34,7 @@ public partial class MetricsQuery
 	[MaxLength(99)]
 	public List<string> Metrics { get; set; } = new List<string>();
 
-	[JsonProperty("interval", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 	public MetricsIntervalEnum Interval { get; set; }
@@ -47,7 +47,7 @@ public partial class MetricsQuery
 	/// <br/>ensure that no duplicates or excluded metrics occur.
 	/// <br/>
 	/// </summary>
-	[JsonProperty("from", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("from")]
 	public System.DateTimeOffset From { get; set; }
 
 	/// <summary>
@@ -56,7 +56,7 @@ public partial class MetricsQuery
 	/// <br/>requested metrics.
 	/// <br/>
 	/// </summary>
-	[JsonProperty("to", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("to")]
 	public System.DateTimeOffset To { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

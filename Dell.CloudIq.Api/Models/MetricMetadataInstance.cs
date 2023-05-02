@@ -8,13 +8,13 @@ public partial class MetricMetadataInstance
 	/// <summary>
 	/// Unique identifier of a metric metadata resource.
 	/// </summary>
-	[JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("id")]
 	public string Id { get; set; }
 
 	/// <summary>
 	/// Name of the metric.
 	/// </summary>
-	[JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("name")]
 	[StringLength(64)]
 	[RegularExpression(@"^[a-zA-Z0-9_]+$")]
 	public string Name { get; set; }
@@ -22,26 +22,26 @@ public partial class MetricMetadataInstance
 	/// <summary>
 	/// Description of metric content, meaning, and usage.
 	/// </summary>
-	[JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("description")]
 	public string Description { get; set; }
 
-	[JsonProperty("category", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("category")]
 	public MetricMetadataCategoryEnum Category { get; set; }
 
-	[JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("type")]
 	[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 	public MetricMetadataTypeEnum Type { get; set; }
 
-	[JsonProperty("units", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("units")]
 	[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 	public MetricMetadataUnitsEnum Units { get; set; }
 
-	[JsonProperty("resource_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("resource_type")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 	public MetricMetadataResourceTypeEnum ResourceType { get; set; }
 
-	[JsonProperty("interval", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 	public MetricsIntervalEnum Interval { get; set; }

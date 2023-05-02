@@ -5,10 +5,10 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public partial class MetricsResponseEntries
 {
-	[JsonProperty("metrics", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("metrics")]
 	public List<string> Metrics { get; set; }
 
-	[JsonProperty("results", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("results")]
 	[MinLength(1)]
 	public List<MetricsResponseEntry> Results { get; set; }
 

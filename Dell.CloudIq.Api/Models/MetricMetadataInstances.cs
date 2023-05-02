@@ -5,7 +5,7 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public partial class MetricMetadataInstances
 {
-	[JsonProperty("results", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("results")]
 	public List<MetricMetadataInstance> Results { get; set; }
 
 

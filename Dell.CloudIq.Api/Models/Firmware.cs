@@ -15,127 +15,127 @@ public partial class Firmware
 	/// <summary>
 	/// System for which firmware information is for.
 	/// </summary>
-	[JsonProperty("system_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_id")]
 	public string SystemId { get; set; }
 
 	/// <summary>
 	/// Type of system for which firmware information is for.
 	/// </summary>
-	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_type")]
 	public string SystemType { get; set; }
 
 	/// <summary>
 	/// Aisle Location of the system associated with the Firmware.
 	/// </summary>
-	[JsonProperty("aisle_location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("aisle_location")]
 	public string AisleLocation { get; set; }
 
 	/// <summary>
 	/// BaseLine firmware Version or the latest firmware version of the component for the system.
 	/// </summary>
-	[JsonProperty("baseline_version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("baseline_version")]
 	public string BaselineVersion { get; set; }
 
 	/// <summary>
 	/// Compliance Message whether upgrade needed is urgent, recommended or optional.
 	/// </summary>
-	[JsonProperty("compliance_message", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("compliance_message")]
 	public string ComplianceMessage { get; set; }
 
 	/// <summary>
 	/// Data center Location of the system associated with the Firmware
 	/// </summary>
-	[JsonProperty("datacenter_location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("datacenter_location")]
 	public string DatacenterLocation { get; set; }
 
 	/// <summary>
 	/// Detailed name of the firmware.
 	/// </summary>
-	[JsonProperty("details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("details")]
 	public string Details { get; set; }
 
 	/// <summary>
 	/// Description of the firmware associated with Component Id.
 	/// </summary>
-	[JsonProperty("device_description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("device_description")]
 	public string DeviceDescription { get; set; }
 
 	/// <summary>
 	/// Date when the firmware was installed.
 	/// </summary>
-	[JsonProperty("installation_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("installation_date")]
 	public long InstallationDate { get; set; }
 
 	/// <summary>
 	/// Firmware system IP Address.
 	/// </summary>
-	[JsonProperty("ip_address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("ip_address")]
 	public string IpAddress { get; set; }
 
 	/// <summary>
 	/// IPv4 Address of the system associated with the firmware information.
 	/// </summary>
-	[JsonProperty("ipv4_address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("ipv4_address")]
 	public string Ipv4Address { get; set; }
 
 	/// <summary>
 	/// IPv6 Address of the system associated with the firmware information.
 	/// </summary>
-	[JsonProperty("ipv6_address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("ipv6_address")]
 	public string Ipv6Address { get; set; }
 
 	/// <summary>
 	/// Firmware Location.
 	/// </summary>
-	[JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("location")]
 	public string Location { get; set; }
 
 	/// <summary>
 	/// Rack Location of the system associated with the Firmware.
 	/// </summary>
-	[JsonProperty("rack_location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("rack_location")]
 	public string RackLocation { get; set; }
 
 	/// <summary>
 	/// Room Location of the system associated with the Firmware
 	/// </summary>
-	[JsonProperty("room_location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("room_location")]
 	public string RoomLocation { get; set; }
 
 	/// <summary>
 	/// Service tag of the system.
 	/// </summary>
-	[JsonProperty("service_tag", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("service_tag")]
 	public string ServiceTag { get; set; }
 
 	/// <summary>
 	/// Slot Location of the system associated with the Firmware.
 	/// </summary>
-	[JsonProperty("slot_location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("slot_location")]
 	public string SlotLocation { get; set; }
 
 	/// <summary>
 	/// Type of the software ex. BIOS, firmware, driver.
 	/// </summary>
-	[JsonProperty("software_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("software_type")]
 	public string SoftwareType { get; set; }
 
 	/// <summary>
 	/// Identifies the specific model of the server.
 	/// </summary>
-	[JsonProperty("system_model", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_model")]
 	public string SystemModel { get; set; }
 
 	/// <summary>
 	/// System Name of the system associated with the Firmware.
 	/// </summary>
-	[JsonProperty("system_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_name")]
 	public string SystemName { get; set; }
 
 	/// <summary>
 	/// Version of firmware.
 	/// </summary>
-	[JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("version")]
 	public string Version { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

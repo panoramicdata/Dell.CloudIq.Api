@@ -2,10 +2,10 @@ namespace Dell.CloudIq.Api;
 
 public partial class Response
 {
-	[JsonProperty("paging", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("paging")]
 	public Paging Paging { get; set; }
 
-	[JsonProperty("results", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("results")]
 	public List<MetricMetadataInstance> Results { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

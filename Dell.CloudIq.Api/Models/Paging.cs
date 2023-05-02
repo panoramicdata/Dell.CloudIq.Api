@@ -8,19 +8,19 @@ public partial class Paging
 	/// <summary>
 	/// This the the collection size, not the reponse size.
 	/// </summary>
-	[JsonProperty("total_instances", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("total_instances")]
 	public long TotalInstances { get; set; }
 
-	[JsonProperty("first", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("first")]
 	public string First { get; set; }
 
-	[JsonProperty("last", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("last")]
 	public string Last { get; set; }
 
-	[JsonProperty("next", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("next")]
 	public string Next { get; set; }
 
-	[JsonProperty("prev", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("prev")]
 	public string Prev { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

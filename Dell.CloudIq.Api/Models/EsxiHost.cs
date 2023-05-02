@@ -15,55 +15,55 @@ public partial class EsxiHost
 	/// <summary>
 	/// Unique identifier for the system.
 	/// </summary>
-	[JsonProperty("system_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_id")]
 	public string SystemId { get; set; }
 
 	/// <summary>
 	/// Type of the system, the value should be one of: VXRAIL/VMWARE.
 	/// </summary>
-	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_type")]
 	public string SystemType { get; set; }
 
 	/// <summary>
 	/// The appliance serial number of the host, this only applies to VxRail hosts now.
 	/// </summary>
-	[JsonProperty("appliance_serial_number", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("appliance_serial_number")]
 	public string ApplianceSerialNumber { get; set; }
 
 	/// <summary>
 	/// Model name of the host.
 	/// </summary>
-	[JsonProperty("model", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("model")]
 	public string Model { get; set; }
 
 	/// <summary>
 	/// Name of the host or server.
 	/// </summary>
-	[JsonProperty("object_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("object_name")]
 	public string ObjectName { get; set; }
 
 	/// <summary>
 	/// Type of the object, the value should be one of: HOST (for VxRail product)/HOST_SYSTEM (for VMWare product type).
 	/// </summary>
-	[JsonProperty("object_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("object_type")]
 	public string ObjectType { get; set; }
 
 	/// <summary>
 	/// Seral Number of the host.
 	/// </summary>
-	[JsonProperty("serial_number", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("serial_number")]
 	public string SerialNumber { get; set; }
 
 	/// <summary>
 	/// Service Tag of the host.
 	/// </summary>
-	[JsonProperty("service_tag", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("service_tag")]
 	public string ServiceTag { get; set; }
 
 	/// <summary>
 	/// OS version of the host.
 	/// </summary>
-	[JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("version")]
 	public string Version { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

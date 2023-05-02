@@ -15,97 +15,97 @@ public partial class Host
 	/// <summary>
 	/// Unique identifier for the device or appliance.
 	/// </summary>
-	[JsonProperty("system_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_id")]
 	public string SystemId { get; set; }
 
 	/// <summary>
 	/// Product type of the system.
 	/// </summary>
-	[JsonProperty("system_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_type")]
 	public string SystemType { get; set; }
 
 	/// <summary>
 	/// Description of the host.
 	/// </summary>
-	[JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("description")]
 	public string Description { get; set; }
 
 	/// <summary>
 	/// Number of initiators that are connected between the host or server and the monitored system.
 	/// </summary>
-	[JsonProperty("initiator_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("initiator_count")]
 	public long InitiatorCount { get; set; }
 
 	/// <summary>
 	/// Type of initiator (FC or iSCSI) that the host or server uses to connect to a monitored system.
 	/// </summary>
-	[JsonProperty("initiator_protocol", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("initiator_protocol")]
 	public string InitiatorProtocol { get; set; }
 
 	/// <summary>
 	/// Number of health issues that are present on the host or server.
 	/// </summary>
-	[JsonProperty("issue_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("issue_count")]
 	public long IssueCount { get; set; }
 
 	/// <summary>
 	/// User defined tags.
 	/// </summary>
-	[JsonProperty("tags", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("tags")]
 	public object Tags { get; set; }
 
 	/// <summary>
 	/// Name of the host or server.
 	/// </summary>
-	[JsonProperty("object_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("object_name")]
 	public string ObjectName { get; set; }
 
 	/// <summary>
 	/// Identifier of the object, defined by the system.
 	/// </summary>
-	[JsonProperty("object_native_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("object_native_id")]
 	public string ObjectNativeId { get; set; }
 
 	/// <summary>
 	/// IPv4 or IPv6 IP addresses, domain names, or netgroup name associated with the host or server.
 	/// </summary>
-	[JsonProperty("network_addresses", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("network_addresses")]
 	public string NetworkAddresses { get; set; }
 
 	/// <summary>
 	/// Type of the object.
 	/// </summary>
-	[JsonProperty("object_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("object_type")]
 	public string ObjectType { get; set; }
 
 	/// <summary>
 	/// Operating system of the host or server.
 	/// </summary>
-	[JsonProperty("operating_system", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("operating_system")]
 	public string OperatingSystem { get; set; }
 
 	/// <summary>
 	/// User defined tags.
 	/// </summary>
-	[JsonProperty("system_tags", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_tags")]
 	public object SystemTags { get; set; }
 
 	/// <summary>
 	/// Model of the system.
 	/// </summary>
-	[JsonProperty("system_model", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_model")]
 	public string SystemModel { get; set; }
 
 	/// <summary>
 	/// Name of the system.
 	/// </summary>
-	[JsonProperty("system_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("system_name")]
 	public string SystemName { get; set; }
 
 	/// <summary>
 	/// Total size of all LUNs or Volumes that are provisioned to the host or server from the system - Unit: bytes
 	/// </summary>
-	[JsonProperty("total_size", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("total_size")]
 	public long TotalSize { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

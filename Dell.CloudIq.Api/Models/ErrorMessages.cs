@@ -8,35 +8,35 @@ public partial class ErrorMessages
 	/// <summary>
 	/// Identifier for this kind of message. This is a string that can be used to look up additional information on the support website. \n(Note - specific format can be determined by platform - hex value codes are common in Midrange.)
 	/// </summary>
-	[JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("code")]
 	public string Code { get; set; }
 
 	/// <summary>
 	/// The time at which the error occurred.
 	/// </summary>
-	[JsonProperty("timestamp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("timestamp")]
 	public System.DateTimeOffset Timestamp { get; set; }
 
-	[JsonProperty("severity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("severity")]
 	[Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
 	public SeverityEnum Severity { get; set; }
 
 	/// <summary>
 	/// Message string.
 	/// </summary>
-	[JsonProperty("message", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("message")]
 	public string Message { get; set; }
 
 	/// <summary>
 	/// Localized message string.
 	/// </summary>
-	[JsonProperty("message_l10n", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("message_l10n")]
 	public string MessageL10n { get; set; }
 
 	/// <summary>
 	/// Ordered list of substitution args for the error message. Must match up with the {0}, {1}, etc... actually in the message referenced by the message code above, if any.
 	/// </summary>
-	[JsonProperty("arguments", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("arguments")]
 	public List<object> Arguments { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;

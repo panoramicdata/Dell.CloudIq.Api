@@ -5,7 +5,7 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public partial class BasicSystemInformationResponse
 {
-	[JsonProperty("results", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
+	[JsonProperty("results")]
 	public List<BasicSystemInformation> Results { get; set; }
 
 	private IDictionary<string, object> _additionalProperties;
