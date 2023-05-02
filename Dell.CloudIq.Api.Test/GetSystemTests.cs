@@ -1,7 +1,9 @@
 ﻿using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Refit;
 using System;
+using System.Text.Json;
 using Xunit.Abstractions;
 
 namespace Dell.CloudIq.Api.Test;
@@ -47,5 +49,18 @@ public class GetSystemTests : TestBase
 		var systems = await client.System.GetSystemsAsync(select:new(){"id","model"});
 
 		systems.Should().NotBeNull();
+	}
+
+	[Fact]
+	public async Task GetSystems_WithInvalidFilter_ReturnsError()
+	{
+		var clientOptions = GetClientOptions();
+		var client = new CloudIQClient(clientOptions, _logger);
+
+		var exception = await Assert.ThrowsAsync<ApiException>(()=> client.System.GetSystemsAsync(filter: "<string>"));
+		exception.StatusCode.Should().Be(System.Net.HttpStatusCode.InternalServerError);
+
+		var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(exception.Content!);
+		errorResponse.Messages[0].Message.Should().Contain("Invalid Filter");
 	}
 }

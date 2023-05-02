@@ -15,7 +15,7 @@ public partial class ErrorMessages
 	/// The time at which the error occurred.
 	/// </summary>
 	[JsonPropertyName("timestamp")]
-	public System.DateTimeOffset Timestamp { get; set; }
+	public long Timestamp { get; set; }
 
 	[JsonPropertyName("severity")]
 	public SeverityEnum Severity { get; set; }

@@ -18,10 +18,14 @@ public class CloudIQClient
 		{
 			BaseAddress = new($"{_clientOptions.BaseUri}/cloudiq")
 		};
-		var refitSettings = new RefitSettings();
 
-		// TODO: Add the authenticating client handler
-		// This handler will manage initiating authentication (logging in)
+		var jsonSerializerOptions = new System.Text.Json.JsonSerializerOptions();
+		jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+
+		var refitSettings = new RefitSettings()
+		{
+			ContentSerializer = new SystemTextJsonContentSerializer(jsonSerializerOptions)
+		};
 
 		Compute = RestService.For<ICompute>(httpClient, refitSettings);
 		Hci = RestService.For<IHci>(httpClient, refitSettings);
