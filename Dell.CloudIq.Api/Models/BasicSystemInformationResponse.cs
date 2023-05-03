@@ -5,10 +5,10 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public partial class BasicSystemInformationResponse
 {
-	[DataMember(Name="results")]
-	public List<BasicSystemInformation> Results { get; set; } = null;
+	[DataMember(Name = "results")]
+	public List<BasicSystemInformation>? Results { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

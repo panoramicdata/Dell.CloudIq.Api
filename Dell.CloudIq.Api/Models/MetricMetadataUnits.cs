@@ -21,7 +21,7 @@ namespace Dell.CloudIq.Api;
 /// <br/>* CUBICFEET_P_MINUTE - Cubic feet per minute. May be integer or number(float). Number is recommended.
 /// <br/>
 /// </summary>
-public enum MetricMetadataUnitsEnum
+public enum MetricMetadataUnits
 {
 
 	[System.Runtime.Serialization.EnumMember(Value = @"COUNT")]

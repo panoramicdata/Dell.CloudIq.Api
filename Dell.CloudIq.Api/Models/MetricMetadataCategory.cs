@@ -8,7 +8,7 @@ namespace Dell.CloudIq.Api;
 /// <br/>type: string
 /// <br/>
 /// </summary>
-public enum MetricMetadataCategoryEnum
+public enum MetricMetadataCategory
 {
 	[System.Runtime.Serialization.EnumMember(Value = @"PERF")]
 	PERF = 0,

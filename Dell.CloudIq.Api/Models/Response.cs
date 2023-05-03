@@ -3,12 +3,12 @@ namespace Dell.CloudIq.Api;
 public partial class Response
 {
 	[JsonPropertyName("paging")]
-	public Paging Paging { get; set; } = null;
+	public Paging Paging { get; set; } = new();
 
 	[JsonPropertyName("results")]
-	public List<MetricMetadataInstance> Results { get; set; } = null;
+	public List<MetricMetadataInstance> Results { get; set; } = new();
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

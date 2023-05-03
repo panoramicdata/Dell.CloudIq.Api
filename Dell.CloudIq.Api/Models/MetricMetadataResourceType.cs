@@ -13,7 +13,7 @@ namespace Dell.CloudIq.Api;
 /// <br/>* volume - Block volume (aka LUN).
 /// <br/>
 /// </summary>
-public enum MetricMetadataResourceTypeEnum
+public enum MetricMetadataResourceType
 {
 
 	[System.Runtime.Serialization.EnumMember(Value = @"datastore")]

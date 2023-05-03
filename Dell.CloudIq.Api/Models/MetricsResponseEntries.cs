@@ -6,13 +6,13 @@ namespace Dell.CloudIq.Api;
 public partial class MetricsResponseEntries
 {
 	[JsonPropertyName("metrics")]
-	public List<string> Metrics { get; set; } = null;
+	public List<string>? Metrics { get; set; } = null;
 
 	[JsonPropertyName("results")]
 	[MinLength(1)]
-	public List<MetricsResponseEntry> Results { get; set; } = null;
+	public List<MetricsResponseEntry>? Results { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

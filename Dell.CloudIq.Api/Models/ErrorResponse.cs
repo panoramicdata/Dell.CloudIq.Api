@@ -11,9 +11,9 @@ public partial class ErrorResponse
 	public HttpStatusCode HttpStatusCode { get; set; }
 
 	[JsonPropertyName("messages")]
-	public List<ErrorMessages> Messages { get; set; }
+	public List<ErrorMessages> Messages { get; set; } = new();
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

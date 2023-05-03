@@ -252,7 +252,7 @@ public partial class StorageGroup
 	[JsonPropertyName("volume_count")]
 	public long? VolumeCount { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

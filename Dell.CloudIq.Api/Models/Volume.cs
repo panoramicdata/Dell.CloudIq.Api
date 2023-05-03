@@ -216,7 +216,7 @@ public partial class Volume
 	[JsonPropertyName("used_size_unique")]
 	public long? UsedSizeUnique { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

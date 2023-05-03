@@ -23,7 +23,7 @@ public partial class Paging
 	[JsonPropertyName("prev")]
 	public string? Prev { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

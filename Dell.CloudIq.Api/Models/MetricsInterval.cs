@@ -12,7 +12,7 @@ namespace Dell.CloudIq.Api;
 /// <br/>* P1D - one day
 /// <br/>
 /// </summary>
-public enum MetricsIntervalEnum
+public enum MetricsInterval
 {
 
 	[System.Runtime.Serialization.EnumMember(Value = @"PT5M")]

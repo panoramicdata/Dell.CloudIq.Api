@@ -102,7 +102,7 @@ public partial class Port
 	[JsonPropertyName("wwn_or_mac_address")]
 	public string? WwnOrMacAddress { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

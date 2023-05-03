@@ -384,7 +384,7 @@ public partial class ServerSystem
 	[JsonPropertyName("zip_code")]
 	public string? ZipCode { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

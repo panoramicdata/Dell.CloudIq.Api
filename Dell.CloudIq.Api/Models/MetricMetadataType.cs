@@ -7,7 +7,7 @@ namespace Dell.CloudIq.Api;
 /// <br/>* COUNTER - An increasing value, not reset between reads, such as a read IO counter. Always integer type.
 /// <br/>
 /// </summary>
-public enum MetricMetadataTypeEnum
+public enum MetricMetadataType
 {
 
 	[System.Runtime.Serialization.EnumMember(Value = @"FACT")]

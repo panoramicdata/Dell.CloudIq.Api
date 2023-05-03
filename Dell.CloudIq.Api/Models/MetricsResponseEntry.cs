@@ -10,9 +10,9 @@ public partial class MetricsResponseEntry
 	public string? Id { get; set; } = null;
 
 	[JsonPropertyName("timestamps")]
-	public List<MetricsValueEntry> Timestamps { get; set; } = null;
+	public List<MetricsValueEntry>? Timestamps { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

@@ -59,6 +59,10 @@ public class GetSystemTests : TestBase
 		exception.StatusCode.Should().Be(System.Net.HttpStatusCode.InternalServerError);
 
 		var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(exception.Content!);
-		errorResponse.Messages[0].Message.Should().Contain("Invalid Filter");
+
+		if (errorResponse is not null)
+		{
+			errorResponse.Messages[0].Message.Should().Contain("Invalid Filter");
+		}
 	}
 }

@@ -618,7 +618,7 @@ public partial class Srp
 	[JsonPropertyName("used_usable_size")]
 	public long? UsedUsableSize { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties

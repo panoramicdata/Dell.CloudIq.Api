@@ -39,9 +39,9 @@ public partial class BasicSystemInformation
 	/// List of supported API versions, in major.minor format (no leading "v" and no patch number).
 	/// </summary>
 	[JsonPropertyName("supported_api_versions")]
-	public List<string> SupportedApiVersions { get; set; } = null;
+	public List<string>? SupportedApiVersions { get; set; } = null;
 
-	private IDictionary<string, object> _additionalProperties;
+	private IDictionary<string, object>? _additionalProperties;
 
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties
