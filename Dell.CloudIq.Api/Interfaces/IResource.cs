@@ -14,7 +14,10 @@ public interface IResource
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_resource_pools/{id}")]
-	Task<Srp> GetPoolAsync(string id,  string select, CancellationToken cancellationToken);
+	Task<Srp> GetPoolAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Srps
@@ -31,5 +34,11 @@ public interface IResource
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_resource_pools")]
-	Task<CollectionResponse<Srp>> GetPoolsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Srp>> GetPoolsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken cancellationToken = default);
 }

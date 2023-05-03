@@ -14,7 +14,7 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_groups/{id}")]
-	Task<StorageGroup> GetGroupAsync(string id,  string select, CancellationToken cancellationToken);
+	Task<StorageGroup> GetGroupAsync(string id, string select, CancellationToken cancellationToken);
 
 	/// <summary>
 	/// Get StorageGroups
@@ -31,7 +31,13 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_groups")]
-	Task<CollectionResponse<StorageGroup>> GetGroupsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<StorageGroup>> GetGroupsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get a StorageSystem
@@ -45,7 +51,10 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_systems/{id}")]
-	Task<StorageSystem> GetSystemAsync(string id,  string select, CancellationToken cancellationToken);
+	Task<StorageSystem> GetSystemAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get StorageSystems
@@ -62,6 +71,12 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_systems")]
-	Task<CollectionResponse<StorageSystem>> GetSystemsAsync( string filter,  string select,  string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<StorageSystem>> GetSystemsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken cancellationToken = default);
 
 }

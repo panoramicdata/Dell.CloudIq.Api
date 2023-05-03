@@ -13,7 +13,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/basic-system-information")]
-	Task<BasicSystemInformationResponse> GetBasicSystemInfosAsync(CancellationToken cancellationToken);
+	Task<BasicSystemInformationResponse> GetBasicSystemInfosAsync(CancellationToken cancellationToken = default);
 
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <summary>
@@ -28,7 +28,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/datastores/{id}")]
-	Task<DataStore> GetDatastoreAsync(string id, string select, CancellationToken cancellationToken);
+	Task<DataStore> GetDatastoreAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get DataStores
@@ -45,7 +48,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/datastores")]
-	Task<CollectionResponse<DataStore>> GetDatastoresAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<DataStore>> GetDatastoresAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get a Drive
@@ -59,7 +68,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/drives/{id}")]
-	Task<Drive> GetDriveAsync(string id, string select, CancellationToken cancellationToken);
+	Task<Drive> GetDriveAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Drives
@@ -76,7 +88,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/drives")]
-	Task<CollectionResponse<Drive>> GetDrivesAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Drive>> GetDrivesAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get a Filesystem
@@ -90,7 +108,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/filesystems/{id}")]
-	Task<Filesystem> GetFilesystemAsync(string id, string select, CancellationToken cancellationToken);
+	Task<Filesystem> GetFilesystemAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Filesystems
@@ -107,7 +128,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/filesystems")]
-	Task<CollectionResponse<Filesystem>> GetFilesystemsAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Filesystem>> GetFilesystemsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get a Firmware
@@ -121,7 +148,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/firmwares/{id}")]
-	Task<Firmware> GetFirmwareAsync(string id, string select, CancellationToken cancellationToken);
+	Task<Firmware> GetFirmwareAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Firmwares
@@ -138,7 +168,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/firmwares")]
-	Task<CollectionResponse<Firmware>> GetFirmwaresAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Firmware>> GetFirmwaresAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get a Host
@@ -152,7 +188,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/hosts/{id}")]
-	Task<Host> GetHostAsync(string id, string select, CancellationToken cancellationToken);
+	Task<Host> GetHostAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Hosts
@@ -169,7 +208,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/hosts")]
-	Task<CollectionResponse<Host>> GetHostsAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Host>> GetHostsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get a Pool
@@ -183,7 +228,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/pools/{id}")]
-	Task<Pool> GetPoolAsync(string id, string select, CancellationToken cancellationToken);
+	Task<Pool> GetPoolAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Pools
@@ -200,7 +248,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/pools")]
-	Task<CollectionResponse<Pool>> GetPoolsAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Pool>> GetPoolsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get a Port
@@ -214,7 +268,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/ports/{id}")]
-	Task<Port> GetPortAsync(string id, string select, CancellationToken cancellationToken);
+	Task<Port> GetPortAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Ports
@@ -231,7 +288,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/ports")]
-	Task<CollectionResponse<Port>> GetPortsAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Port>> GetPortsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get a System
@@ -245,7 +308,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/systems/{id}")]
-	Task<CloudIQSystem> GetSystemAsync(string id, string select, CancellationToken cancellationToken);
+	Task<CloudIQSystem> GetSystemAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Systems
@@ -282,7 +348,10 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/volumes/{id}")]
-	Task<Volume> GetVolumeAsync(string id, string select, CancellationToken cancellationToken);
+	Task<Volume> GetVolumeAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Volumes
@@ -299,7 +368,13 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/volumes")]
-	Task<CollectionResponse<Volume>> GetVolumesAsync(string filter, string select, string order, int? limit, int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<Volume>> GetVolumesAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken? cancellationToken = default);
 
 	/// <summary>
 	/// Get Metrics
@@ -311,7 +386,7 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Post("/rest/v1/metrics/query")]
-	Task<MetricsResponseEntries> PostMetricsQueryAsync([Body] MetricsQuery body, CancellationToken cancellationToken);
+	Task<MetricsResponseEntries> PostMetricsQueryAsync([Body] MetricsQuery body, CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get a Metric Metadata
@@ -325,7 +400,9 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/metric-metadata/{id}")]
-	Task<MetricMetadataInstance> GetMetricMetadataInstanceAsync(string id, CancellationToken cancellationToken);
+	Task<MetricMetadataInstance> GetMetricMetadataInstanceAsync(
+		string id,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get Metric Metadata
@@ -339,6 +416,8 @@ public interface ISystem
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/metric-metadata")]
-	Task<MetricMetadataInstances> GetMetricMetadataCollectionAsync(string filter, CancellationToken cancellationToken);
+	Task<MetricMetadataInstances> GetMetricMetadataCollectionAsync(
+		string? filter = null,
+		CancellationToken cancellationToken = default);
 
 }

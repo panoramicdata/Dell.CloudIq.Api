@@ -1,8 +1,6 @@
 ﻿using FluentAssertions;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using Refit;
-using System;
 using System.Text.Json;
 using Xunit.Abstractions;
 
@@ -20,12 +18,12 @@ public class GetSystemTests : TestBase
 
 	[Fact]
 	public async Task GetSystems_ReturnsList()
-	{ 
+	{
 		var clientOptions = GetClientOptions();
 		var client = new CloudIQClient(clientOptions, _logger);
 
 		var systems = await client.System.GetSystemsAsync();
-		
+
 		systems.Should().NotBeNull();
 	}
 
@@ -46,7 +44,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIQClient(clientOptions, _logger);
 
-		var systems = await client.System.GetSystemsAsync(select:new(){"id","model"});
+		var systems = await client.System.GetSystemsAsync(select: new() { "id", "model" });
 
 		systems.Should().NotBeNull();
 	}
@@ -57,7 +55,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIQClient(clientOptions, _logger);
 
-		var exception = await Assert.ThrowsAsync<ApiException>(()=> client.System.GetSystemsAsync(filter: "<string>"));
+		var exception = await Assert.ThrowsAsync<ApiException>(() => client.System.GetSystemsAsync(filter: "<string>"));
 		exception.StatusCode.Should().Be(System.Net.HttpStatusCode.InternalServerError);
 
 		var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(exception.Content!);

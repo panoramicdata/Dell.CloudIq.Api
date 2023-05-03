@@ -14,7 +14,10 @@ public interface ICompute
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/compute_hosts/{id}")]
-	Task<EsxiHost> GetHostAsync(string id,  string select, CancellationToken cancellationToken);
+	Task<EsxiHost> GetHostAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get EsxiHosts
@@ -31,6 +34,12 @@ public interface ICompute
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/compute_hosts")]
-	Task<CollectionResponse<EsxiHost>> GetHostsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<EsxiHost>> GetHostsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken cancellationToken = default);
 
 }

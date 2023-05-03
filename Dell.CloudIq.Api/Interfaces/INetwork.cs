@@ -14,7 +14,10 @@ public interface INetwork
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/network_systems/{id}")]
-	Task<NetworkSystem> GetSystemAsync(string id,  string select, CancellationToken cancellationToken);
+	Task<NetworkSystem> GetSystemAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get NetworkSystems
@@ -31,5 +34,11 @@ public interface INetwork
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/network_systems")]
-	Task<CollectionResponse<NetworkSystem>> GetSystemsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<NetworkSystem>> GetSystemsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken cancellationToken = default);
 }

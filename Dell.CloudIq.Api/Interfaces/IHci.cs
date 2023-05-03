@@ -14,7 +14,10 @@ public interface IHci
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/hci_systems/{id}")]
-	Task<HciSystem> GetSystemAsync(string id,  string select, CancellationToken cancellationToken);
+	Task<HciSystem> GetSystemAsync(
+		string id,
+		List<string>? select = null,
+		CancellationToken cancellationToken = default);
 
 	/// <summary>
 	/// Get HciSystems
@@ -31,5 +34,11 @@ public interface IHci
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/hci_systems")]
-	Task<CollectionResponse<HciSystem>> GetSystemsAsync( string filter,  string select,  string order,  int? limit,  int? offset, CancellationToken cancellationToken);
+	Task<CollectionResponse<HciSystem>> GetSystemsAsync(
+		string? filter = null,
+		List<string>? select = null,
+		string? order = null,
+		int? limit = null,
+		int? offset = null,
+		CancellationToken cancellationToken = default);
 }
