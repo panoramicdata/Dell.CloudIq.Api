@@ -17,7 +17,7 @@ public partial class MetricsResponseEntry
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties
 	{
-		get { return _additionalProperties ?? (_additionalProperties = new Dictionary<string, object>()); }
+		get { return _additionalProperties ??= new Dictionary<string, object>(); }
 		set { _additionalProperties = value; }
 	}
 

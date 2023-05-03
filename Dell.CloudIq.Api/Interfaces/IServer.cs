@@ -14,7 +14,7 @@ public interface IServer
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/server_systems/{id}")]
-	Task<ServerSystem> SystemAsync(
+	Task<ServerSystem> GetSystemAsync(
 		string id,
 		List<string>? select = null,
 		CancellationToken cancellationToken = default);
@@ -34,7 +34,7 @@ public interface IServer
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/server_systems")]
-	Task<CollectionResponse<ServerSystem>> SystemsAsync(
+	Task<CollectionResponse<ServerSystem>> GetSystemsAsync(
 		string? filter = null,
 		List<string>? select = null,
 		string? order = null,

@@ -33,8 +33,10 @@ public interface IVirtual
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
+
+
 	[Get("/rest/v1/virtual_machines")]
-	Task<CollectionResponse<VirtualMachine>> MachinesAsync(
+	Task<CollectionResponse<VirtualMachine>> GetMachinesAsync(
 		string? filter = null,
 		List<string>? select = null,
 		string? order = null,

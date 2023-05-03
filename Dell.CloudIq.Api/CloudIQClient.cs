@@ -5,14 +5,12 @@ namespace Dell.CloudIq.Api;
 public class CloudIQClient
 {
 	private readonly CloudIQClientOptions _clientOptions;
-	private readonly ILogger _logger;
 
 	public CloudIQClient(
 		CloudIQClientOptions clientOptions,
 		ILogger logger)
 	{
 		_clientOptions = clientOptions;
-		_logger = logger;
 		var handler = new AuthenticatedHttpClientHandler(clientOptions, logger);
 		var httpClient = new HttpClient(handler)
 		{
@@ -36,6 +34,7 @@ public class CloudIQClient
 		Server = RestService.For<IServer>(httpClient, refitSettings);
 		Storage = RestService.For<IStorage>(httpClient, refitSettings);
 		System = RestService.For<ISystem>(httpClient, refitSettings);
+		Virtual = RestService.For<IVirtual>(httpClient, refitSettings);
 	}
 
 
@@ -52,4 +51,6 @@ public class CloudIQClient
 	public IStorage Storage { get; set; }
 
 	public ISystem System { get; set; }
+
+	public IVirtual Virtual { get; set; }
 }
