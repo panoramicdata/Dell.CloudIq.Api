@@ -12,8 +12,6 @@ using Dell.CloudIq.Api;
 using System;
 using System.Threading.Tasks;
 
- 
-
 namespace My.Project
 {
     public static class Program
@@ -27,9 +25,7 @@ namespace My.Project
                 BaseUri = "XXXXXXX"
             });
 
- 
-
-            var views = await cloudIqClient
+            var systems = await cloudIqClient
                 .System
                 .GetSystemsAsync()
                 .ConfigureAwait(false);
@@ -42,4 +38,4 @@ namespace My.Project
 ## API Documentation
 The CloudIQ API documentation can be found here:
 
-  - [CloudIQ API Documentation v1](https://developer.dell.com/apis/d1d6171c-cf6b-49c8-a3de-7994b6069d1a/versions/v1/docs/01-Introduction.md)
+  - [CloudIQ API Documentation v1](https://developer.dell.com/apis/d1d6171c-cf6b-49c8-a3de-7994b6069d1a/versions/v1/docs/01-Introduction.md)
