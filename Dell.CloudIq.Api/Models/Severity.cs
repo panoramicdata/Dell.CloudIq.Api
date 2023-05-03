@@ -13,22 +13,24 @@ namespace Dell.CloudIq.Api;
 /// <br/>  Normally failed commands roll back and are just ERROR,
 /// <br/>  but may be used for exceptional cases.
 /// </summary>
+
+[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 public enum Severity
 {
 
-	[System.Runtime.Serialization.EnumMember(Value = @"INFO")]
+	[JsonPropertyName("INFO")]
 	INFO = 0,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"WARNING")]
+	[JsonPropertyName("WARNING")]
 	WARNING = 1,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"ERROR")]
+	[JsonPropertyName("ERROR")]
 	ERROR = 2,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"CRITICAL")]
+	[JsonPropertyName("CRITICAL")]
 	CRITICAL = 3,
 
 

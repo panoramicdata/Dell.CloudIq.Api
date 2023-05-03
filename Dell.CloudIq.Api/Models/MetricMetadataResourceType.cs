@@ -13,46 +13,47 @@ namespace Dell.CloudIq.Api;
 /// <br/>* volume - Block volume (aka LUN).
 /// <br/>
 /// </summary>
+[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 public enum MetricMetadataResourceType
 {
 
-	[System.Runtime.Serialization.EnumMember(Value = @"datastore")]
+	[JsonPropertyName("datastore")]
 	Datastore = 0,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"drive")]
+	[JsonPropertyName("drive")]
 	Drive = 1,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"filesystem")]
+	[JsonPropertyName("filesystem")]
 	Filesystem = 2,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"host")]
+	[JsonPropertyName("host")]
 	Host = 3,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"network_system")]
+	[JsonPropertyName("network_system")]
 	NetworkSystem = 4,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"pool")]
+	[JsonPropertyName("pool")]
 	Pool = 5,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"server_system")]
+	[JsonPropertyName("server_system")]
 	ServerSystem = 6,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"storage_group")]
+	[JsonPropertyName("storage_group")]
 	StorageGroup = 7,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"storage_system")]
+	[JsonPropertyName("storage_system")]
 	StorageSystem = 8,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"volume")]
+	[JsonPropertyName("volume")]
 	Volume = 9,
 
 }

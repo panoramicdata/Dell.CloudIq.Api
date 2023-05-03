@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using System.Net.Http.Headers;
 using System.Text.Json;
-using System.Text.Json.Nodes;
 
 namespace Dell.CloudIq.Api;
 
@@ -41,7 +40,7 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 			var url = request.RequestUri!.ToString();
 			var headers = string.Join("\n", request.Headers.Select(h => $"{h.Key}: {string.Join(", ", h.Value.Select(v => v))}"));
 			var body = request.Content is not null
-				? await request.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false) 
+				? await request.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false)
 				: string.Empty;
 
 			try
@@ -59,7 +58,7 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 			{
 				_logger.LogWarning(ex, "Could not reformat JSON request body: {Message}", ex.Message);
 			}
-			
+
 			_logger.LogDebug("{RequestId}: REQUEST: URL: {Url}\nHeaders: {Headers}\nBody: {Body}", requestId, url, headers, body);
 		}
 
@@ -74,7 +73,7 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 	{
 		using var httpClient = new HttpClient
 		{
-			BaseAddress = new ($"{_clientOptions.BaseUri}/auth/oauth/v2/token")
+			BaseAddress = new($"{_clientOptions.BaseUri}/auth/oauth/v2/token")
 		};
 
 		var request = new HttpRequestMessage(HttpMethod.Post, string.Empty);

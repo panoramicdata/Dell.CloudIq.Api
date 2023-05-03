@@ -8,11 +8,13 @@ namespace Dell.CloudIq.Api;
 /// <br/>type: string
 /// <br/>
 /// </summary>
+
+[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 public enum MetricMetadataCategory
 {
-	[System.Runtime.Serialization.EnumMember(Value = @"PERF")]
+	[JsonPropertyName("PERF")]
 	PERF = 0,
 
-	[System.Runtime.Serialization.EnumMember(Value = @"SPACE")]
+	[JsonPropertyName("SPACE")]
 	SPACE = 1,
 }

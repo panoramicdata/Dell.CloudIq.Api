@@ -9,7 +9,7 @@ public partial class MetricsQuery
 	[JsonPropertyName("resource_type")]
 
 	[StringLength(int.MaxValue, MinimumLength = 1)]
-
+	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 	public MetricMetadataResourceType? ResourceType { get; set; } = null;
 
 	/// <summary>
@@ -36,7 +36,7 @@ public partial class MetricsQuery
 
 	[JsonPropertyName("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
-
+	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 	public MetricsInterval? Interval { get; set; } = null;
 
 	/// <summary>

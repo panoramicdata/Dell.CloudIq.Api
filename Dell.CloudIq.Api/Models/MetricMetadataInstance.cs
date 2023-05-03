@@ -26,24 +26,26 @@ public partial class MetricMetadataInstance
 	public string? Description { get; set; } = null;
 
 	[JsonPropertyName("category")]
+	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 	public MetricMetadataCategory? Category { get; set; } = null;
 
 	[JsonPropertyName("type")]
-
+	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 	public MetricMetadataType? Type { get; set; } = null;
 
 	[JsonPropertyName("units")]
-
+	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 	public MetricMetadataUnits? Units { get; set; } = null;
 
 	[JsonPropertyName("resource_type")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 
+	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 	public MetricMetadataResourceType? ResourceType { get; set; } = null;
 
 	[JsonPropertyName("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
-
+	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 	public MetricsInterval? Interval { get; set; } = null;
 
 	private IDictionary<string, object>? _additionalProperties;

@@ -12,22 +12,23 @@ namespace Dell.CloudIq.Api;
 /// <br/>* P1D - one day
 /// <br/>
 /// </summary>
+[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 public enum MetricsInterval
 {
 
-	[System.Runtime.Serialization.EnumMember(Value = @"PT5M")]
+	[JsonPropertyName("PT5M")]
 	PT5M = 0,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"PT15M")]
+	[JsonPropertyName("PT15M")]
 	PT15M = 1,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"PT1H")]
+	[JsonPropertyName("PT1H")]
 	PT1H = 2,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"P1D")]
+	[JsonPropertyName("P1D")]
 	P1D = 3,
 
 

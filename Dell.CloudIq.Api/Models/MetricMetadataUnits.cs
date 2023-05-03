@@ -21,66 +21,67 @@ namespace Dell.CloudIq.Api;
 /// <br/>* CUBICFEET_P_MINUTE - Cubic feet per minute. May be integer or number(float). Number is recommended.
 /// <br/>
 /// </summary>
+[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 public enum MetricMetadataUnits
 {
 
-	[System.Runtime.Serialization.EnumMember(Value = @"COUNT")]
+	[JsonPropertyName("COUNT")]
 	COUNT = 0,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"PERCENT")]
+	[JsonPropertyName("PERCENT")]
 	PERCENT = 1,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"RPM")]
+	[JsonPropertyName("RPM")]
 	RPM = 2,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"SECOND")]
+	[JsonPropertyName("SECOND")]
 	SECOND = 3,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"MILLISECOND")]
+	[JsonPropertyName("MILLISECOND")]
 	MILLISECOND = 4,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"MICROSECOND")]
+	[JsonPropertyName("MICROSECOND")]
 	MICROSECOND = 5,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"BYTE")]
+	[JsonPropertyName("BYTE")]
 	BYTE = 6,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"IO")]
+	[JsonPropertyName("IO")]
 	IO = 7,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"PACKET")]
+	[JsonPropertyName("PACKET")]
 	PACKET = 8,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"VOLT")]
+	[JsonPropertyName("VOLT")]
 	VOLT = 9,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"AMP")]
+	[JsonPropertyName("AMP")]
 	AMP = 10,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"DEGREE_C")]
+	[JsonPropertyName("DEGREE_C")]
 	DEGREEC = 11,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"WATTS")]
+	[JsonPropertyName("WATTS")]
 	WATTS = 12,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"KILOWATT_P_HOUR")]
+	[JsonPropertyName("KILOWATT_P_HOUR")]
 	KILOWATTPHOUR = 13,
 
 
-	[System.Runtime.Serialization.EnumMember(Value = @"CUBICFEET_P_MINUTE")]
+	[JsonPropertyName("CUBICFEET_P_MINUTE")]
 	CUBICFEETPMINUTE = 14,
 
 }

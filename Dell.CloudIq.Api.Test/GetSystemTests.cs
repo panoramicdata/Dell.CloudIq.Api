@@ -65,4 +65,15 @@ public class GetSystemTests : TestBase
 			errorResponse.Messages[0].Message.Should().Contain("Invalid Filter");
 		}
 	}
+
+	[Fact]
+	public async Task GetMetrics_ReturnsList()
+	{
+		var clientOptions = GetClientOptions();
+		var client = new CloudIQClient(clientOptions, _logger);
+
+		var systems = await client.System.GetMetricMetadataCollectionAsync();
+
+		systems.Should().NotBeNull();
+	}
 }

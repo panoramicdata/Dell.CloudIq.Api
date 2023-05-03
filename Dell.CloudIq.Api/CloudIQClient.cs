@@ -21,6 +21,7 @@ public class CloudIQClient
 
 		var jsonSerializerOptions = new System.Text.Json.JsonSerializerOptions();
 		jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+		jsonSerializerOptions.Converters.Add(new JsonStringEnumMemberConverter());
 
 		//TODO: Set the jsonSerializerOptions.UnmappedMemberHandling when .Net8 is released. https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/missing-members?source=recommendations
 		var refitSettings = new RefitSettings()
@@ -37,7 +38,6 @@ public class CloudIQClient
 		System = RestService.For<ISystem>(httpClient, refitSettings);
 	}
 
-	// TODO: Add the client
 
 	public ICompute Compute { get; set; }
 
