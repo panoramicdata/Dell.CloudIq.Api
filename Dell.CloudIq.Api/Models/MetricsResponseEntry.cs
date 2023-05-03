@@ -7,10 +7,10 @@ public partial class MetricsResponseEntry
 {
 	[JsonPropertyName("id")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
-	public string Id { get; set; }
+	public string? Id { get; set; } = null;
 
 	[JsonPropertyName("timestamps")]
-	public List<MetricsValueEntry> Timestamps { get; set; }
+	public List<MetricsValueEntry> Timestamps { get; set; } = null;
 
 	private IDictionary<string, object> _additionalProperties;
 

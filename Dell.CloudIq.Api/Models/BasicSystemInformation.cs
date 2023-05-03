@@ -9,37 +9,37 @@ public partial class BasicSystemInformation
 	/// Unique identifier of the basic-system-info. This is a singleton, so the id is always "0"
 	/// </summary>
 	[JsonPropertyName("id")]
-	public string Id { get; set; }
+	public string? Id { get; set; } = null;
 
 	/// <summary>
 	/// System name.
 	/// </summary>
 	[JsonPropertyName("name")]
-	public string Name { get; set; }
+	public string? Name { get; set; } = null;
 
 	/// <summary>
 	/// System model.
 	/// </summary>
 	[JsonPropertyName("model")]
-	public string Model { get; set; }
+	public string? Model { get; set; } = null;
 
 	/// <summary>
 	/// System service tag.
 	/// </summary>
 	[JsonPropertyName("service_tag")]
-	public string ServiceTag { get; set; }
+	public string? ServiceTag { get; set; } = null;
 
 	/// <summary>
 	/// Software release version.
 	/// </summary>
 	[JsonPropertyName("release_version")]
-	public string ReleaseVersion { get; set; }
+	public string? ReleaseVersion { get; set; } = null;
 
 	/// <summary>
 	/// List of supported API versions, in major.minor format (no leading "v" and no patch number).
 	/// </summary>
 	[JsonPropertyName("supported_api_versions")]
-	public List<string> SupportedApiVersions { get; set; }
+	public List<string> SupportedApiVersions { get; set; } = null;
 
 	private IDictionary<string, object> _additionalProperties;
 

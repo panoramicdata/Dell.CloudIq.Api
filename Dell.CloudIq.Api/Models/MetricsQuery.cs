@@ -7,13 +7,13 @@ namespace Dell.CloudIq.Api;
 public partial class MetricsQuery
 {
 	[JsonPropertyName("resource_type")]
-	
+
 	[StringLength(int.MaxValue, MinimumLength = 1)]
-	
-	public MetricMetadataResourceTypeEnum ResourceType { get; set; }
+
+	public MetricMetadataResourceTypeEnum? ResourceType { get; set; } = null;
 
 	/// <summary>
-	/// List of resource ids for which to get metrics. All ids must be of the 
+	/// List of resource ids for which to get metrics. All ids must be of the
 	/// <br/>resource_type specified above.
 	/// <br/>
 	/// </summary>
@@ -24,7 +24,7 @@ public partial class MetricsQuery
 	public List<string> Ids { get; set; } = new List<string>();
 
 	/// <summary>
-	/// List of desired metric names. 
+	/// List of desired metric names.
 	/// <br/>Must be valid for resource_type, according to metric catalog.
 	/// <br/>
 	/// </summary>
@@ -36,28 +36,28 @@ public partial class MetricsQuery
 
 	[JsonPropertyName("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
-	
-	public MetricsIntervalEnum Interval { get; set; }
+
+	public MetricsIntervalEnum? Interval { get; set; } = null;
 
 	/// <summary>
-	/// The beginning timestamp for the query. Metrics _greater than_ this time will 
-	/// <br/>be returned.  Default is the earliest timestamp available for the 
-	/// <br/>requested metrics. 
+	/// The beginning timestamp for the query. Metrics _greater than_ this time will
+	/// <br/>be returned.  Default is the earliest timestamp available for the
+	/// <br/>requested metrics.
 	/// <br/>Passing the highest timestamp from the prior metrics report will
 	/// <br/>ensure that no duplicates or excluded metrics occur.
 	/// <br/>
 	/// </summary>
 	[JsonPropertyName("from")]
-	public System.DateTimeOffset From { get; set; }
+	public long? From { get; set; } = null;
 
 	/// <summary>
-	/// The ending timestamp for the query. Metrics _less than or equal to_ this 
-	/// <br/>time will be returned.  Default is the latest timestamp available for the 
+	/// The ending timestamp for the query. Metrics _less than or equal to_ this
+	/// <br/>time will be returned.  Default is the latest timestamp available for the
 	/// <br/>requested metrics.
 	/// <br/>
 	/// </summary>
 	[JsonPropertyName("to")]
-	public System.DateTimeOffset To { get; set; }
+	public long? To { get; set; } = null;
 
 	private IDictionary<string, object> _additionalProperties;
 
