@@ -27,30 +27,18 @@ public class CloudIQClient
 			ContentSerializer = new SystemTextJsonContentSerializer(jsonSerializerOptions)
 		};
 
-		Compute = RestService.For<ICompute>(httpClient, refitSettings);
-		Hci = RestService.For<IHci>(httpClient, refitSettings);
-		Network = RestService.For<INetwork>(httpClient, refitSettings);
-		Resource = RestService.For<IResource>(httpClient, refitSettings);
-		Server = RestService.For<IServer>(httpClient, refitSettings);
+		Hardware = RestService.For<IHardware>(httpClient, refitSettings);
+		Metrics = RestService.For<IMetrics>(httpClient, refitSettings);
 		Storage = RestService.For<IStorage>(httpClient, refitSettings);
 		System = RestService.For<ISystem>(httpClient, refitSettings);
-		Virtual = RestService.For<IVirtual>(httpClient, refitSettings);
 	}
 
 
-	public ICompute Compute { get; set; }
+	public IHardware Hardware { get; set; }
 
-	public IHci Hci { get; set; }
-
-	public INetwork Network { get; set; }
-
-	public IResource Resource { get; set; }
-
-	public IServer Server { get; set; }
+	public IMetrics Metrics { get; set; }
 
 	public IStorage Storage { get; set; }
 
 	public ISystem System { get; set; }
-
-	public IVirtual Virtual { get; set; }
 }

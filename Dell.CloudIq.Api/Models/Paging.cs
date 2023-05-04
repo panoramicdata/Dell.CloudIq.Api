@@ -9,19 +9,19 @@ public partial class Paging
 	/// This the the collection size, not the reponse size.
 	/// </summary>
 	[JsonPropertyName("total_instances")]
-	public long? TotalInstances { get; set; } = null;
+	public long? TotalInstances { get; set; }
 
 	[JsonPropertyName("first")]
-	public string? First { get; set; } = null;
+	public string? First { get; set; }
 
 	[JsonPropertyName("last")]
-	public string? Last { get; set; } = null;
+	public string? Last { get; set; }
 
 	[JsonPropertyName("next")]
-	public string? Next { get; set; } = null;
+	public string? Next { get; set; }
 
 	[JsonPropertyName("prev")]
-	public string? Prev { get; set; } = null;
+	public string? Prev { get; set; }
 
 	private IDictionary<string, object>? _additionalProperties;
 

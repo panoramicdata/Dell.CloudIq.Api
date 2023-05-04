@@ -6,10 +6,10 @@ namespace Dell.CloudIq.Api;
 public partial class MetricsValueEntry
 {
 	[JsonPropertyName("timestamp")]
-	public string? Timestamp { get; set; } = null;
+	public string? Timestamp { get; set; }
 
 	[JsonPropertyName("values")]
-	public List<double>? Values { get; set; } = null;
+	public List<double>? Values { get; set; }
 
 	private IDictionary<string, object>? _additionalProperties;
 

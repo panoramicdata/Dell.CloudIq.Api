@@ -9,7 +9,7 @@ public partial class MetricMetadataInstance
 	/// Unique identifier of a metric metadata resource.
 	/// </summary>
 	[JsonPropertyName("id")]
-	public string? Id { get; set; } = null;
+	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Name of the metric.
@@ -17,36 +17,36 @@ public partial class MetricMetadataInstance
 	[JsonPropertyName("name")]
 	[StringLength(64)]
 	[RegularExpression(@"^[a-zA-Z0-9_]+$")]
-	public string? Name { get; set; } = null;
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// Description of metric content, meaning, and usage.
 	/// </summary>
 	[JsonPropertyName("description")]
-	public string? Description { get; set; } = null;
+	public string? Description { get; set; }
 
 	[JsonPropertyName("category")]
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
-	public MetricMetadataCategory? Category { get; set; } = null;
+	public MetricMetadataCategory? Category { get; set; }
 
 	[JsonPropertyName("type")]
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
-	public MetricMetadataType? Type { get; set; } = null;
+	public MetricMetadataType? Type { get; set; }
 
 	[JsonPropertyName("units")]
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
-	public MetricMetadataUnits? Units { get; set; } = null;
+	public MetricMetadataUnits? Units { get; set; }
 
 	[JsonPropertyName("resource_type")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
-	public MetricMetadataResourceType? ResourceType { get; set; } = null;
+	public MetricMetadataResourceType? ResourceType { get; set; }
 
 	[JsonPropertyName("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
-	public MetricsInterval? Interval { get; set; } = null;
+	public MetricsInterval? Interval { get; set; }
 
 	private IDictionary<string, object>? _additionalProperties;
 

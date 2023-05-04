@@ -10,7 +10,7 @@ public partial class MetricsQuery
 
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
-	public MetricMetadataResourceType? ResourceType { get; set; } = null;
+	public MetricMetadataResourceType? ResourceType { get; set; }
 
 	/// <summary>
 	/// List of resource ids for which to get metrics. All ids must be of the
@@ -37,7 +37,7 @@ public partial class MetricsQuery
 	[JsonPropertyName("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
-	public MetricsInterval? Interval { get; set; } = null;
+	public MetricsInterval? Interval { get; set; }
 
 	/// <summary>
 	/// The beginning timestamp for the query. Metrics _greater than_ this time will
@@ -48,7 +48,7 @@ public partial class MetricsQuery
 	/// <br/>
 	/// </summary>
 	[JsonPropertyName("from")]
-	public long? From { get; set; } = null;
+	public long? From { get; set; }
 
 	/// <summary>
 	/// The ending timestamp for the query. Metrics _less than or equal to_ this
@@ -57,7 +57,7 @@ public partial class MetricsQuery
 	/// <br/>
 	/// </summary>
 	[JsonPropertyName("to")]
-	public long? To { get; set; } = null;
+	public long? To { get; set; }
 
 	private IDictionary<string, object>? _additionalProperties;
 

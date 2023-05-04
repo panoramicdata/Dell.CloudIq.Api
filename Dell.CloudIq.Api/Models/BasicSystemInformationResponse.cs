@@ -6,7 +6,7 @@ namespace Dell.CloudIq.Api;
 public partial class BasicSystemInformationResponse
 {
 	[DataMember(Name = "results")]
-	public List<BasicSystemInformation>? Results { get; set; } = null;
+	public List<BasicSystemInformation>? Results { get; set; }
 
 	private IDictionary<string, object>? _additionalProperties;
 

@@ -10,97 +10,97 @@ public partial class Port
 	/// </summary>
 	[JsonPropertyName("id")]
 
-	public string? Id { get; set; } = null;
+	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Unique identifier for the device or appliance.
 	/// </summary>
 	[JsonPropertyName("system_id")]
-	public string? SystemId { get; set; } = null;
+	public string? SystemId { get; set; }
 
 	/// <summary>
 	/// Type of the system.
 	/// </summary>
 	[JsonPropertyName("system_type")]
-	public string? SystemType { get; set; } = null;
+	public string? SystemType { get; set; }
 
 	/// <summary>
 	/// Type of connector.
 	/// </summary>
 	[JsonPropertyName("connector_type")]
-	public string? ConnectorType { get; set; } = null;
+	public string? ConnectorType { get; set; }
 
 	/// <summary>
 	/// Health description for the port.
 	/// </summary>
 	[JsonPropertyName("health_description")]
-	public string? HealthDescription { get; set; } = null;
+	public string? HealthDescription { get; set; }
 
 	/// <summary>
 	/// Health value for the port.
 	/// </summary>
 	[JsonPropertyName("health_value")]
-	public string? HealthValue { get; set; } = null;
+	public string? HealthValue { get; set; }
 
 	/// <summary>
 	/// Links multiple Ethernet ports to one logical port.
 	/// </summary>
 	[JsonPropertyName("link_aggregation")]
-	public bool? LinkAggregation { get; set; } = null;
+	public bool? LinkAggregation { get; set; }
 
 	/// <summary>
 	/// Name of the port.
 	/// </summary>
 	[JsonPropertyName("object_name")]
-	public string? ObjectName { get; set; } = null;
+	public string? ObjectName { get; set; }
 
 	/// <summary>
 	/// Port needs to be replaced.
 	/// </summary>
 	[JsonPropertyName("needs_replacement")]
-	public bool? NeedsReplacement { get; set; } = null;
+	public bool? NeedsReplacement { get; set; }
 
 	/// <summary>
 	/// Type of the object.
 	/// </summary>
 	[JsonPropertyName("object_type")]
-	public string? ObjectType { get; set; } = null;
+	public string? ObjectType { get; set; }
 
 	/// <summary>
 	/// Number of the port.
 	/// </summary>
 	[JsonPropertyName("port_number")]
-	public long? PortNumber { get; set; } = null;
+	public long? PortNumber { get; set; }
 
 	/// <summary>
 	/// Status of the port.
 	/// </summary>
 	[JsonPropertyName("status")]
-	public string? Status { get; set; } = null;
+	public string? Status { get; set; }
 
 	/// <summary>
 	/// Model of the system.
 	/// </summary>
 	[JsonPropertyName("system_model")]
-	public string? SystemModel { get; set; } = null;
+	public string? SystemModel { get; set; }
 
 	/// <summary>
 	/// Name of the system.
 	/// </summary>
 	[JsonPropertyName("system_name")]
-	public string? SystemName { get; set; } = null;
+	public string? SystemName { get; set; }
 
 	/// <summary>
 	/// Type of the system.
 	/// </summary>
 	[JsonPropertyName("type")]
-	public string? Type { get; set; } = null;
+	public string? Type { get; set; }
 
 	/// <summary>
 	/// World Wide Name (WWN) or MAC address of the component.
 	/// </summary>
 	[JsonPropertyName("wwn_or_mac_address")]
-	public string? WwnOrMacAddress { get; set; } = null;
+	public string? WwnOrMacAddress { get; set; }
 
 	private IDictionary<string, object>? _additionalProperties;
 

@@ -10,217 +10,217 @@ public partial class Drive
 	/// </summary>
 	[JsonPropertyName("id")]
 
-	public string? Id { get; set; } = null;
+	public string Id { get; set; } = string.Empty;
 
 	/// <summary>
 	/// Unique identifier for the device or appliance.
 	/// </summary>
 	[JsonPropertyName("system_id")]
-	public string? SystemId { get; set; } = null;
+	public string? SystemId { get; set; }
 
 	/// <summary>
 	/// System type for the drive.
 	/// </summary>
 	[JsonPropertyName("system_type")]
-	public string? SystemType { get; set; } = null;
+	public string? SystemType { get; set; }
 
 	/// <summary>
 	/// Object identifier of datastore which is using this drive.
 	/// </summary>
 	[JsonPropertyName("data_store_id")]
-	public string? DataStoreId { get; set; } = null;
+	public string? DataStoreId { get; set; }
 
 	/// <summary>
 	/// Name of datastore which is using this drive.
 	/// </summary>
 	[JsonPropertyName("data_store_name")]
-	public string? DataStoreName { get; set; } = null;
+	public string? DataStoreName { get; set; }
 
 	/// <summary>
 	/// Type of disk technology, such as HDD or SDD.
 	/// </summary>
 	[JsonPropertyName("disk_technology")]
-	public string? DiskTechnology { get; set; } = null;
+	public string? DiskTechnology { get; set; }
 
 	/// <summary>
 	/// Type of disk technology, such as HDD or SDD.
 	/// </summary>
 	[JsonPropertyName("disk_technology_multilingual")]
-	public string? DiskTechnologyMultilingual { get; set; } = null;
+	public string? DiskTechnologyMultilingual { get; set; }
 
 	/// <summary>
 	/// Drive metadata of the drive.
 	/// </summary>
 	[JsonPropertyName("drive_metadata")]
-	public string? DriveMetadata { get; set; } = null;
+	public string? DriveMetadata { get; set; }
 
 	/// <summary>
 	/// Enclosure number of the drive used in host.
 	/// </summary>
 	[JsonPropertyName("enclosure")]
-	public long? Enclosure { get; set; } = null;
+	public long? Enclosure { get; set; }
 
 	/// <summary>
 	/// Estimated number of days left before drive will reach specified write endurance and must be replaced.
 	/// </summary>
 	[JsonPropertyName("endurance_days")]
-	public long? EnduranceDays { get; set; } = null;
+	public long? EnduranceDays { get; set; }
 
 	/// <summary>
 	/// Percentage of write endurance left, based on specified maximum write endurance of drive.
 	/// </summary>
 	[JsonPropertyName("endurance_percent")]
-	public long? EndurancePercent { get; set; } = null;
+	public long? EndurancePercent { get; set; }
 
 	/// <summary>
 	/// Endurance state of the drive.
 	/// </summary>
 	[JsonPropertyName("endurance_state")]
-	public string? EnduranceState { get; set; } = null;
+	public string? EnduranceState { get; set; }
 
 	/// <summary>
 	/// Free Size of the drive - Unit: bytes
 	/// </summary>
 	[JsonPropertyName("free_size")]
-	public long? FreeSize { get; set; } = null;
+	public long? FreeSize { get; set; }
 
 	/// <summary>
 	/// Host object identifier of drive located.
 	/// </summary>
 	[JsonPropertyName("host_id")]
-	public string? HostId { get; set; } = null;
+	public string? HostId { get; set; }
 
 	/// <summary>
 	/// Host name of drive located.
 	/// </summary>
 	[JsonPropertyName("host_name")]
-	public string? HostName { get; set; } = null;
+	public string? HostName { get; set; }
 
 	/// <summary>
 	/// Number of health issues that are present on the drive.
 	/// </summary>
 	[JsonPropertyName("issue_count")]
-	public long? IssueCount { get; set; } = null;
+	public long? IssueCount { get; set; }
 
 	/// <summary>
 	/// Model name of the drive.
 	/// </summary>
 	[JsonPropertyName("model")]
-	public string? Model { get; set; } = null;
+	public string? Model { get; set; }
 
 	/// <summary>
 	/// Name of the drive.
 	/// </summary>
 	[JsonPropertyName("object_name")]
-	public string? ObjectName { get; set; } = null;
+	public string? ObjectName { get; set; }
 
 	/// <summary>
 	/// Identifier of the object, defined by the system.
 	/// </summary>
 	[JsonPropertyName("object_native_id")]
-	public string? ObjectNativeId { get; set; } = null;
+	public string? ObjectNativeId { get; set; }
 
 	/// <summary>
 	/// Type of the drive.
 	/// </summary>
 	[JsonPropertyName("object_type")]
-	public string? ObjectType { get; set; } = null;
+	public string? ObjectType { get; set; }
 
 	/// <summary>
 	/// Part number of the drive.
 	/// </summary>
 	[JsonPropertyName("part_number")]
-	public string? PartNumber { get; set; } = null;
+	public string? PartNumber { get; set; }
 
 	/// <summary>
 	/// Pool identifier.
 	/// </summary>
 	[JsonPropertyName("pool_id")]
-	public string? PoolId { get; set; } = null;
+	public string? PoolId { get; set; }
 
 	/// <summary>
 	/// Name of the pool.
 	/// </summary>
 	[JsonPropertyName("pool_name")]
-	public string? PoolName { get; set; } = null;
+	public string? PoolName { get; set; }
 
 	/// <summary>
 	/// Protocol type used by the drive.
 	/// </summary>
 	[JsonPropertyName("protocol")]
-	public string? Protocol { get; set; } = null;
+	public string? Protocol { get; set; }
 
 	/// <summary>
 	/// RAID group type.
 	/// </summary>
 	[JsonPropertyName("raid_group_type")]
-	public string? RaidGroupType { get; set; } = null;
+	public string? RaidGroupType { get; set; }
 
 	/// <summary>
 	/// The drive speed (RPM).
 	/// </summary>
 	[JsonPropertyName("rpm")]
-	public long? Rpm { get; set; } = null;
+	public long? Rpm { get; set; }
 
 	/// <summary>
 	/// Serial number of the drive.
 	/// </summary>
 	[JsonPropertyName("serial_number")]
-	public string? SerialNumber { get; set; } = null;
+	public string? SerialNumber { get; set; }
 
 	/// <summary>
 	/// Size of the drive - Unit: bytes
 	/// </summary>
 	[JsonPropertyName("size")]
-	public long? Size { get; set; } = null;
+	public long? Size { get; set; }
 
 	/// <summary>
 	/// Slot number of the drive located in host.
 	/// </summary>
 	[JsonPropertyName("slot")]
-	public long? Slot { get; set; } = null;
+	public long? Slot { get; set; }
 
 	/// <summary>
 	/// State of the drive.
 	/// </summary>
 	[JsonPropertyName("state")]
-	public string? State { get; set; } = null;
+	public string? State { get; set; }
 
 	/// <summary>
 	/// System model of the drive.
 	/// </summary>
 	[JsonPropertyName("system_model")]
-	public string? SystemModel { get; set; } = null;
+	public string? SystemModel { get; set; }
 
 	/// <summary>
 	/// System name of the drive.
 	/// </summary>
 	[JsonPropertyName("system_name")]
-	public string? SystemName { get; set; } = null;
+	public string? SystemName { get; set; }
 
 	/// <summary>
 	/// Tier type of the drive, such as Flash, Performance, or Capacity.
 	/// </summary>
 	[JsonPropertyName("tier_type")]
-	public string? TierType { get; set; } = null;
+	public string? TierType { get; set; }
 
 	/// <summary>
 	/// Used Size of the drive - Unit: bytes
 	/// </summary>
 	[JsonPropertyName("used_size")]
-	public long? UsedSize { get; set; } = null;
+	public long? UsedSize { get; set; }
 
 	/// <summary>
 	/// Vendor of the drive.
 	/// </summary>
 	[JsonPropertyName("vendor")]
-	public string? Vendor { get; set; } = null;
+	public string? Vendor { get; set; }
 
 	/// <summary>
 	/// Version of the drive.
 	/// </summary>
 	[JsonPropertyName("version")]
-	public string? Version { get; set; } = null;
+	public string? Version { get; set; }
 
 	private IDictionary<string, object>? _additionalProperties;
 
