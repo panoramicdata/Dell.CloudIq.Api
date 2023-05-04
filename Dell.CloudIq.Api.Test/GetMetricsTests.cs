@@ -17,17 +17,19 @@ public class GetMetricsTests : TestBase
 
 		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync();
 
+		metricMetadatas.Should().BeOfType<MetricMetadataInstances>();
 		metricMetadatas.Should().NotBeNull();
 	}
 
 	[Fact]
-	public async Task GetMetricMetadataInstance_ReturnsESXiHost()
+	public async Task GetMetricMetadataInstance_ReturnsMetricMetadataInstance()
 	{
 		var clientOptions = GetClientOptions();
 		var client = new CloudIQClient(clientOptions, Logger);
 
 		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync();
 
+		metricMetadatas.Should().BeOfType<MetricMetadataInstances>();
 		metricMetadatas.Should().NotBeNull();
 		if (metricMetadatas.Results.Any())
 		{

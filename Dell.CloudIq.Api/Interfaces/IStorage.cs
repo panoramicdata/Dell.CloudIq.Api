@@ -213,7 +213,7 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_groups/{id}")]
-	Task<StorageGroup> GetGroupAsync(
+	Task<StorageGroup> GetStorageGroupAsync(
 		string id,
 		List<string>? select = null,
 		CancellationToken cancellationToken = default);
@@ -233,7 +233,7 @@ public interface IStorage
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>
 	[Get("/rest/v1/storage_groups")]
-	Task<CollectionResponse<StorageGroup>> GetGroupsAsync(
+	Task<CollectionResponse<StorageGroup>> GetStorageGroupsAsync(
 		string? filter = null,
 		List<string>? select = null,
 		string? order = null,

@@ -10,32 +10,34 @@ public class GetStorageTests : TestBase
 	}
 
 	[Fact]
-	public async Task GetGroups_ReturnsList()
+	public async Task GetStorageGroups_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
 		var client = new CloudIQClient(clientOptions, Logger);
 
-		var groups = await client.Storage.GetGroupsAsync();
+		var storageGroups = await client.Storage.GetStorageGroupsAsync();
 
-		groups.Should().NotBeNull();
+		storageGroups.Should().BeOfType<CollectionResponse<StorageGroup>>();
+		storageGroups.Should().NotBeNull();
 	}
 
 	[Fact]
-	public async Task GetGroup_ReturnsGroup()
+	public async Task GetStorageGroup_ReturnsGroup()
 	{
 		var clientOptions = GetClientOptions();
 		var client = new CloudIQClient(clientOptions, Logger);
 
-		var storageGroups = await client.Storage.GetGroupsAsync();
+		var storageGroups = await client.Storage.GetStorageGroupsAsync();
 
+		storageGroups.Should().BeOfType<CollectionResponse<StorageGroup>>();
 		storageGroups.Should().NotBeNull();
 		if (storageGroups.Results.Any())
 		{
-			var firstGroup = storageGroups.Results.First();
+			var firstStorageGroup = storageGroups.Results.First();
 
-			var group = await client.Storage.GetGroupAsync(firstGroup.Id);
-			group.Should().NotBeNull();
-			group.Id.Should().Be(firstGroup.Id);
+			var storageGroup = await client.Storage.GetStorageGroupAsync(firstStorageGroup.Id);
+			storageGroup.Should().NotBeNull();
+			storageGroup.Id.Should().Be(firstStorageGroup.Id);
 		}
 	}
 }
