@@ -1,24 +1,18 @@
 ﻿using FluentAssertions;
-using Microsoft.Extensions.Logging;
 using Xunit.Abstractions;
 
 namespace Dell.CloudIq.Api.Test;
 public class GetComputeHostsTests : TestBase
 {
-	private readonly ITestOutputHelper _testOutputHelper;
-	private readonly ILogger _logger;
-
-	public GetComputeHostsTests(ITestOutputHelper testOutputHelper)
+	public GetComputeHostsTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
 	{
-		_testOutputHelper = testOutputHelper;
-		_logger = testOutputHelper.BuildLogger();
 	}
 
 	[Fact]
 	public async Task GetComputeHosts_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, _logger);
+		var client = new CloudIQClient(clientOptions, Logger);
 
 		var computeHosts = await client.Compute.GetHostsAsync();
 
@@ -29,7 +23,7 @@ public class GetComputeHostsTests : TestBase
 	public async Task GetComputeHost_ReturnsHost()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, _logger);
+		var client = new CloudIQClient(clientOptions, Logger);
 
 		var computeHosts = await client.Compute.GetHostsAsync();
 

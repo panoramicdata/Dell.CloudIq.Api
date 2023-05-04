@@ -17,7 +17,6 @@
 		<Company>Panoramic Data Limited</Company>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<LangVersion>latest</LangVersion>
-		<AnalysisMode>All</AnalysisMode>
 		<Nullable>enable</Nullable>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/panoramicdata/Dell.CloudIQ.Api</RepositoryUrl>

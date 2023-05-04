@@ -1,8 +1,17 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Divergic.Logging.Xunit;
+using Microsoft.Extensions.Configuration;
+using Xunit.Abstractions;
 
 namespace Dell.CloudIq.Api.Test;
-public class TestBase
+abstract public class TestBase
 {
+	public ICacheLogger Logger { get; }
+
+	public TestBase(ITestOutputHelper testOutputHelper)
+	{
+		Logger = testOutputHelper.BuildLogger();
+	}
+
 	protected CloudIQClientOptions GetClientOptions()
 	{
 		var builder = new ConfigurationBuilder()
