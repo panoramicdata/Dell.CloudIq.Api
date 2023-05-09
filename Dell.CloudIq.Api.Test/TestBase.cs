@@ -12,7 +12,7 @@ abstract public class TestBase
 		Logger = testOutputHelper.BuildLogger();
 	}
 
-	protected CloudIQClientOptions GetClientOptions()
+	protected static CloudIQClientOptions GetClientOptions()
 	{
 		var builder = new ConfigurationBuilder()
 			.AddUserSecrets<TestBase>();

@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Dell.CloudIq.Api.Interfaces.Extensions;
+using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Xunit.Abstractions;
 
@@ -16,6 +17,18 @@ public class GetHardwareTests : TestBase
 		var client = new CloudIQClient(clientOptions, Logger);
 
 		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync();
+
+		eSXiHosts.Should().BeOfType<CollectionResponse<EsxiHost>>();
+		eSXiHosts.Should().NotBeNull();
+	}
+
+	[Fact]
+	public async Task GetESXiHostsAll_ReturnsAll()
+	{
+		var clientOptions = GetClientOptions();
+		var client = new CloudIQClient(clientOptions, Logger);
+
+		var eSXiHosts = await client.Hardware.GetEsxiHostsAllAsync();
 
 		eSXiHosts.Should().BeOfType<CollectionResponse<EsxiHost>>();
 		eSXiHosts.Should().NotBeNull();

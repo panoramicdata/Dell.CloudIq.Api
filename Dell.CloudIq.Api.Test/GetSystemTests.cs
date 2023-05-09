@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Dell.CloudIq.Api.Interfaces.Extensions;
+using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Refit;
 using System.Text.Json;
@@ -183,6 +184,18 @@ public class GetSystemTests : TestBase
 		var client = new CloudIQClient(clientOptions, Logger);
 
 		var systems = await client.System.GetSystemsAsync();
+
+		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
+		systems.Should().NotBeNull();
+	}
+
+	[Fact]
+	public async Task GetSystemsAll_ReturnsAll()
+	{
+		var clientOptions = GetClientOptions();
+		var client = new CloudIQClient(clientOptions, Logger);
+
+		var systems = await client.System.GetSystemsAllAsync();
 
 		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
 		systems.Should().NotBeNull();
