@@ -1,4 +1,5 @@
 ﻿using AutoFixture;
+using FluentAssertions;
 using FluentValidation;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -28,7 +29,7 @@ public class CloudIQClientTests : TestBase
 
 		var cloudIQClient = () => new CloudIQClient(validClientOptions, _mockLogger.Object);
 
-		Assert.Null(Record.Exception(cloudIQClient));
+		cloudIQClient.Should().NotThrow();
 	}
 
 	[Fact]
@@ -42,7 +43,7 @@ public class CloudIQClientTests : TestBase
 
 		var cloudIQClient = () => new CloudIQClient(invalidClientOptions, _mockLogger.Object);
 
-		Assert.Throws<ValidationException>(cloudIQClient);
+		cloudIQClient.Should().Throw<ValidationException>();
 	}
 
 	[Fact]
@@ -56,7 +57,7 @@ public class CloudIQClientTests : TestBase
 
 		var cloudIQClient = () => new CloudIQClient(invalidClientOptions, _mockLogger.Object);
 
-		Assert.Throws<ValidationException>(cloudIQClient);
+		cloudIQClient.Should().Throw<ValidationException>();
 	}
 
 	[Fact]
@@ -70,7 +71,7 @@ public class CloudIQClientTests : TestBase
 
 		var cloudIQClient = () => new CloudIQClient(invalidClientOptions, _mockLogger.Object);
 
-		Assert.Throws<ValidationException>(cloudIQClient);
+		cloudIQClient.Should().Throw<ValidationException>();
 	}
 
 	[Fact]
@@ -109,7 +110,7 @@ public class CloudIQClientTests : TestBase
 		var result = await CloudIQClient.GetAllAsync(pageFactoryMock.Object);
 
 		// Assert
-		Assert.Equal(5, result.Results.Count);
+		result.Results.Count.Should().Be(5);
 	}
 
 	[Fact]
@@ -133,7 +134,7 @@ public class CloudIQClientTests : TestBase
 		var result = await CloudIQClient.GetAllAsync(pageFactoryMock.Object);
 
 		// Assert
-		Assert.Equal(page.Results.Count, result.Results.Count);
+		result.Results.Count.Should().Be(page.Results.Count);
 	}
 
 	[Fact]
@@ -157,6 +158,6 @@ public class CloudIQClientTests : TestBase
 		var result = await CloudIQClient.GetAllAsync(pageFactoryMock.Object);
 
 		// Assert
-		Assert.Empty(result.Results);
+		result.Results.Should().BeEmpty();
 	}
 }
