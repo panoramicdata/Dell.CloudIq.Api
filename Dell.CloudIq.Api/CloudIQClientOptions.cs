@@ -8,5 +8,5 @@ public class CloudIQClientOptions
 
 	public string BaseUri { get; set; } = string.Empty;
 
-	public int? Limit { get; set; } = 1000;
+	public int? LimitPerPage { get; set; } = 1000;
 }

@@ -17,7 +17,7 @@ public class PagingTests : TestBase
 	{
 
 		var clientOptions = GetClientOptions();
-		clientOptions.Limit = 3;
+		clientOptions.LimitPerPage = 3;
 		var client = new CloudIQClient(clientOptions, Logger);
 
 		// Arrange
@@ -39,8 +39,8 @@ public class PagingTests : TestBase
 			}
 		};
 
-		var pageFactoryMock = new Mock<Func<int, int, CancellationToken, Task<CollectionResponse<CloudIQSystem>>>>();
-		pageFactoryMock.SetupSequence(x => x(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<CancellationToken>()))
+		var pageFactoryMock = new Mock<Func<int?, int, CancellationToken, Task<CollectionResponse<CloudIQSystem>>>>();
+		pageFactoryMock.SetupSequence(x => x(It.IsAny<int?>(), It.IsAny<int>(), It.IsAny<CancellationToken>()))
 			.ReturnsAsync(page1)
 			.ReturnsAsync(page2);
 
@@ -49,6 +49,30 @@ public class PagingTests : TestBase
 
 		// Assert
 		Assert.Equal(5, result.Results.Count);
+	}
+
+	[Fact]
+	public async Task GetAllAsync_WithoutLimitSet_ReturnsAll()
+	{
+		// Arrange
+		var page = new CollectionResponse<CloudIQSystem>
+		{
+			Results = _fixture.Build<CloudIQSystem>().CreateMany(5).ToList(),
+			Paging = new Paging
+			{
+				TotalInstances = 5
+			}
+		};
+
+		var pageFactoryMock = new Mock<Func<int?, int, CancellationToken, Task<CollectionResponse<CloudIQSystem>>>>();
+		pageFactoryMock.Setup(x => x(It.IsAny<int?>(), It.IsAny<int>(), It.IsAny<CancellationToken>()))
+			.ReturnsAsync(page);
+
+		// Act
+		var result = await CloudIQClient.GetAllAsync(pageFactoryMock.Object);
+
+		// Assert
+		Assert.Equal(page.Results.Count, result.Results.Count);
 	}
 
 	[Fact]
@@ -64,8 +88,8 @@ public class PagingTests : TestBase
 			}
 		};
 
-		var pageFactoryMock = new Mock<Func<int, int, CancellationToken, Task<CollectionResponse<CloudIQSystem>>>>();
-		pageFactoryMock.Setup(x => x(It.IsAny<int>(), It.IsAny<int>(), It.IsAny<CancellationToken>()))
+		var pageFactoryMock = new Mock<Func<int?, int, CancellationToken, Task<CollectionResponse<CloudIQSystem>>>>();
+		pageFactoryMock.Setup(x => x(It.IsAny<int?>(), It.IsAny<int>(), It.IsAny<CancellationToken>()))
 			.ReturnsAsync(emptyPage);
 
 		// Act
