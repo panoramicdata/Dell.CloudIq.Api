@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Dell.CloudIq.Api.Validators;
+using FluentValidation;
+using Microsoft.Extensions.Logging;
 
 namespace Dell.CloudIq.Api;
 
@@ -11,6 +13,8 @@ public class CloudIQClient
 		CloudIQClientOptions clientOptions,
 		ILogger logger)
 	{
+		ValidateClientOptions(clientOptions);
+
 		_clientOptions = clientOptions;
 		_limitPerPage = clientOptions.LimitPerPage ?? 1000;
 
@@ -36,6 +40,11 @@ public class CloudIQClient
 		System = RestService.For<ISystem>(httpClient, refitSettings);
 	}
 
+	private static void ValidateClientOptions(CloudIQClientOptions clientOptions)
+	{
+		var validator = new CloudIQClientOptionsValidator();
+		validator.ValidateAndThrow(clientOptions);
+	}
 
 	public IHardware Hardware { get; set; }
 
@@ -59,8 +68,8 @@ public class CloudIQClient
 			var pageResponse = await getPagedResponseAsync(_limitPerPage, pageOffset, cancellationToken).ConfigureAwait(false);
 			response.Results.AddRange(pageResponse.Results);
 
-			if (pageResponse?.Paging.TotalInstances is not null && 
-				pageResponse.Paging.TotalInstances != 0 && 
+			if (pageResponse?.Paging.TotalInstances is not null &&
+				pageResponse.Paging.TotalInstances != 0 &&
 				(_limitPerPage is not null || _limitPerPage > 0))
 			{
 				maxPageOffset = Math.Ceiling((double)(pageResponse.Paging.TotalInstances / _limitPerPage));

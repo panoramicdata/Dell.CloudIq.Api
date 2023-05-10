@@ -1,6 +1,5 @@
 ﻿using Dell.CloudIq.Api.Interfaces.Extensions;
 using FluentAssertions;
-using Microsoft.Extensions.Logging;
 using Refit;
 using System.Text.Json;
 using Xunit.Abstractions;
