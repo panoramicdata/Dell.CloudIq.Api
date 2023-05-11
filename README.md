@@ -28,9 +28,9 @@ namespace My.Project
         {
             using var cloudIqClient = new CloudIQClient(new CloudIQClientOptions
             {
-                ClientId = "0123456789abcdef0123456789abcdef01234567"
-                ClientSecret = "0123456789abcdef0123456789abcdef01234567"
-                BaseUri = "XXXXXXX"
+                ClientId = "xxx"
+                ClientSecret = "xxx"
+                BaseUri = "xxx"
             });
 
             var systems = await cloudIqClient
@@ -42,6 +42,7 @@ namespace My.Project
 }
 ````
 
+Remember to substitute your own ClientId, ClientSecret and BaseUri.
 
 ## API Documentation
 The CloudIQ API documentation can be found here:
