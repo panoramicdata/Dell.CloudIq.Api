@@ -3,8 +3,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Dell.CloudIq.Api)](https://www.nuget.org/packages/Dell.CloudIq.Api/)
 [![Nuget](https://img.shields.io/nuget/dt/Dell.CloudIq.Api)](https://www.nuget.org/packages/Dell.CloudIq.Api/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-<!-- [Codacy badge to go here] -->
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8b910ff2f22d464688acbe0d2a41e61c)](https://app.codacy.com?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 API client for the Dell CloudIQ REST API
 
 To use the package, follow the instructions below:
@@ -22,23 +21,23 @@ using System.Threading.Tasks;
 
 namespace My.Project
 {
-    public static class Program
-    {
-        public static async Task Main()
-        {
-            using var cloudIqClient = new CloudIQClient(new CloudIQClientOptions
-            {
-                ClientId = "0123456789abcdef0123456789abcdef01234567"
+Â Â Â  public static class Program
+Â Â Â  {
+Â Â Â Â Â Â Â  public static async Task Main()
+Â Â Â Â Â Â Â  {
+Â Â Â Â Â Â Â Â Â Â Â  using var cloudIqClient = new CloudIQClient(new CloudIQClientOptions
+Â Â Â Â Â Â Â Â Â Â Â  {
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ClientId = "0123456789abcdef0123456789abcdef01234567"
                 ClientSecret = "0123456789abcdef0123456789abcdef01234567"
                 BaseUri = "XXXXXXX"
-            });
+Â Â Â Â Â Â Â Â Â Â Â  });
 
-            var systems = await cloudIqClient
-                .System
-                .GetSystemsAsync()
-                .ConfigureAwait(false);
-        }
-    }
+Â Â Â Â Â Â Â Â Â Â Â  var systems = await cloudIqClient
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  .System
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  .GetSystemsAsync()
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  .ConfigureAwait(false);
+Â Â Â Â Â Â Â  }
+Â Â Â  }
 }
 ````
 
