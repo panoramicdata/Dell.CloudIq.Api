@@ -1,5 +1,13 @@
+
 # Dell.CloudIQ.Api
+[![Nuget](https://img.shields.io/nuget/v/Dell.CloudIq.Api)](https://www.nuget.org/packages/Dell.CloudIq.Api/)
+[![Nuget](https://img.shields.io/nuget/dt/Dell.CloudIq.Api)](https://www.nuget.org/packages/Dell.CloudIq.Api/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- [Codacy badge to go here] -->
+
 API client for the Dell CloudIQ REST API
+
+To use the package, follow the instructions below:
 
 # Visual Studio
 1. Open your project in Visual Studio
