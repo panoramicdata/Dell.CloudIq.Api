@@ -1,7 +1,7 @@
 ﻿namespace Dell.CloudIq.Api.Constants;
-public class ValidationConstants
+internal class ValidationConstants
 {
-	public const string ClientIdValidationConstant = "ClientId cannot be empty";
-	public const string ClientSecretValidationConstant = "ClientSecret cannot be empty";
-	public const string BaseUriValidationConstant = "BaseUri must be populated with a valid Uri string";
+	internal const string ClientIdValidationConstant = "ClientId cannot be empty";
+	internal const string ClientSecretValidationConstant = "ClientSecret cannot be empty";
+	internal const string BaseUriValidationConstant = "BaseUri must be populated with a valid Uri string";
 }
