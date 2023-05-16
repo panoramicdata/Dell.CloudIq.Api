@@ -1,6 +1,8 @@
-﻿namespace Dell.CloudIq.Api.Interfaces.Extensions;
+﻿using Dell.CloudIq.Api.Helpers;
 
-public static class IHardwareExtensions
+namespace Dell.CloudIq.Api;
+
+public static class HardwareExtensions
 {
 	public static Task<CollectionResponse<EsxiHost>> GetEsxiHostsAllAsync(
 		this IHardware hardware,
@@ -8,7 +10,7 @@ public static class IHardwareExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> hardware.GetEsxiHostsAsync(
 				filter,
@@ -26,7 +28,7 @@ public static class IHardwareExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> hardware.GetPortsAsync(
 				filter,

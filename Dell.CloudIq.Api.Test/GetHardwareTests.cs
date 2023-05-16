@@ -1,6 +1,4 @@
-﻿using Dell.CloudIq.Api.Interfaces.Extensions;
-using FluentAssertions;
-using Microsoft.Extensions.Logging;
+﻿using FluentAssertions;
 using Xunit.Abstractions;
 
 namespace Dell.CloudIq.Api.Test;

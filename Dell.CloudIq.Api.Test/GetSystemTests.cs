@@ -1,5 +1,4 @@
-﻿using Dell.CloudIq.Api.Interfaces.Extensions;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Refit;
 using System.Text.Json;
 using Xunit.Abstractions;
@@ -195,6 +194,18 @@ public class GetSystemTests : TestBase
 		var client = new CloudIQClient(clientOptions, Logger);
 
 		var systems = await client.System.GetSystemsAllAsync();
+
+		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
+		systems.Should().NotBeNull();
+	}
+
+	[Fact]
+	public async Task GetSystemsAll_WithFilter_ReturnsAllFiltered()
+	{
+		var clientOptions = GetClientOptions();
+		var client = new CloudIQClient(clientOptions, Logger);
+
+		var systems = await client.System.GetSystemsAllAsync(filter: "type eq 'POWEREDGE'");
 
 		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
 		systems.Should().NotBeNull();

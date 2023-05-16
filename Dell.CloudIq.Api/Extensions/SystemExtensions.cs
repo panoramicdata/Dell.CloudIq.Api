@@ -1,6 +1,8 @@
-﻿namespace Dell.CloudIq.Api.Interfaces.Extensions;
+﻿using Dell.CloudIq.Api.Helpers;
 
-public static class ISystemExtensions
+namespace Dell.CloudIq.Api;
+
+public static class SystemExtensions
 {
 	public static Task<CollectionResponse<Firmware>> GetFirmwaresAllAsync(
 		this ISystem systems,
@@ -8,7 +10,7 @@ public static class ISystemExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> systems.GetFirmwaresAsync(
 				filter,
@@ -26,7 +28,7 @@ public static class ISystemExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> systems.GetHciSystemsAsync(
 				filter,
@@ -44,7 +46,7 @@ public static class ISystemExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> systems.GetNetworkSystemsAsync(
 				filter,
@@ -62,7 +64,7 @@ public static class ISystemExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> systems.GetServerSystemsAsync(
 				filter,
@@ -80,7 +82,7 @@ public static class ISystemExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> systems.GetStorageSystemsAsync(
 				filter,
@@ -98,7 +100,7 @@ public static class ISystemExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> systems.GetSystemsAsync(
 				filter,

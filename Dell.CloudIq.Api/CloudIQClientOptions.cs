@@ -7,6 +7,4 @@ public class CloudIQClientOptions
 	public string ClientSecret { get; set; } = string.Empty;
 
 	public string BaseUri { get; set; } = string.Empty;
-
-	public int? LimitPerPage { get; set; } = 1000;
 }

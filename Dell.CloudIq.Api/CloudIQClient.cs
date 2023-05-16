@@ -7,7 +7,6 @@ namespace Dell.CloudIq.Api;
 public class CloudIQClient
 {
 	private readonly CloudIQClientOptions _clientOptions;
-	private static int? _limitPerPage; //TODO: Check to see if we want limit configurable - makes unit testing better if we do
 
 	public CloudIQClient(
 		CloudIQClientOptions clientOptions,
@@ -16,7 +15,6 @@ public class CloudIQClient
 		ValidateClientOptions(clientOptions);
 
 		_clientOptions = clientOptions;
-		_limitPerPage = clientOptions.LimitPerPage ?? 1000;
 
 		var handler = new AuthenticatedHttpClientHandler(clientOptions, logger);
 		var httpClient = new HttpClient(handler)
@@ -53,37 +51,4 @@ public class CloudIQClient
 	public IStorage Storage { get; set; }
 
 	public ISystem System { get; set; }
-
-	public static async Task<CollectionResponse<T>> GetAllAsync<T>(
-		Func<int?, int, CancellationToken, Task<CollectionResponse<T>>> getPagedResponseAsync,
-		CancellationToken cancellationToken = default)
-	{
-		var response = new CollectionResponse<T>();
-		var pagingComplete = false;
-		var pageOffset = 0;
-		double maxPageOffset = 0;
-
-		while (!pagingComplete)
-		{
-			var pageResponse = await getPagedResponseAsync(_limitPerPage, pageOffset, cancellationToken).ConfigureAwait(false);
-			response.Results.AddRange(pageResponse.Results);
-
-			if (pageResponse?.Paging.TotalInstances is not null &&
-				pageResponse.Paging.TotalInstances != 0 &&
-				(_limitPerPage is not null || _limitPerPage > 0))
-			{
-				maxPageOffset = Math.Ceiling((double)(pageResponse.Paging.TotalInstances / _limitPerPage));
-			}
-
-			if (pageOffset < maxPageOffset)
-			{
-				pageOffset++;
-				continue;
-			}
-
-			pagingComplete = true;
-		}
-
-		return response;
-	}
 }

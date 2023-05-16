@@ -1,6 +1,8 @@
-﻿namespace Dell.CloudIq.Api.Interfaces.Extensions;
+﻿using Dell.CloudIq.Api.Helpers;
 
-public static class IStorageExtensions
+namespace Dell.CloudIq.Api;
+
+public static class StorageExtensions
 {
 	public static Task<CollectionResponse<DataStore>> GetDatastoresAllAsync(
 		this IStorage storage,
@@ -8,7 +10,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetDatastoresAsync(
 				filter,
@@ -26,7 +28,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetDrivesAsync(
 				filter,
@@ -44,7 +46,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetFilesystemsAsync(
 				filter,
@@ -62,7 +64,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetHostsAsync(
 				filter,
@@ -80,7 +82,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetPoolsAsync(
 				filter,
@@ -98,7 +100,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetStorageGroupsAsync(
 				filter,
@@ -116,7 +118,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetStorageResourcePoolsAsync(
 				filter,
@@ -134,7 +136,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetVirtualMachinesAsync(
 				filter,
@@ -152,7 +154,7 @@ public static class IStorageExtensions
 		List<string>? select = null,
 		string? order = null,
 		CancellationToken cancellationToken = default)
-		=> CloudIQClient.GetAllAsync(
+		=> CloudIQClientHelper.GetAllAsync(
 			(limit, pageOffset, cancellationToken)
 			=> storage.GetVolumesAsync(
 				filter,
