@@ -9,8 +9,6 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public class CloudIQClient
 {
-	private readonly CloudIQClientOptions _clientOptions;
-
 	/// <summary>
 	/// A Dell Cloud IQ client
 	/// </summary>
@@ -22,12 +20,10 @@ public class CloudIQClient
 	{
 		ValidateClientOptions(clientOptions);
 
-		_clientOptions = clientOptions;
-
 		var handler = new AuthenticatedHttpClientHandler(clientOptions, logger);
 		var httpClient = new HttpClient(handler)
 		{
-			BaseAddress = new($"{_clientOptions.BaseUri}/cloudiq")
+			BaseAddress = new($"{clientOptions.BaseUri}/cloudiq")
 		};
 
 		var jsonSerializerOptions = new System.Text.Json.JsonSerializerOptions();
@@ -35,7 +31,7 @@ public class CloudIQClient
 		jsonSerializerOptions.Converters.Add(new JsonStringEnumMemberConverter());
 
 		//TODO: Set the jsonSerializerOptions.UnmappedMemberHandling when .Net8 is released. https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/missing-members?source=recommendations
-		var refitSettings = new RefitSettings()
+		var refitSettings = new RefitSettings
 		{
 			ContentSerializer = new SystemTextJsonContentSerializer(jsonSerializerOptions)
 		};
