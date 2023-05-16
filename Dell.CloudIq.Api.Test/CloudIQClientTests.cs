@@ -1,5 +1,4 @@
-﻿using AutoFixture;
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentValidation;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -9,11 +8,9 @@ namespace Dell.CloudIq.Api.Test;
 
 public class CloudIQClientTests : TestBase
 {
-	private readonly Fixture _fixture;
 	private readonly Mock<ILogger> _mockLogger;
 	public CloudIQClientTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
 	{
-		_fixture = new Fixture();
 		_mockLogger = new Mock<ILogger>();
 	}
 

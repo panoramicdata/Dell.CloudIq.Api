@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Dell.CloudIq.Api.Validators;
 
-public class CloudIQClientOptionsValidator : AbstractValidator<CloudIQClientOptions>
+internal class CloudIQClientOptionsValidator : AbstractValidator<CloudIQClientOptions>
 {
-	public CloudIQClientOptionsValidator()
+	internal CloudIQClientOptionsValidator()
 	{
 		RuleFor(c => c.ClientId).NotEmpty().WithMessage(ValidationConstants.ClientIdValidationConstant);
 		RuleFor(c => c.ClientSecret).NotEmpty().WithMessage(ValidationConstants.ClientSecretValidationConstant);

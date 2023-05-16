@@ -4,10 +4,18 @@ using Microsoft.Extensions.Logging;
 
 namespace Dell.CloudIq.Api;
 
+/// <summary>
+/// A Dell Cloud IQ API client
+/// </summary>
 public class CloudIQClient
 {
 	private readonly CloudIQClientOptions _clientOptions;
 
+	/// <summary>
+	/// A Dell Cloud IQ client
+	/// </summary>
+	/// <param name="clientOptions">The CloudIQClientOptions used for contacting the API</param>
+	/// <param name="logger"></param>
 	public CloudIQClient(
 		CloudIQClientOptions clientOptions,
 		ILogger logger)
