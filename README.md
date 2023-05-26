@@ -26,7 +26,7 @@ namespace My.Project
     {
         public static async Task Main()
         {
-            using var cloudIqClient = new CloudIQClient(new CloudIQClientOptions
+            using var cloudIqClient = new CloudIqClient(new CloudIqClientOptions
             {
                 ClientId = "xxx"
                 ClientSecret = "xxx"
