@@ -7,7 +7,7 @@ namespace Dell.CloudIq.Api;
 
 internal class AuthenticatedHttpClientHandler : HttpClientHandler
 {
-	private readonly CloudIQClientOptions _clientOptions;
+	private readonly CloudIqClientOptions _clientOptions;
 	private readonly ILogger _logger;
 	private ApiToken? _apiToken;
 	private readonly JsonSerializerOptions _serializerOptions = new()
@@ -16,7 +16,7 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 	};
 
 	public AuthenticatedHttpClientHandler(
-		CloudIQClientOptions clientOptions,
+		CloudIqClientOptions clientOptions,
 		ILogger logger)
 	{
 		_clientOptions = clientOptions;
@@ -28,10 +28,7 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 		CancellationToken cancellationToken)
 	{
 		var requestId = Guid.NewGuid();
-		if (_apiToken is null)
-		{
-			_apiToken = await GenerateApiTokenAsync(cancellationToken);
-		}
+		_apiToken ??= await GenerateApiTokenAsync(cancellationToken);
 
 		request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken.AccessToken);
 

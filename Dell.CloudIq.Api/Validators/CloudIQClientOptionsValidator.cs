@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Dell.CloudIq.Api.Validators;
 
-internal class CloudIQClientOptionsValidator : AbstractValidator<CloudIQClientOptions>
+internal class CloudIQClientOptionsValidator : AbstractValidator<CloudIqClientOptions>
 {
 	internal CloudIQClientOptionsValidator()
 	{

@@ -17,14 +17,14 @@ public class CloudIQClientTests : TestBase
 	[Fact]
 	public void CloudIQClientConstructed_WithValidClientOptions_DoesNotThrowException()
 	{
-		var validClientOptions = new CloudIQClientOptions
+		var validClientOptions = new CloudIqClientOptions
 		{
 			ClientId = "valid-ClientId",
 			ClientSecret = "valid-ClientSecret",
 			BaseUri = "https://valid-BaseUri.com"
 		};
 
-		var cloudIQClient = () => new CloudIQClient(validClientOptions, _mockLogger.Object);
+		var cloudIQClient = () => new CloudIqClient(validClientOptions, _mockLogger.Object);
 
 		cloudIQClient.Should().NotThrow();
 	}
@@ -32,13 +32,13 @@ public class CloudIQClientTests : TestBase
 	[Fact]
 	public void CloudIQClientConstructed_WithInvalidClientId_ThrowsException()
 	{
-		var invalidClientOptions = new CloudIQClientOptions
+		var invalidClientOptions = new CloudIqClientOptions
 		{
 			ClientSecret = "valid-ClientSecret",
 			BaseUri = "https://valid-BaseUri.com"
 		};
 
-		var cloudIQClient = () => new CloudIQClient(invalidClientOptions, _mockLogger.Object);
+		var cloudIQClient = () => new CloudIqClient(invalidClientOptions, _mockLogger.Object);
 
 		cloudIQClient.Should().Throw<ValidationException>();
 	}
@@ -46,13 +46,13 @@ public class CloudIQClientTests : TestBase
 	[Fact]
 	public void CloudIQClientConstructed_WithInvalidClientSecret_ThrowsException()
 	{
-		var invalidClientOptions = new CloudIQClientOptions
+		var invalidClientOptions = new CloudIqClientOptions
 		{
 			ClientId = "valid-ClientId",
 			BaseUri = "https://valid-BaseUri.com"
 		};
 
-		var cloudIQClient = () => new CloudIQClient(invalidClientOptions, _mockLogger.Object);
+		var cloudIQClient = () => new CloudIqClient(invalidClientOptions, _mockLogger.Object);
 
 		cloudIQClient.Should().Throw<ValidationException>();
 	}
@@ -60,13 +60,13 @@ public class CloudIQClientTests : TestBase
 	[Fact]
 	public void CloudIQClientConstructed_WithInvalidBaseUri_ThrowsException()
 	{
-		var invalidClientOptions = new CloudIQClientOptions
+		var invalidClientOptions = new CloudIqClientOptions
 		{
 			ClientId = "valid-ClientId",
 			ClientSecret = "valid-ClientSecret"
 		};
 
-		var cloudIQClient = () => new CloudIQClient(invalidClientOptions, _mockLogger.Object);
+		var cloudIQClient = () => new CloudIqClient(invalidClientOptions, _mockLogger.Object);
 
 		cloudIQClient.Should().Throw<ValidationException>();
 	}

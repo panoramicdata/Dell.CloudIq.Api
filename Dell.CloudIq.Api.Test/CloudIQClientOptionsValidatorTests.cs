@@ -15,7 +15,7 @@ public class CloudIQClientOptionsValidatorTests
 	[Fact]
 	public void Validator_Should_Not_HaveError_When_CloudIQClientOptions_AreValid()
 	{
-		var validClientOptions = new CloudIQClientOptions
+		var validClientOptions = new CloudIqClientOptions
 		{
 			ClientId = "valid-ClientId",
 			ClientSecret = "valid-ClientSecret",
@@ -30,7 +30,7 @@ public class CloudIQClientOptionsValidatorTests
 	[Fact]
 	public void Validator_Should_HaveError_When_ClientId_IsNull()
 	{
-		var invalidClientOptions = new CloudIQClientOptions
+		var invalidClientOptions = new CloudIqClientOptions
 		{
 			ClientSecret = "valid-ClientSecret",
 			BaseUri = "https://valid-BaseUri.com"
@@ -43,7 +43,7 @@ public class CloudIQClientOptionsValidatorTests
 	[Fact]
 	public void Validator_Should_HaveError_When_ClientSecret_IsNull()
 	{
-		var invalidClientOptions = new CloudIQClientOptions
+		var invalidClientOptions = new CloudIqClientOptions
 		{
 			ClientId = "valid-ClientId",
 			BaseUri = "https://valid-BaseUri.com"
@@ -56,7 +56,7 @@ public class CloudIQClientOptionsValidatorTests
 	[Fact]
 	public void Validator_Should_HaveError_When_BaseUri_IsNull()
 	{
-		var invalidClientOptions = new CloudIQClientOptions
+		var invalidClientOptions = new CloudIqClientOptions
 		{
 			ClientId = "valid-ClientId",
 			ClientSecret = "valid-ClientSecret"

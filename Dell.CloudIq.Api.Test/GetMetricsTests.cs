@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using Microsoft.Extensions.Logging;
 using Xunit.Abstractions;
 
 namespace Dell.CloudIq.Api.Test;
@@ -13,7 +12,7 @@ public class GetMetricsTests : TestBase
 	public async Task GetMetricMetadataCollection_ReturnsCollection()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync();
 
@@ -25,7 +24,7 @@ public class GetMetricsTests : TestBase
 	public async Task GetMetricMetadataInstance_ReturnsMetricMetadataInstance()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync();
 

@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using Microsoft.Extensions.Logging;
 using Xunit.Abstractions;
 
 namespace Dell.CloudIq.Api.Test;
@@ -13,7 +12,7 @@ public class GetStorageTests : TestBase
 	public async Task GetStorageGroups_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var storageGroups = await client.Storage.GetStorageGroupsAsync();
 
@@ -25,7 +24,7 @@ public class GetStorageTests : TestBase
 	public async Task GetStorageGroup_ReturnsGroup()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var storageGroups = await client.Storage.GetStorageGroupsAsync();
 

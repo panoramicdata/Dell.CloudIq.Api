@@ -9,7 +9,7 @@ public partial class EsxiHost
 	/// Unique identifier of the host.
 	/// </summary>
 	[JsonPropertyName("id")]
-	
+
 	public string Id { get; set; } = string.Empty;
 
 	/// <summary>

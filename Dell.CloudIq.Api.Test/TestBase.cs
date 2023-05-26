@@ -12,18 +12,18 @@ abstract public class TestBase
 		Logger = testOutputHelper.BuildLogger();
 	}
 
-	protected static CloudIQClientOptions GetClientOptions()
+	protected static CloudIqClientOptions GetClientOptions()
 	{
 		var builder = new ConfigurationBuilder()
 			.AddUserSecrets<TestBase>();
 
 		var configuration = builder.Build();
 
-		return new CloudIQClientOptions
+		return new CloudIqClientOptions
 		{
-			ClientId = configuration["ClientId"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.ClientId)),
-			ClientSecret = configuration["ClientSecret"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.ClientSecret)),
-			BaseUri = configuration["BaseUri"] ?? throw new ArgumentNullException(nameof(CloudIQClientOptions.BaseUri))
+			ClientId = configuration["ClientId"] ?? throw new ArgumentNullException(nameof(CloudIqClientOptions.ClientId)),
+			ClientSecret = configuration["ClientSecret"] ?? throw new ArgumentNullException(nameof(CloudIqClientOptions.ClientSecret)),
+			BaseUri = configuration["BaseUri"] ?? throw new ArgumentNullException(nameof(CloudIqClientOptions.BaseUri))
 		};
 	}
 }

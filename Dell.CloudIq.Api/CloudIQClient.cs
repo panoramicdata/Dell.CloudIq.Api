@@ -7,15 +7,15 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// A Dell Cloud IQ API client
 /// </summary>
-public class CloudIQClient
+public class CloudIqClient
 {
 	/// <summary>
 	/// A Dell Cloud IQ client
 	/// </summary>
 	/// <param name="clientOptions">The CloudIQClientOptions used for contacting the API</param>
 	/// <param name="logger"></param>
-	public CloudIQClient(
-		CloudIQClientOptions clientOptions,
+	public CloudIqClient(
+		CloudIqClientOptions clientOptions,
 		ILogger logger)
 	{
 		ValidateClientOptions(clientOptions);
@@ -42,7 +42,7 @@ public class CloudIQClient
 		System = RestService.For<ISystem>(httpClient, refitSettings);
 	}
 
-	private static void ValidateClientOptions(CloudIQClientOptions clientOptions)
+	private static void ValidateClientOptions(CloudIqClientOptions clientOptions)
 	{
 		var validator = new CloudIQClientOptionsValidator();
 		validator.ValidateAndThrow(clientOptions);

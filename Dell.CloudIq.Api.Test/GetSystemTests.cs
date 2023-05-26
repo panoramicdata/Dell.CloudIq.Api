@@ -14,7 +14,7 @@ public class GetSystemTests : TestBase
 	public async Task GetFirmwares_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var firmwares = await client.System.GetFirmwaresAsync();
 
@@ -26,7 +26,7 @@ public class GetSystemTests : TestBase
 	public async Task GetFirmware_ReturnsFirmware()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var firmwares = await client.System.GetFirmwaresAsync();
 
@@ -47,7 +47,7 @@ public class GetSystemTests : TestBase
 	public async Task GetHciSystems_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var hciSystems = await client.System.GetHciSystemsAsync();
 
@@ -59,7 +59,7 @@ public class GetSystemTests : TestBase
 	public async Task GetHciSystem_ReturnsSystem()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var hciSystems = await client.System.GetHciSystemsAsync();
 
@@ -80,7 +80,7 @@ public class GetSystemTests : TestBase
 	public async Task GetNetworkSystems_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var networkSystems = await client.System.GetNetworkSystemsAsync();
 
@@ -92,7 +92,7 @@ public class GetSystemTests : TestBase
 	public async Task GetNetworkSystem_ReturnsNetworkSystem()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var networkSystems = await client.System.GetNetworkSystemsAsync();
 
@@ -113,7 +113,7 @@ public class GetSystemTests : TestBase
 	public async Task GetServerSystems_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var serverSystems = await client.System.GetServerSystemsAsync();
 
@@ -125,7 +125,7 @@ public class GetSystemTests : TestBase
 	public async Task GetServerSystem_ReturnsServerSystem()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var serverSystems = await client.System.GetServerSystemsAsync();
 
@@ -146,7 +146,7 @@ public class GetSystemTests : TestBase
 	public async Task GetStorageSystems_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var storageSystems = await client.System.GetStorageSystemsAsync();
 
@@ -158,7 +158,7 @@ public class GetSystemTests : TestBase
 	public async Task GetStorageSystem_ReturnsServerSystem()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var storageSystems = await client.System.GetStorageSystemsAsync();
 
@@ -179,7 +179,7 @@ public class GetSystemTests : TestBase
 	public async Task GetSystems_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var systems = await client.System.GetSystemsAsync();
 
@@ -191,7 +191,7 @@ public class GetSystemTests : TestBase
 	public async Task GetSystemsAll_ReturnsAll()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var systems = await client.System.GetSystemsAllAsync();
 
@@ -203,7 +203,7 @@ public class GetSystemTests : TestBase
 	public async Task GetSystemsAll_WithFilter_ReturnsAllFiltered()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var systems = await client.System.GetSystemsAllAsync(filter: "type eq 'POWEREDGE'");
 
@@ -215,7 +215,7 @@ public class GetSystemTests : TestBase
 	public async Task GetSystem_ReturnsSystem()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var systems = await client.System.GetSystemsAsync();
 
@@ -236,7 +236,7 @@ public class GetSystemTests : TestBase
 	public async Task GetSystems_WithFilter_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var systems = await client.System.GetSystemsAsync(filter: "type eq 'POWEREDGE'");
 
@@ -248,7 +248,7 @@ public class GetSystemTests : TestBase
 	public async Task GetSystems_WithSelect_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var systems = await client.System.GetSystemsAsync(select: new() { "id", "model" });
 
@@ -260,16 +260,14 @@ public class GetSystemTests : TestBase
 	public async Task GetSystems_WithInvalidFilter_ReturnsError()
 	{
 		var clientOptions = GetClientOptions();
-		var client = new CloudIQClient(clientOptions, Logger);
+		var client = new CloudIqClient(clientOptions, Logger);
 
 		var exception = await Assert.ThrowsAsync<ApiException>(() => client.System.GetSystemsAsync(filter: "<string>"));
 		exception.StatusCode.Should().Be(System.Net.HttpStatusCode.InternalServerError);
 
 		var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(exception.Content!);
 
-		if (errorResponse is not null)
-		{
-			errorResponse.Messages.First().Message.Should().Contain("Invalid Filter");
-		}
+		errorResponse.Should().NotBeNull();
+		errorResponse!.Messages.First().Message.Should().Contain("Invalid Filter");
 	}
 }

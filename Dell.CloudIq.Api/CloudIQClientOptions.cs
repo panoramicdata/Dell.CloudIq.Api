@@ -3,7 +3,7 @@
 /// <summary>
 /// CloudIQClient options
 /// </summary>
-public class CloudIQClientOptions
+public class CloudIqClientOptions
 {
 	/// <summary>
 	/// The ClientId

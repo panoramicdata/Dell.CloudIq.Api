@@ -30,6 +30,7 @@
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageIcon>Icon.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
