@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The datastore object.
 /// </summary>
-public partial class DataStore
+public class DataStore
 {
 	/// <summary>
 	/// Unique identifier of the datastore object.

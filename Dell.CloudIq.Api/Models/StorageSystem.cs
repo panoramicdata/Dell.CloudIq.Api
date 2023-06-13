@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The storage system.
 /// </summary>
-public partial class StorageSystem
+public class StorageSystem
 {
 	/// <summary>
 	/// Identifier for the storage system.

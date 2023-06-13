@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The network system object.
 /// </summary>
-public partial class NetworkSystem
+public class NetworkSystem
 {
 	/// <summary>
 	/// Identifier of the system.

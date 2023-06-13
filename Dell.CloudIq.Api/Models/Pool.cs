@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The pool object.
 /// </summary>
-public partial class Pool
+public class Pool
 {
 	/// <summary>
 	/// Identifier of the pool.

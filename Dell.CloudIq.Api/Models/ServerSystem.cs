@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The server system object.
 /// </summary>
-public partial class ServerSystem
+public class ServerSystem
 {
 	/// <summary>
 	/// Identifier for the system.

@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Firmware information of the system. This includes the version of firmware on the system.
 /// </summary>
-public partial class Firmware
+public class Firmware
 {
 	/// <summary>
 	/// Identifier of the data firmware system.

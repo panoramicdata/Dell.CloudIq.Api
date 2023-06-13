@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The volume object.
 /// </summary>
-public partial class Volume
+public class Volume
 {
 	/// <summary>
 	/// Identifier of the volume.

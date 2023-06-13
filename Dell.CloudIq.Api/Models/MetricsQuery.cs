@@ -4,7 +4,7 @@ namespace Dell.CloudIq.Api;
 /// Metrics query operation request body, specifying the desired metrics.
 /// <br/>
 /// </summary>
-public partial class MetricsQuery
+public class MetricsQuery
 {
 	[JsonPropertyName("resource_type")]
 

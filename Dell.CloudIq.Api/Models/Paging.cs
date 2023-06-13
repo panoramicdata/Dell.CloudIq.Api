@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Contains paging reponse data
 /// </summary>
-public partial class Paging
+public class Paging
 {
 	/// <summary>
 	/// This the the collection size, not the reponse size.

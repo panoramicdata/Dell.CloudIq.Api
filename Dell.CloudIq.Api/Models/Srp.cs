@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The Vmax Storage Resource Pool.
 /// </summary>
-public partial class Srp
+public class Srp
 {
 	/// <summary>
 	/// The system ID.

@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// HCI Systems
 /// </summary>
-public partial class HciSystem
+public class HciSystem
 {
 	/// <summary>
 	/// Unique identifier for the system.

@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The virtual machine object.
 /// </summary>
-public partial class VirtualMachine
+public class VirtualMachine
 {
 	/// <summary>
 	/// Identifier of the virtual machine.

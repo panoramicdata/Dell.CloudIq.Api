@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Esxi Host
 /// </summary>
-public partial class EsxiHost
+public class EsxiHost
 {
 	/// <summary>
 	/// Unique identifier of the host.

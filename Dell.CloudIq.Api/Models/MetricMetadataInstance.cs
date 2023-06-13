@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Properties of a metric-metadata instance as available from a specific resource type.
 /// </summary>
-public partial class MetricMetadataInstance
+public class MetricMetadataInstance
 {
 	/// <summary>
 	/// Unique identifier of a metric metadata resource.

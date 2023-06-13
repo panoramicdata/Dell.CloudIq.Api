@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Metrics Value Entry
 /// </summary>
-public partial class MetricsValueEntry
+public class MetricsValueEntry
 {
 	[JsonPropertyName("timestamp")]
 	public string? Timestamp { get; set; }

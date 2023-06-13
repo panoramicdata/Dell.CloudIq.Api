@@ -1,6 +1,6 @@
 namespace Dell.CloudIq.Api;
 
-public partial class Response
+public class Response
 {
 	[JsonPropertyName("paging")]
 	public Paging Paging { get; set; } = new();

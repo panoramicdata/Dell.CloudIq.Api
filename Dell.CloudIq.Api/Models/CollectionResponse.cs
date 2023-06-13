@@ -6,7 +6,7 @@ namespace Dell.CloudIq.Api;
 /// An empty collection response (whether due to no instances at all, or due to filtering out all the existing instances) is not an error.
 /// It still returns a '200', but the "results": [] list is empty.
 /// </summary>
-public partial class CollectionResponse<T>
+public class CollectionResponse<T>
 {
 	[JsonPropertyName("paging")]
 	public Paging Paging { get; set; } = new();

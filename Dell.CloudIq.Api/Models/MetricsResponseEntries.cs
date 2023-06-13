@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Metrics Query Responses
 /// </summary>
-public partial class MetricsResponseEntries
+public class MetricsResponseEntries
 {
 	[JsonPropertyName("metrics")]
 	public List<string>? Metrics { get; set; }

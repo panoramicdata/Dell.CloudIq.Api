@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The drive object.
 /// </summary>
-public partial class Drive
+public class Drive
 {
 	/// <summary>
 	/// Identifier of the drive.

@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Basic information about the system.
 /// </summary>
-public partial class BasicSystemInformationResponse
+public class BasicSystemInformationResponse
 {
 	[DataMember(Name = "results")]
 	public List<BasicSystemInformation>? Results { get; set; }

@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The file system object.
 /// </summary>
-public partial class Filesystem
+public class Filesystem
 {
 	/// <summary>
 	/// Identifier of the file system.

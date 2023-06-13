@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The Vmax StorageGroups.
 /// </summary>
-public partial class StorageGroup
+public class StorageGroup
 {
 	/// <summary>
 	/// The system ID.

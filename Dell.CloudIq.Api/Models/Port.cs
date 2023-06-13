@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The port object.
 /// </summary>
-public partial class Port
+public class Port
 {
 	/// <summary>
 	/// The port ID.

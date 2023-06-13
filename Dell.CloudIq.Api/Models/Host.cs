@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The host object.
 /// </summary>
-public partial class Host
+public class Host
 {
 	/// <summary>
 	/// Host identifier.

@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Basic information about the system.
 /// </summary>
-public partial class BasicSystemInformation
+public class BasicSystemInformation
 {
 	/// <summary>
 	/// Unique identifier of the basic-system-info. This is a singleton, so the id is always "0"
