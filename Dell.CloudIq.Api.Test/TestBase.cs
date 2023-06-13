@@ -7,7 +7,7 @@ abstract public class TestBase
 {
 	public ICacheLogger Logger { get; }
 
-	public TestBase(ITestOutputHelper testOutputHelper)
+	protected TestBase(ITestOutputHelper testOutputHelper)
 	{
 		Logger = testOutputHelper.BuildLogger();
 	}

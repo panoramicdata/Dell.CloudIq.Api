@@ -9,7 +9,7 @@ internal class ApiToken
 	public string TokenType { get; set; } = string.Empty;
 
 	[JsonPropertyName("expires_in")]
-	public int ExpiresIn { get; set; } = 0;
+	public int ExpiresIn { get; set; }
 
 	[JsonPropertyName("scope")]
 	public string Scope { get; set; } = string.Empty;
