@@ -1,20 +1,14 @@
-﻿using FluentAssertions;
-using Xunit.Abstractions;
+﻿namespace Dell.CloudIq.Api.Test;
 
-namespace Dell.CloudIq.Api.Test;
-public class GetHardwareTests : TestBase
+public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
-	public GetHardwareTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetESXiHosts_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync();
+		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync(cancellationToken: CancellationToken);
 
 		eSXiHosts.Should().BeOfType<CollectionResponse<EsxiHost>>();
 		eSXiHosts.Should().NotBeNull();
@@ -26,7 +20,7 @@ public class GetHardwareTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var eSXiHosts = await client.Hardware.GetEsxiHostsAllAsync();
+		var eSXiHosts = await client.Hardware.GetEsxiHostsAllAsync(cancellationToken: CancellationToken);
 
 		eSXiHosts.Should().BeOfType<CollectionResponse<EsxiHost>>();
 		eSXiHosts.Should().NotBeNull();
@@ -38,15 +32,15 @@ public class GetHardwareTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync();
+		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync(cancellationToken: CancellationToken);
 
 		eSXiHosts.Should().BeOfType<CollectionResponse<EsxiHost>>();
 		eSXiHosts.Should().NotBeNull();
-		if (eSXiHosts.Results.Any())
+		if (eSXiHosts.Results.Count != 0)
 		{
 			var firstESXiHost = eSXiHosts.Results.First();
 
-			var ESXiHost = await client.Hardware.GetEsxiHostAsync(firstESXiHost.Id);
+			var ESXiHost = await client.Hardware.GetEsxiHostAsync(firstESXiHost.Id, cancellationToken: CancellationToken);
 			ESXiHost.Should().NotBeNull();
 			ESXiHost.Id.Should().Be(firstESXiHost.Id);
 		}
@@ -58,7 +52,7 @@ public class GetHardwareTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var ports = await client.Hardware.GetPortsAsync();
+		var ports = await client.Hardware.GetPortsAsync(cancellationToken: CancellationToken);
 
 		ports.Should().BeOfType<CollectionResponse<Port>>();
 		ports.Should().NotBeNull();
@@ -70,15 +64,15 @@ public class GetHardwareTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var ports = await client.Hardware.GetPortsAsync();
+		var ports = await client.Hardware.GetPortsAsync(cancellationToken: CancellationToken);
 
 		ports.Should().BeOfType<CollectionResponse<Port>>();
 		ports.Should().NotBeNull();
-		if (ports.Results.Any())
+		if (ports.Results.Count != 0)
 		{
 			var firstPort = ports.Results.First();
 
-			var port = await client.Hardware.GetPortAsync(firstPort.Id);
+			var port = await client.Hardware.GetPortAsync(firstPort.Id, cancellationToken: CancellationToken);
 			port.Should().NotBeNull();
 			port.Id.Should().Be(firstPort.Id);
 		}

@@ -77,9 +77,9 @@ internal class AuthenticatedHttpClientHandler : HttpClientHandler
 
 		var keyValues = new List<KeyValuePair<string, string>>
 		{
-			new KeyValuePair<string, string>("grant_type", "client_credentials"),
-			new KeyValuePair<string, string>("client_id", _clientOptions.ClientId),
-			new KeyValuePair<string, string>("client_secret", _clientOptions.ClientSecret)
+			new("grant_type", "client_credentials"),
+			new("client_id", _clientOptions.ClientId),
+			new("client_secret", _clientOptions.ClientSecret)
 		};
 
 		request.Content = new FormUrlEncodedContent(keyValues);

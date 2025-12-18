@@ -8,6 +8,5 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage(
 	"Naming",
 	"CA1707:Identifiers should not contain underscores",
-	Justification = "Using underscores in the names of unit tests is a defacto standard",
-	Scope = "module"
-	)]
+	Justification = "Using underscores in the names of unit tests is a defacto standard"
+)]

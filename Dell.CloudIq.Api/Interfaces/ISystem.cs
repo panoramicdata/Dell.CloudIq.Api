@@ -1,4 +1,5 @@
-﻿namespace Dell.CloudIq.Api;
+﻿namespace Dell.CloudIq.Api.Interfaces;
+
 public interface ISystem
 {
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>

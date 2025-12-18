@@ -21,7 +21,7 @@ public class MetricsQuery
 	[Required]
 	[MinLength(1)]
 	[MaxLength(999)]
-	public List<string> Ids { get; set; } = new List<string>();
+	public List<string> Ids { get; set; } = [];
 
 	/// <summary>
 	/// List of desired metric names.
@@ -32,7 +32,7 @@ public class MetricsQuery
 	[Required]
 	[MinLength(1)]
 	[MaxLength(99)]
-	public List<string> Metrics { get; set; } = new List<string>();
+	public List<string> Metrics { get; set; } = [];
 
 	[JsonPropertyName("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]

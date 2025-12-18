@@ -6,7 +6,7 @@ public class Response
 	public Paging Paging { get; set; } = new();
 
 	[JsonPropertyName("results")]
-	public List<MetricMetadataInstance> Results { get; set; } = new();
+	public List<MetricMetadataInstance> Results { get; set; } = [];
 
 	private IDictionary<string, object>? _additionalProperties;
 

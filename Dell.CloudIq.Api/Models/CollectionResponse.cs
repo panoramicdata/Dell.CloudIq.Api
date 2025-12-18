@@ -12,7 +12,7 @@ public class CollectionResponse<T>
 	public Paging Paging { get; set; } = new();
 
 	[JsonPropertyName("results")]
-	public List<T> Results { get; set; } = new();
+	public List<T> Results { get; set; } = [];
 
 	private IDictionary<string, object>? _additionalProperties;
 

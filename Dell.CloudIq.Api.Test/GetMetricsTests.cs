@@ -1,20 +1,14 @@
-﻿using FluentAssertions;
-using Xunit.Abstractions;
+﻿namespace Dell.CloudIq.Api.Test;
 
-namespace Dell.CloudIq.Api.Test;
-public class GetMetricsTests : TestBase
+public class GetMetricsTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
-	public GetMetricsTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetMetricMetadataCollection_ReturnsCollection()
 	{
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync();
+		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync(cancellationToken: CancellationToken);
 
 		metricMetadatas.Should().BeOfType<MetricMetadataInstances>();
 		metricMetadatas.Should().NotBeNull();
@@ -26,15 +20,15 @@ public class GetMetricsTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync();
+		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync(cancellationToken: CancellationToken);
 
 		metricMetadatas.Should().BeOfType<MetricMetadataInstances>();
 		metricMetadatas.Should().NotBeNull();
-		if (metricMetadatas.Results.Any())
+		if (metricMetadatas.Results.Count != 0)
 		{
 			var firstMetricMetadata = metricMetadatas.Results.First();
 
-			var metricMetadataInstance = await client.Metrics.GetMetricMetadataInstanceAsync(firstMetricMetadata.Id);
+			var metricMetadataInstance = await client.Metrics.GetMetricMetadataInstanceAsync(firstMetricMetadata.Id, cancellationToken: CancellationToken);
 			metricMetadataInstance.Should().NotBeNull();
 			metricMetadataInstance.Id.Should().Be(firstMetricMetadata.Id);
 		}

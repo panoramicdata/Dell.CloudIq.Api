@@ -1,20 +1,14 @@
-﻿using FluentAssertions;
-using Xunit.Abstractions;
+﻿namespace Dell.CloudIq.Api.Test;
 
-namespace Dell.CloudIq.Api.Test;
-public class GetStorageTests : TestBase
+public class GetStorageTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
-	public GetStorageTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetStorageGroups_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var storageGroups = await client.Storage.GetStorageGroupsAsync();
+		var storageGroups = await client.Storage.GetStorageGroupsAsync(cancellationToken: CancellationToken);
 
 		storageGroups.Should().BeOfType<CollectionResponse<StorageGroup>>();
 		storageGroups.Should().NotBeNull();
@@ -26,15 +20,15 @@ public class GetStorageTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var storageGroups = await client.Storage.GetStorageGroupsAsync();
+		var storageGroups = await client.Storage.GetStorageGroupsAsync(cancellationToken: CancellationToken);
 
 		storageGroups.Should().BeOfType<CollectionResponse<StorageGroup>>();
 		storageGroups.Should().NotBeNull();
-		if (storageGroups.Results.Any())
+		if (storageGroups.Results.Count != 0)
 		{
 			var firstStorageGroup = storageGroups.Results.First();
 
-			var storageGroup = await client.Storage.GetStorageGroupAsync(firstStorageGroup.Id);
+			var storageGroup = await client.Storage.GetStorageGroupAsync(firstStorageGroup.Id, cancellationToken: CancellationToken);
 			storageGroup.Should().NotBeNull();
 			storageGroup.Id.Should().Be(firstStorageGroup.Id);
 		}

@@ -1,4 +1,5 @@
-﻿namespace Dell.CloudIq.Api;
+﻿namespace Dell.CloudIq.Api.Interfaces;
+
 public interface IStorage
 {
 	/// <summary>

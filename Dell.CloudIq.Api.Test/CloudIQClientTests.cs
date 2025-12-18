@@ -1,18 +1,11 @@
-﻿using FluentAssertions;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.Extensions.Logging;
-using Moq;
-using Xunit.Abstractions;
 
 namespace Dell.CloudIq.Api.Test;
 
-public class CloudIQClientTests : TestBase
+public class CloudIQClientTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
-	private readonly Mock<ILogger> _mockLogger;
-	public CloudIQClientTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-		_mockLogger = new Mock<ILogger>();
-	}
+	private readonly Mock<ILogger> _mockLogger = new();
 
 	[Fact]
 	public void CloudIQClientConstructed_WithValidClientOptions_DoesNotThrowException()

@@ -1,18 +1,8 @@
-﻿using AutoFixture;
-using Dell.CloudIq.Api.Helpers;
-using FluentAssertions;
-using Moq;
-using Xunit.Abstractions;
+﻿namespace Dell.CloudIq.Api.Test;
 
-namespace Dell.CloudIq.Api.Test;
-
-public class CloudIQClientHelperTests : TestBase
+public class CloudIQClientHelperTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
-	private readonly Fixture _fixture;
-	public CloudIQClientHelperTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-		_fixture = new Fixture();
-	}
+	private readonly Fixture _fixture = new();
 
 	[Fact]
 	public async Task GetAllAsync_ReturnsAllPages()
@@ -20,7 +10,7 @@ public class CloudIQClientHelperTests : TestBase
 		// Arrange
 		var page1 = new CollectionResponse<CloudIQSystem>
 		{
-			Results = _fixture.Build<CloudIQSystem>().CreateMany(1000).ToList(),
+			Results = [.. _fixture.Build<CloudIQSystem>().CreateMany(1000)],
 			Paging = new Paging
 			{
 				TotalInstances = 1010
@@ -29,7 +19,7 @@ public class CloudIQClientHelperTests : TestBase
 
 		var page2 = new CollectionResponse<CloudIQSystem>
 		{
-			Results = _fixture.Build<CloudIQSystem>().CreateMany(10).ToList(),
+			Results = [.. _fixture.Build<CloudIQSystem>().CreateMany(10)],
 			Paging = new Paging
 			{
 				TotalInstances = 1010
@@ -42,10 +32,10 @@ public class CloudIQClientHelperTests : TestBase
 			.ReturnsAsync(page2);
 
 		// Act
-		var result = await CloudIQClientHelper.GetAllAsync(pageFactoryMock.Object);
+		var result = await CloudIQClientHelper.GetAllAsync(pageFactoryMock.Object, CancellationToken);
 
 		// Assert
-		result.Results.Count.Should().Be(1010);
+		result.Results.Should().HaveCount(1010);
 	}
 
 	[Fact]
@@ -54,7 +44,7 @@ public class CloudIQClientHelperTests : TestBase
 		// Arrange
 		var emptyPage = new CollectionResponse<CloudIQSystem>
 		{
-			Results = new List<CloudIQSystem>(),
+			Results = [],
 			Paging = new Paging
 			{
 				TotalInstances = 0

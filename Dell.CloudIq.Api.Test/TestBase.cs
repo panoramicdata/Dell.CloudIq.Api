@@ -1,16 +1,12 @@
-﻿using Divergic.Logging.Xunit;
-using Microsoft.Extensions.Configuration;
-using Xunit.Abstractions;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace Dell.CloudIq.Api.Test;
-abstract public class TestBase
-{
-	public ICacheLogger Logger { get; }
 
-	protected TestBase(ITestOutputHelper testOutputHelper)
-	{
-		Logger = testOutputHelper.BuildLogger();
-	}
+abstract public class TestBase(ITestOutputHelper testOutputHelper)
+{
+	public ILogger Logger { get; } = testOutputHelper.BuildLogger();
+
+	protected static CancellationToken CancellationToken => TestContext.Current.CancellationToken;
 
 	protected static CloudIqClientOptions GetClientOptions()
 	{

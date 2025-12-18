@@ -1,6 +1,5 @@
 ﻿using Dell.CloudIq.Api.Constants;
 using Dell.CloudIq.Api.Validators;
-using FluentAssertions;
 
 namespace Dell.CloudIq.Api.Test;
 public class CloudIQClientOptionsValidatorTests

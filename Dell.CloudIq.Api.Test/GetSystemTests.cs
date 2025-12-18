@@ -1,22 +1,14 @@
-﻿using FluentAssertions;
-using Refit;
-using System.Text.Json;
-using Xunit.Abstractions;
+﻿namespace Dell.CloudIq.Api.Test;
 
-namespace Dell.CloudIq.Api.Test;
-public class GetSystemTests : TestBase
+public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
-	public GetSystemTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
-	{
-	}
-
 	[Fact]
 	public async Task GetFirmwares_ReturnsList()
 	{
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var firmwares = await client.System.GetFirmwaresAsync();
+		var firmwares = await client.System.GetFirmwaresAsync(cancellationToken: CancellationToken);
 
 		firmwares.Should().BeOfType<CollectionResponse<Firmware>>();
 		firmwares.Should().NotBeNull();
@@ -28,16 +20,16 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var firmwares = await client.System.GetFirmwaresAsync();
+		var firmwares = await client.System.GetFirmwaresAsync(cancellationToken: CancellationToken);
 
 		firmwares.Should().BeOfType<CollectionResponse<Firmware>>();
 		firmwares.Should().NotBeNull();
 
-		if (firmwares.Results.Any())
+		if (firmwares.Results.Count != 0)
 		{
 			var firstFirmware = firmwares.Results.First();
 
-			var firmware = await client.System.GetHciSystemAsync(firstFirmware.Id);
+			var firmware = await client.System.GetHciSystemAsync(firstFirmware.Id, cancellationToken: CancellationToken);
 			firmware.Should().NotBeNull();
 			firmware.Id.Should().Be(firstFirmware.Id);
 		}
@@ -49,7 +41,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var hciSystems = await client.System.GetHciSystemsAsync();
+		var hciSystems = await client.System.GetHciSystemsAsync(cancellationToken: CancellationToken);
 
 		hciSystems.Should().BeOfType<CollectionResponse<HciSystem>>();
 		hciSystems.Should().NotBeNull();
@@ -61,16 +53,16 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var hciSystems = await client.System.GetHciSystemsAsync();
+		var hciSystems = await client.System.GetHciSystemsAsync(cancellationToken: CancellationToken);
 
 		hciSystems.Should().BeOfType<CollectionResponse<HciSystem>>();
 		hciSystems.Should().NotBeNull();
 
-		if (hciSystems.Results.Any())
+		if (hciSystems.Results.Count != 0)
 		{
 			var firstSystem = hciSystems.Results.First();
 
-			var system = await client.System.GetHciSystemAsync(firstSystem.Id);
+			var system = await client.System.GetHciSystemAsync(firstSystem.Id, cancellationToken: CancellationToken);
 			system.Should().NotBeNull();
 			system.Id.Should().Be(firstSystem.Id);
 		}
@@ -82,7 +74,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var networkSystems = await client.System.GetNetworkSystemsAsync();
+		var networkSystems = await client.System.GetNetworkSystemsAsync(cancellationToken: CancellationToken);
 
 		networkSystems.Should().BeOfType<CollectionResponse<NetworkSystem>>();
 		networkSystems.Should().NotBeNull();
@@ -94,16 +86,16 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var networkSystems = await client.System.GetNetworkSystemsAsync();
+		var networkSystems = await client.System.GetNetworkSystemsAsync(cancellationToken: CancellationToken);
 
 		networkSystems.Should().BeOfType<CollectionResponse<NetworkSystem>>();
 		networkSystems.Should().NotBeNull();
 
-		if (networkSystems.Results.Any())
+		if (networkSystems.Results.Count != 0)
 		{
 			var firstNetworkSystem = networkSystems.Results.First();
 
-			var networkSystem = await client.System.GetNetworkSystemAsync(firstNetworkSystem.Id);
+			var networkSystem = await client.System.GetNetworkSystemAsync(firstNetworkSystem.Id, cancellationToken: CancellationToken);
 			networkSystem.Should().NotBeNull();
 			networkSystem.Id.Should().Be(firstNetworkSystem.Id);
 		}
@@ -115,7 +107,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var serverSystems = await client.System.GetServerSystemsAsync();
+		var serverSystems = await client.System.GetServerSystemsAsync(cancellationToken: CancellationToken);
 
 		serverSystems.Should().BeOfType<CollectionResponse<ServerSystem>>();
 		serverSystems.Should().NotBeNull();
@@ -127,16 +119,16 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var serverSystems = await client.System.GetServerSystemsAsync();
+		var serverSystems = await client.System.GetServerSystemsAsync(cancellationToken: CancellationToken);
 
 		serverSystems.Should().BeOfType<CollectionResponse<ServerSystem>>();
 		serverSystems.Should().NotBeNull();
 
-		if (serverSystems.Results.Any())
+		if (serverSystems.Results.Count != 0)
 		{
 			var firstServerSystem = serverSystems.Results.First();
 
-			var serverSystem = await client.System.GetServerSystemAsync(firstServerSystem.Id);
+			var serverSystem = await client.System.GetServerSystemAsync(firstServerSystem.Id, cancellationToken: CancellationToken);
 			serverSystem.Should().NotBeNull();
 			serverSystem.Id.Should().Be(firstServerSystem.Id);
 		}
@@ -148,7 +140,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var storageSystems = await client.System.GetStorageSystemsAsync();
+		var storageSystems = await client.System.GetStorageSystemsAsync(cancellationToken: CancellationToken);
 
 		storageSystems.Should().BeOfType<CollectionResponse<StorageSystem>>();
 		storageSystems.Should().NotBeNull();
@@ -160,16 +152,16 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var storageSystems = await client.System.GetStorageSystemsAsync();
+		var storageSystems = await client.System.GetStorageSystemsAsync(cancellationToken: CancellationToken);
 
 		storageSystems.Should().BeOfType<CollectionResponse<StorageSystem>>();
 		storageSystems.Should().NotBeNull();
 
-		if (storageSystems.Results.Any())
+		if (storageSystems.Results.Count != 0)
 		{
 			var firstSstorageSystem = storageSystems.Results.First();
 
-			var storageSystem = await client.System.GetStorageSystemAsync(firstSstorageSystem.Id);
+			var storageSystem = await client.System.GetStorageSystemAsync(firstSstorageSystem.Id, cancellationToken: CancellationToken);
 			storageSystem.Should().NotBeNull();
 			storageSystem.Id.Should().Be(firstSstorageSystem.Id);
 		}
@@ -193,7 +185,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var systems = await client.System.GetSystemsAllAsync();
+		var systems = await client.System.GetSystemsAllAsync(cancellationToken: CancellationToken);
 
 		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
 		systems.Should().NotBeNull();
@@ -205,7 +197,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var systems = await client.System.GetSystemsAllAsync(filter: "type eq 'POWEREDGE'");
+		var systems = await client.System.GetSystemsAllAsync(filter: "type eq 'POWEREDGE'", cancellationToken: CancellationToken);
 
 		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
 		systems.Should().NotBeNull();
@@ -222,11 +214,11 @@ public class GetSystemTests : TestBase
 		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
 		systems.Should().NotBeNull();
 
-		if (systems.Results.Any())
+		if (systems.Results.Count != 0)
 		{
 			var firstSystem = systems.Results.First();
 
-			var system = await client.System.GetSystemAsync(firstSystem.Id);
+			var system = await client.System.GetSystemAsync(firstSystem.Id, cancellationToken: CancellationToken);
 			system.Should().NotBeNull();
 			system.Id.Should().Be(firstSystem.Id);
 		}
@@ -250,7 +242,7 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var systems = await client.System.GetSystemsAsync(select: new() { "id", "model" });
+		var systems = await client.System.GetSystemsAsync(select: ["id", "model"]);
 
 		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
 		systems.Should().NotBeNull();
@@ -262,10 +254,11 @@ public class GetSystemTests : TestBase
 		var clientOptions = GetClientOptions();
 		var client = new CloudIqClient(clientOptions, Logger);
 
-		var exception = await Assert.ThrowsAsync<ApiException>(() => client.System.GetSystemsAsync(filter: "<string>"));
-		exception.StatusCode.Should().Be(System.Net.HttpStatusCode.InternalServerError);
+		var act = () => client.System.GetSystemsAsync(filter: "<string>");
+		var exception = await act.Should().ThrowAsync<ApiException>();
+		exception.Which.StatusCode.Should().Be(System.Net.HttpStatusCode.InternalServerError);
 
-		var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(exception.Content!);
+		var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(exception.Which.Content!);
 
 		errorResponse.Should().NotBeNull();
 		errorResponse!.Messages.First().Message.Should().Contain("Invalid Filter");

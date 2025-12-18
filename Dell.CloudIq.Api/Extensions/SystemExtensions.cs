@@ -1,6 +1,4 @@
-﻿using Dell.CloudIq.Api.Helpers;
-
-namespace Dell.CloudIq.Api;
+﻿namespace Dell.CloudIq.Api.Extensions;
 
 public static class SystemExtensions
 {
