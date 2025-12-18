@@ -99,7 +99,12 @@ if ($SkipTests) {
 # Step 5: Build and pack
 Write-Step "Building and packing..."
 
-dotnet pack Dell.CloudIq.Api\Dell.CloudIq.Api.csproj --configuration Release --no-restore
+dotnet build Dell.CloudIq.Api\Dell.CloudIq.Api.csproj --configuration Release
+if ($LASTEXITCODE -ne 0) {
+    Exit-WithError "Failed to build the project."
+}
+
+dotnet pack Dell.CloudIq.Api\Dell.CloudIq.Api.csproj --configuration Release --no-build
 if ($LASTEXITCODE -ne 0) {
     Exit-WithError "Failed to pack the project."
 }
