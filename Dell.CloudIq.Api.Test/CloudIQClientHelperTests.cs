@@ -56,7 +56,7 @@ public class CloudIQClientHelperTests(ITestOutputHelper testOutputHelper) : Test
 			.ReturnsAsync(emptyPage);
 
 		// Act
-		var result = await CloudIQClientHelper.GetAllAsync(pageFactoryMock.Object);
+		var result = await CloudIQClientHelper.GetAllAsync(pageFactoryMock.Object, cancellationToken: CancellationToken);
 
 		// Assert
 		result.Results.Should().BeEmpty();
