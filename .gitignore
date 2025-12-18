@@ -399,3 +399,6 @@ FodyWeavers.xsd
 /Dell.CloudIQ.Api/.editorconfig
 /Dell.CloudIQ.Api/version.json
 /.gitignore
+
+# NuGet API key
+nuget-key.txt
