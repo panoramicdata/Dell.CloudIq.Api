@@ -34,15 +34,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FluentValidation" Version="12.1.1" />
-		<PackageReference Include="Macross.Json.Extensions" Version="3.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.1" />
-		<PackageReference Include="Refit" Version="9.0.2" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.9.50">
+		<PackageReference Include="FluentValidation" />
+		<PackageReference Include="Macross.Json.Extensions" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+		<PackageReference Include="Refit" />
+		<PackageReference Include="Nerdbank.GitVersioning">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
+		<PackageReference Include="SecurityCodeScan.VS2019">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
