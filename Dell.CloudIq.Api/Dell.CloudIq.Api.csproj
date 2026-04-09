@@ -1,47 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<Title>Dell.CloudIq.Api</Title>
-		<Description>A .NET API client for Dell's CloudIQ REST API</Description>
-		<Summary>A .NET API client for Dell CloudIQ</Summary>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<PackageTags>Dell CloudIQ API REST Client</PackageTags>
-		<PackageProjectUrl>https://github.com/panoramicdata/Dell.CloudIQ.Api</PackageProjectUrl>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/panoramicdata/Dell.CloudIQ.Api</RepositoryUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<PackageIcon>Icon.png</PackageIcon>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="FluentValidation" />
-		<PackageReference Include="Macross.Json.Extensions" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
-		<PackageReference Include="Refit" />
-		<PackageReference Include="Nerdbank.GitVersioning">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="SecurityCodeScan.VS2019">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Remove="Icon.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="Icon.png" Pack="true" PackagePath="" />
-		<None Include="../README.md" Pack="true" PackagePath="" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<InternalsVisibleTo Include="$(AssemblyName).Test" />
-	</ItemGroup>
+  <PropertyGroup>
+    <Title>Dell.CloudIq.Api</Title>
+    <Description>A .NET API client for Dell's CloudIQ REST API</Description>
+    <Summary>A .NET API client for Dell CloudIQ</Summary>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>Dell CloudIQ API REST Client</PackageTags>
+    <PackageProjectUrl>https://github.com/panoramicdata/Dell.CloudIQ.Api</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/panoramicdata/Dell.CloudIQ.Api</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageIcon>Icon.png</PackageIcon>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>Dell.CloudIq.Api</PackageId>
+    <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="Macross.Json.Extensions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Refit" />
+    <PackageReference Include="Nerdbank.GitVersioning">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SecurityCodeScan.VS2019">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icon.png" Pack="true" PackagePath="" />
+    <None Include="../README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(AssemblyName).Test" />
+  </ItemGroup>
 </Project>
