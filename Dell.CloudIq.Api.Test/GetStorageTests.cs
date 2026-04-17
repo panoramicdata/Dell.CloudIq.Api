@@ -1,7 +1,10 @@
 ﻿namespace Dell.CloudIq.Api.Test;
 
+/// <summary>Integration tests for Dell CloudIQ storage endpoints.</summary>
+/// <param name="testOutputHelper">The xUnit test output helper.</param>
 public class GetStorageTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
+	/// <summary>Verifies that GetStorageGroupsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetStorageGroups_ReturnsList()
 	{
@@ -14,6 +17,7 @@ public class GetStorageTests(ITestOutputHelper testOutputHelper) : TestBase(test
 		storageGroups.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetStorageGroupAsync returns the correct storage group by ID.</summary>
 	[Fact]
 	public async Task GetStorageGroup_ReturnsGroup()
 	{

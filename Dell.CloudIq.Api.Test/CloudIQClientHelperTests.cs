@@ -1,9 +1,12 @@
 ﻿namespace Dell.CloudIq.Api.Test;
 
+/// <summary>Tests for <see cref="CloudIQClientHelper"/>.</summary>
+/// <param name="testOutputHelper">The xUnit test output helper.</param>
 public class CloudIQClientHelperTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
 	private readonly Fixture _fixture = new();
 
+	/// <summary>Verifies that GetAllAsync retrieves all pages and returns the full result set.</summary>
 	[Fact]
 	public async Task GetAllAsync_ReturnsAllPages()
 	{
@@ -38,6 +41,7 @@ public class CloudIQClientHelperTests(ITestOutputHelper testOutputHelper) : Test
 		result.Results.Should().HaveCount(1010);
 	}
 
+	/// <summary>Verifies that GetAllAsync returns an empty result when there are no pages.</summary>
 	[Fact]
 	public async Task GetAllAsync_EmptyResult_NoPages()
 	{

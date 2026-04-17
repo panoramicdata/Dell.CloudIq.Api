@@ -1,7 +1,10 @@
 ﻿namespace Dell.CloudIq.Api.Test;
 
+/// <summary>Integration tests for Dell CloudIQ system endpoints.</summary>
+/// <param name="testOutputHelper">The xUnit test output helper.</param>
 public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
+	/// <summary>Verifies that GetFirmwaresAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetFirmwares_ReturnsList()
 	{
@@ -14,6 +17,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		firmwares.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetHciSystemAsync returns the correct firmware by ID.</summary>
 	[Fact]
 	public async Task GetFirmware_ReturnsFirmware()
 	{
@@ -35,6 +39,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		}
 	}
 
+	/// <summary>Verifies that GetHciSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetHciSystems_ReturnsList()
 	{
@@ -47,6 +52,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		hciSystems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetHciSystemAsync returns the correct HCI system by ID.</summary>
 	[Fact]
 	public async Task GetHciSystem_ReturnsSystem()
 	{
@@ -68,6 +74,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		}
 	}
 
+	/// <summary>Verifies that GetNetworkSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetNetworkSystems_ReturnsList()
 	{
@@ -80,6 +87,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		networkSystems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetNetworkSystemAsync returns the correct network system by ID.</summary>
 	[Fact]
 	public async Task GetNetworkSystem_ReturnsNetworkSystem()
 	{
@@ -101,6 +109,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		}
 	}
 
+	/// <summary>Verifies that GetServerSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetServerSystems_ReturnsList()
 	{
@@ -113,6 +122,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		serverSystems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetServerSystemAsync returns the correct server system by ID.</summary>
 	[Fact]
 	public async Task GetServerSystem_ReturnsServerSystem()
 	{
@@ -134,6 +144,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		}
 	}
 
+	/// <summary>Verifies that GetStorageSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetStorageSystems_ReturnsList()
 	{
@@ -146,6 +157,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		storageSystems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetStorageSystemAsync returns the correct storage system by ID.</summary>
 	[Fact]
 	public async Task GetStorageSystem_ReturnsServerSystem()
 	{
@@ -167,6 +179,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		}
 	}
 
+	/// <summary>Verifies that GetSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetSystems_ReturnsList()
 	{
@@ -179,6 +192,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		systems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetSystemsAllAsync retrieves all systems across all pages.</summary>
 	[Fact]
 	public async Task GetSystemsAll_ReturnsAll()
 	{
@@ -191,6 +205,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		systems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetSystemsAllAsync with a filter retrieves only matching systems.</summary>
 	[Fact]
 	public async Task GetSystemsAll_WithFilter_ReturnsAllFiltered()
 	{
@@ -203,6 +218,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		systems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetSystemAsync returns the correct system by ID.</summary>
 	[Fact]
 	public async Task GetSystem_ReturnsSystem()
 	{
@@ -224,6 +240,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		}
 	}
 
+	/// <summary>Verifies that GetSystemsAsync with a filter returns only matching systems.</summary>
 	[Fact]
 	public async Task GetSystems_WithFilter_ReturnsList()
 	{
@@ -236,6 +253,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		systems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetSystemsAsync with a select list returns only the requested properties.</summary>
 	[Fact]
 	public async Task GetSystems_WithSelect_ReturnsList()
 	{
@@ -248,6 +266,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 		systems.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetSystemsAsync with an invalid filter throws an <see cref="ApiException"/>.</summary>
 	[Fact]
 	public async Task GetSystems_WithInvalidFilter_ReturnsError()
 	{

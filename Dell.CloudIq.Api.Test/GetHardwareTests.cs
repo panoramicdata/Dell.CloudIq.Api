@@ -1,7 +1,10 @@
 ﻿namespace Dell.CloudIq.Api.Test;
 
+/// <summary>Integration tests for Dell CloudIQ hardware endpoints.</summary>
+/// <param name="testOutputHelper">The xUnit test output helper.</param>
 public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
+	/// <summary>Verifies that GetEsxiHostsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetESXiHosts_ReturnsList()
 	{
@@ -14,6 +17,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 		eSXiHosts.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetEsxiHostsAllAsync retrieves all ESXi hosts across all pages.</summary>
 	[Fact]
 	public async Task GetESXiHostsAll_ReturnsAll()
 	{
@@ -26,6 +30,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 		eSXiHosts.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetEsxiHostAsync returns the correct ESXi host by ID.</summary>
 	[Fact]
 	public async Task GetESXiHost_ReturnsESXiHost()
 	{
@@ -46,6 +51,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 		}
 	}
 
+	/// <summary>Verifies that GetPortsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetPorts_ReturnsList()
 	{
@@ -58,6 +64,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 		ports.Should().NotBeNull();
 	}
 
+	/// <summary>Verifies that GetPortAsync returns the correct port by ID.</summary>
 	[Fact]
 	public async Task GetPort_ReturnsPort()
 	{
