@@ -16,18 +16,22 @@ namespace Dell.CloudIq.Api;
 public enum MetricsInterval
 {
 
+	/// <summary>Five-minute interval.</summary>
 	[JsonPropertyName("PT5M")]
 	PT5M = 0,
 
 
+	/// <summary>Fifteen-minute interval.</summary>
 	[JsonPropertyName("PT15M")]
 	PT15M = 1,
 
 
+	/// <summary>One-hour interval.</summary>
 	[JsonPropertyName("PT1H")]
 	PT1H = 2,
 
 
+	/// <summary>One-day interval.</summary>
 	[JsonPropertyName("P1D")]
 	P1D = 3,
 

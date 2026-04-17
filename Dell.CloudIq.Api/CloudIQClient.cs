@@ -48,11 +48,15 @@ public class CloudIqClient
 		validator.ValidateAndThrow(clientOptions);
 	}
 
+	/// <summary>Gets the hardware API client for accessing ESXi hosts and ports.</summary>
 	public IHardware Hardware { get; set; }
 
+	/// <summary>Gets the metrics API client for querying metric metadata and metrics.</summary>
 	public IMetrics Metrics { get; set; }
 
+	/// <summary>Gets the storage API client for accessing storage resources.</summary>
 	public IStorage Storage { get; set; }
 
+	/// <summary>Gets the system API client for accessing system information, firmware, servers, and networks.</summary>
 	public ISystem System { get; set; }
 }

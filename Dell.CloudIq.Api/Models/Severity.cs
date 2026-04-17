@@ -18,18 +18,22 @@ namespace Dell.CloudIq.Api;
 public enum Severity
 {
 
+	/// <summary>Information that may be of use in understanding the failure. It is not a problem to fix.</summary>
 	[JsonPropertyName("INFO")]
 	INFO = 0,
 
 
+	/// <summary>A condition that is not a failure, but may be unexpected or a contributing factor.</summary>
 	[JsonPropertyName("WARNING")]
 	WARNING = 1,
 
 
+	/// <summary>An actual failure condition through which the request could not continue.</summary>
 	[JsonPropertyName("ERROR")]
 	ERROR = 2,
 
 
+	/// <summary>A failure with significant impact to the system.</summary>
 	[JsonPropertyName("CRITICAL")]
 	CRITICAL = 3,
 

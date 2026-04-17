@@ -12,9 +12,11 @@ namespace Dell.CloudIq.Api;
 [JsonConverter(typeof(JsonStringEnumMemberConverter))]
 public enum MetricMetadataCategory
 {
+	/// <summary>Performance metrics such as latency and throughput measures.</summary>
 	[JsonPropertyName("PERF")]
 	PERF = 0,
 
+	/// <summary>Capacity metrics, primarily for storage. All values in bytes.</summary>
 	[JsonPropertyName("SPACE")]
 	SPACE = 1,
 }

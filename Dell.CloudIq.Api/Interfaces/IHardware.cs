@@ -1,5 +1,8 @@
 ﻿namespace Dell.CloudIq.Api.Interfaces;
 
+/// <summary>
+/// Provides access to Dell CloudIQ hardware resources (ESXi hosts and ports).
+/// </summary>
 public interface IHardware
 {
 	/// <summary>

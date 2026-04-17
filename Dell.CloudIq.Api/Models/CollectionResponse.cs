@@ -8,14 +8,17 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public class CollectionResponse<T>
 {
+	/// <summary>Gets or sets the paging metadata for this response.</summary>
 	[JsonPropertyName("paging")]
 	public Paging Paging { get; set; } = new();
 
+	/// <summary>Gets or sets the list of result instances.</summary>
 	[JsonPropertyName("results")]
 	public List<T> Results { get; set; } = [];
 
 	private IDictionary<string, object>? _additionalProperties;
 
+	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties
 	{

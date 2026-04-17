@@ -11,12 +11,15 @@ namespace Dell.CloudIq.Api;
 public enum MetricMetadataType
 {
 
+	/// <summary>A value that can vary up and down such as a temperature. Integer or number type.</summary>
 	[JsonPropertyName("FACT")]
 	FACT = 0,
 
+	/// <summary>A calculated rate, normally as (counter change)/(time interval in seconds). Integer or number type.</summary>
 	[JsonPropertyName("RATE")]
 	RATE = 1,
 
+	/// <summary>An increasing value, not reset between reads, such as a read IO counter. Always integer type.</summary>
 	[JsonPropertyName("COUNTER")]
 	COUNTER = 2,
 }

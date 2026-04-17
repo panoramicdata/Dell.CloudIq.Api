@@ -1,5 +1,8 @@
-﻿namespace Dell.CloudIq.Api.Interfaces;
+namespace Dell.CloudIq.Api.Interfaces;
 
+/// <summary>
+/// Provides access to Dell CloudIQ metric metadata and metric query operations.
+/// </summary>
 public interface IMetrics
 {
 	/// <summary>
@@ -40,6 +43,7 @@ public interface IMetrics
 	/// <remarks>
 	/// Perform a metrics query to the system. Responses are always in timestamp granularity - either all requested data for a timestamp is returned, or none.
 	/// </remarks>
+	/// <param name="body">The metrics query specifying resource type, IDs, metrics, and time range.</param>
 	/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 	/// <returns>OK</returns>
 	/// <exception cref="ApiException">A server side error occurred.</exception>

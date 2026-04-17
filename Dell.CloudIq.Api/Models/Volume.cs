@@ -218,6 +218,7 @@ public class Volume
 
 	private IDictionary<string, object>? _additionalProperties;
 
+	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties
 	{

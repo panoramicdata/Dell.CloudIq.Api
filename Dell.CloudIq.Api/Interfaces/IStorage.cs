@@ -1,5 +1,8 @@
 ﻿namespace Dell.CloudIq.Api.Interfaces;
 
+/// <summary>
+/// Provides access to Dell CloudIQ storage resources.
+/// </summary>
 public interface IStorage
 {
 	/// <summary>

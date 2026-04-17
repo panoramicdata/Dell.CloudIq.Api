@@ -17,6 +17,7 @@ public class ErrorMessages
 	[JsonPropertyName("timestamp")]
 	public long Timestamp { get; set; }
 
+	/// <summary>Gets or sets the severity of the error message.</summary>
 	[JsonPropertyName("severity")]
 	public Severity Severity { get; set; }
 
@@ -40,6 +41,7 @@ public class ErrorMessages
 
 	private IDictionary<string, object>? _additionalProperties;
 
+	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties
 	{

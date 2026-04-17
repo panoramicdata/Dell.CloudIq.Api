@@ -6,6 +6,7 @@ namespace Dell.CloudIq.Api;
 /// </summary>
 public class MetricsQuery
 {
+	/// <summary>Gets or sets the resource type for which to query metrics.</summary>
 	[JsonPropertyName("resource_type")]
 
 	[StringLength(int.MaxValue, MinimumLength = 1)]
@@ -34,6 +35,7 @@ public class MetricsQuery
 	[MaxLength(99)]
 	public List<string> Metrics { get; set; } = [];
 
+	/// <summary>Gets or sets the rollup interval for the returned metrics.</summary>
 	[JsonPropertyName("interval")]
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
@@ -61,6 +63,7 @@ public class MetricsQuery
 
 	private IDictionary<string, object>? _additionalProperties;
 
+	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
 	[JsonExtensionData]
 	public IDictionary<string, object> AdditionalProperties
 	{
