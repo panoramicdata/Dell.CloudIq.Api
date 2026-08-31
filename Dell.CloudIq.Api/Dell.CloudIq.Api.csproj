@@ -7,9 +7,9 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>Dell CloudIQ API REST Client</PackageTags>
-    <PackageProjectUrl>https://github.com/panoramicdata/Dell.CloudIQ.Api</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/panoramicdata/Dell.CloudIq.Api</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/panoramicdata/Dell.CloudIQ.Api</RepositoryUrl>
+    <RepositoryUrl>https://github.com/panoramicdata/Dell.CloudIq.Api</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <IncludeSymbols>true</IncludeSymbols>
