@@ -8,8 +8,7 @@ public class GetMetricsTests(ITestOutputHelper testOutputHelper) : TestBase(test
 	[Fact]
 	public async Task GetMetricMetadataCollection_ReturnsCollection()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync(cancellationToken: CancellationToken);
 
@@ -21,8 +20,7 @@ public class GetMetricsTests(ITestOutputHelper testOutputHelper) : TestBase(test
 	[Fact]
 	public async Task GetMetricMetadataInstance_ReturnsMetricMetadataInstance()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var metricMetadatas = await client.Metrics.GetMetricMetadataCollectionAsync(cancellationToken: CancellationToken);
 

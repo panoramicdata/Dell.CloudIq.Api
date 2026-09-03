@@ -26,6 +26,11 @@ Thank you for your interest in contributing to this project!
 - Use xUnit v3 for all tests
 - Use AwesomeAssertions for fluent assertions
 - Ensure all existing tests pass before submitting a PR
+- The tests that call CloudIQ need credentials. Copy `Dell.CloudIq.Api.Test/userSecrets.example.json`
+  into the test project's user secrets and fill in your own `ClientId`, `ClientSecret` and `BaseUri`.
+  The same values can be supplied as the `CLOUDIQ_ClientId`, `CLOUDIQ_ClientSecret` and
+  `CLOUDIQ_BaseUri` environment variables, which is how CI provides them. Without them, those tests
+  report as skipped rather than failed
 
 ## License
 

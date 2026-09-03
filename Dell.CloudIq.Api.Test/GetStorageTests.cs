@@ -8,8 +8,7 @@ public class GetStorageTests(ITestOutputHelper testOutputHelper) : TestBase(test
 	[Fact]
 	public async Task GetStorageGroups_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var storageGroups = await client.Storage.GetStorageGroupsAsync(cancellationToken: CancellationToken);
 
@@ -21,8 +20,7 @@ public class GetStorageTests(ITestOutputHelper testOutputHelper) : TestBase(test
 	[Fact]
 	public async Task GetStorageGroup_ReturnsGroup()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var storageGroups = await client.Storage.GetStorageGroupsAsync(cancellationToken: CancellationToken);
 

@@ -8,8 +8,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetFirmwares_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var firmwares = await client.System.GetFirmwaresAsync(cancellationToken: CancellationToken);
 
@@ -21,8 +20,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetFirmware_ReturnsFirmware()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var firmwares = await client.System.GetFirmwaresAsync(cancellationToken: CancellationToken);
 
@@ -43,8 +41,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetHciSystems_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var hciSystems = await client.System.GetHciSystemsAsync(cancellationToken: CancellationToken);
 
@@ -56,8 +53,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetHciSystem_ReturnsSystem()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var hciSystems = await client.System.GetHciSystemsAsync(cancellationToken: CancellationToken);
 
@@ -78,8 +74,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetNetworkSystems_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var networkSystems = await client.System.GetNetworkSystemsAsync(cancellationToken: CancellationToken);
 
@@ -91,8 +86,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetNetworkSystem_ReturnsNetworkSystem()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var networkSystems = await client.System.GetNetworkSystemsAsync(cancellationToken: CancellationToken);
 
@@ -113,8 +107,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetServerSystems_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var serverSystems = await client.System.GetServerSystemsAsync(cancellationToken: CancellationToken);
 
@@ -126,8 +119,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetServerSystem_ReturnsServerSystem()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var serverSystems = await client.System.GetServerSystemsAsync(cancellationToken: CancellationToken);
 
@@ -148,8 +140,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetStorageSystems_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var storageSystems = await client.System.GetStorageSystemsAsync(cancellationToken: CancellationToken);
 
@@ -161,8 +152,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetStorageSystem_ReturnsServerSystem()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var storageSystems = await client.System.GetStorageSystemsAsync(cancellationToken: CancellationToken);
 
@@ -183,8 +173,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetSystems_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var systems = await client.System.GetSystemsAsync();
 
@@ -196,8 +185,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetSystemsAll_ReturnsAll()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var systems = await client.System.GetSystemsAllAsync(cancellationToken: CancellationToken);
 
@@ -209,8 +197,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetSystemsAll_WithFilter_ReturnsAllFiltered()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var systems = await client.System.GetSystemsAllAsync(filter: "type eq 'POWEREDGE'", cancellationToken: CancellationToken);
 
@@ -222,8 +209,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetSystem_ReturnsSystem()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var systems = await client.System.GetSystemsAsync();
 
@@ -244,8 +230,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetSystems_WithFilter_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var systems = await client.System.GetSystemsAsync(filter: "type eq 'POWEREDGE'");
 
@@ -257,8 +242,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetSystems_WithSelect_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var systems = await client.System.GetSystemsAsync(select: ["id", "model"]);
 
@@ -270,8 +254,7 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	[Fact]
 	public async Task GetSystems_WithInvalidFilter_ReturnsError()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var act = () => client.System.GetSystemsAsync(filter: "<string>");
 		var exception = await act.Should().ThrowAsync<ApiException>();

@@ -8,8 +8,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 	[Fact]
 	public async Task GetESXiHosts_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync(cancellationToken: CancellationToken);
 
@@ -21,8 +20,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 	[Fact]
 	public async Task GetESXiHostsAll_ReturnsAll()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var eSXiHosts = await client.Hardware.GetEsxiHostsAllAsync(cancellationToken: CancellationToken);
 
@@ -34,8 +32,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 	[Fact]
 	public async Task GetESXiHost_ReturnsESXiHost()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync(cancellationToken: CancellationToken);
 
@@ -55,8 +52,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 	[Fact]
 	public async Task GetPorts_ReturnsList()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var ports = await client.Hardware.GetPortsAsync(cancellationToken: CancellationToken);
 
@@ -68,8 +64,7 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 	[Fact]
 	public async Task GetPort_ReturnsPort()
 	{
-		var clientOptions = GetClientOptions();
-		var client = new CloudIqClient(clientOptions, Logger);
+		var client = CreateClient();
 
 		var ports = await client.Hardware.GetPortsAsync(cancellationToken: CancellationToken);
 
