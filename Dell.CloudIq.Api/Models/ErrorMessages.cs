@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// A message describing the failure, a contributing factor to the \nfailure, or possibly the aftermath of the failure.
 /// </summary>
-public class ErrorMessages
+public class ErrorMessages : CloudIqModel
 {
 	/// <summary>
 	/// Identifier for this kind of message. This is a string that can be used to look up additional information on the support website. \n(Note - specific format can be determined by platform - hex value codes are common in Midrange.)
@@ -38,14 +38,4 @@ public class ErrorMessages
 	/// </summary>
 	[JsonPropertyName("arguments")]
 	public List<object>? Arguments { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

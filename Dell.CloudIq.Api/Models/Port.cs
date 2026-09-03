@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The port object.
 /// </summary>
-public class Port
+public class Port : CloudIqModel
 {
 	/// <summary>
 	/// The port ID.
@@ -101,14 +101,4 @@ public class Port
 	/// </summary>
 	[JsonPropertyName("wwn_or_mac_address")]
 	public string? WwnOrMacAddress { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

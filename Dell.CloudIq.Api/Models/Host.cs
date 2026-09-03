@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The host object.
 /// </summary>
-public class Host
+public class Host : CloudIqModel
 {
 	/// <summary>
 	/// Host identifier.
@@ -107,14 +107,4 @@ public class Host
 	/// </summary>
 	[JsonPropertyName("total_size")]
 	public long? TotalSize { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

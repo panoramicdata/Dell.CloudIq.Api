@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The Vmax Storage Resource Pool.
 /// </summary>
-public class Srp
+public class Srp : CloudIqModel
 {
 	/// <summary>
 	/// The system ID.
@@ -617,14 +617,4 @@ public class Srp
 	/// </summary>
 	[JsonPropertyName("used_usable_size")]
 	public long? UsedUsableSize { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The server system object.
 /// </summary>
-public class ServerSystem
+public class ServerSystem : CloudIqModel
 {
 	/// <summary>
 	/// Identifier for the system.
@@ -383,14 +383,4 @@ public class ServerSystem
 	/// </summary>
 	[JsonPropertyName("zip_code")]
 	public string? ZipCode { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

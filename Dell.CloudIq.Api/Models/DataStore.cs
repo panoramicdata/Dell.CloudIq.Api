@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The datastore object.
 /// </summary>
-public class DataStore
+public class DataStore : CloudIqModel
 {
 	/// <summary>
 	/// Unique identifier of the datastore object.
@@ -70,15 +70,4 @@ public class DataStore
 	/// </summary>
 	[JsonPropertyName("used_size")]
 	public long? UsedSize { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
-
 }

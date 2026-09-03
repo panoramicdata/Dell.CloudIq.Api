@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The virtual machine object.
 /// </summary>
-public class VirtualMachine
+public class VirtualMachine : CloudIqModel
 {
 	/// <summary>
 	/// Identifier of the virtual machine.
@@ -65,14 +65,4 @@ public class VirtualMachine
 	/// </summary>
 	[JsonPropertyName("system_tags")]
 	public object? SystemTags { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

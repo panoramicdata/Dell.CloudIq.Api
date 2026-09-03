@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The drive object.
 /// </summary>
-public class Drive
+public class Drive : CloudIqModel
 {
 	/// <summary>
 	/// Identifier of the drive.
@@ -221,14 +221,4 @@ public class Drive
 	/// </summary>
 	[JsonPropertyName("version")]
 	public string? Version { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

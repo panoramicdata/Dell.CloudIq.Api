@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The volume object.
 /// </summary>
-public class Volume
+public class Volume : CloudIqModel
 {
 	/// <summary>
 	/// Identifier of the volume.
@@ -215,14 +215,4 @@ public class Volume
 	/// </summary>
 	[JsonPropertyName("used_size_unique")]
 	public long? UsedSizeUnique { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

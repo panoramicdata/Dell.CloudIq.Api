@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Firmware information of the system. This includes the version of firmware on the system.
 /// </summary>
-public class Firmware
+public class Firmware : CloudIqModel
 {
 	/// <summary>
 	/// Identifier of the data firmware system.
@@ -137,14 +137,4 @@ public class Firmware
 	/// </summary>
 	[JsonPropertyName("version")]
 	public string? Version { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

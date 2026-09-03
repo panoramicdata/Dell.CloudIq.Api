@@ -4,7 +4,7 @@ namespace Dell.CloudIq.Api;
 /// Metrics query operation request body, specifying the desired metrics.
 /// <br/>
 /// </summary>
-public class MetricsQuery
+public class MetricsQuery : CloudIqModel
 {
 	/// <summary>Gets or sets the resource type for which to query metrics.</summary>
 	[JsonPropertyName("resource_type")]
@@ -60,15 +60,4 @@ public class MetricsQuery
 	/// </summary>
 	[JsonPropertyName("to")]
 	public long? To { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
-
 }

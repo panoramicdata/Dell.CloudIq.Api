@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Properties of a metric-metadata instance as available from a specific resource type.
 /// </summary>
-public class MetricMetadataInstance
+public class MetricMetadataInstance : CloudIqModel
 {
 	/// <summary>
 	/// Unique identifier of a metric metadata resource.
@@ -52,14 +52,4 @@ public class MetricMetadataInstance
 	[StringLength(int.MaxValue, MinimumLength = 1)]
 	[JsonConverter(typeof(JsonStringEnumMemberConverter))]
 	public MetricsInterval? Interval { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

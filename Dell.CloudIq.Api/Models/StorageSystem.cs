@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The storage system.
 /// </summary>
-public class StorageSystem
+public class StorageSystem : CloudIqModel
 {
 	/// <summary>
 	/// Identifier for the storage system.
@@ -329,14 +329,4 @@ public class StorageSystem
 	/// </summary>
 	[JsonPropertyName("zip_code")]
 	public string? ZipCode { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

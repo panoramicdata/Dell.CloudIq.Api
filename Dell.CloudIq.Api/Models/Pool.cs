@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The pool object.
 /// </summary>
-public class Pool
+public class Pool : CloudIqModel
 {
 	/// <summary>
 	/// Identifier of the pool.
@@ -119,14 +119,4 @@ public class Pool
 	/// </summary>
 	[JsonPropertyName("used_size")]
 	public long? UsedSize { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

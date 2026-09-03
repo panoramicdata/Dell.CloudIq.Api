@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Basic information about the system.
 /// </summary>
-public class BasicSystemInformation
+public class BasicSystemInformation : CloudIqModel
 {
 	/// <summary>
 	/// Unique identifier of the basic-system-info. This is a singleton, so the id is always "0"
@@ -40,14 +40,4 @@ public class BasicSystemInformation
 	/// </summary>
 	[JsonPropertyName("supported_api_versions")]
 	public List<string>? SupportedApiVersions { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

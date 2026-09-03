@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The file system object.
 /// </summary>
-public class Filesystem
+public class Filesystem : CloudIqModel
 {
 	/// <summary>
 	/// Identifier of the file system.
@@ -191,14 +191,4 @@ public class Filesystem
 	/// </summary>
 	[JsonPropertyName("used_size")]
 	public long? UsedSize { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

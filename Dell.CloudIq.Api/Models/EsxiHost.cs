@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// Esxi Host
 /// </summary>
-public class EsxiHost
+public class EsxiHost : CloudIqModel
 {
 	/// <summary>
 	/// Unique identifier of the host.
@@ -65,14 +65,4 @@ public class EsxiHost
 	/// </summary>
 	[JsonPropertyName("version")]
 	public string? Version { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }

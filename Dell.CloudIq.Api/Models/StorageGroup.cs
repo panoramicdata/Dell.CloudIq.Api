@@ -3,7 +3,7 @@ namespace Dell.CloudIq.Api;
 /// <summary>
 /// The Vmax StorageGroups.
 /// </summary>
-public class StorageGroup
+public class StorageGroup : CloudIqModel
 {
 	/// <summary>
 	/// The system ID.
@@ -251,14 +251,4 @@ public class StorageGroup
 	/// </summary>
 	[JsonPropertyName("volume_count")]
 	public long? VolumeCount { get; set; }
-
-	private IDictionary<string, object>? _additionalProperties;
-
-	/// <summary>Gets or sets additional properties not explicitly defined in the schema.</summary>
-	[JsonExtensionData]
-	public IDictionary<string, object> AdditionalProperties
-	{
-		get { return _additionalProperties ??= new Dictionary<string, object>(); }
-		set { _additionalProperties = value; }
-	}
 }
