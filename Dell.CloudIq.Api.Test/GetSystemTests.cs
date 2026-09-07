@@ -7,248 +7,108 @@ public class GetSystemTests(ITestOutputHelper testOutputHelper) : TestBase(testO
 	/// <summary>Verifies that GetFirmwaresAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetFirmwares_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var firmwares = await client.System.GetFirmwaresAsync(cancellationToken: CancellationToken);
-
-		firmwares.Should().BeOfType<CollectionResponse<Firmware>>();
-		firmwares.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.System.GetFirmwaresAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetHciSystemAsync returns the correct firmware by ID.</summary>
 	[Fact]
 	public async Task GetFirmware_ReturnsFirmware()
-	{
-		var client = CreateClient();
-
-		var firmwares = await client.System.GetFirmwaresAsync(cancellationToken: CancellationToken);
-
-		firmwares.Should().BeOfType<CollectionResponse<Firmware>>();
-		firmwares.Should().NotBeNull();
-
-		if (firmwares.Results.Count != 0)
-		{
-			var firstFirmware = firmwares.Results.First();
-
-			var firmware = await client.System.GetHciSystemAsync(firstFirmware.Id, cancellationToken: CancellationToken);
-			firmware.Should().NotBeNull();
-			firmware.Id.Should().Be(firstFirmware.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.System.GetFirmwaresAsync(cancellationToken: CancellationToken),
+			(client, id) => client.System.GetHciSystemAsync(id, cancellationToken: CancellationToken),
+			firmware => firmware.Id,
+			hciSystem => hciSystem.Id);
 
 	/// <summary>Verifies that GetHciSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetHciSystems_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var hciSystems = await client.System.GetHciSystemsAsync(cancellationToken: CancellationToken);
-
-		hciSystems.Should().BeOfType<CollectionResponse<HciSystem>>();
-		hciSystems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.System.GetHciSystemsAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetHciSystemAsync returns the correct HCI system by ID.</summary>
 	[Fact]
 	public async Task GetHciSystem_ReturnsSystem()
-	{
-		var client = CreateClient();
-
-		var hciSystems = await client.System.GetHciSystemsAsync(cancellationToken: CancellationToken);
-
-		hciSystems.Should().BeOfType<CollectionResponse<HciSystem>>();
-		hciSystems.Should().NotBeNull();
-
-		if (hciSystems.Results.Count != 0)
-		{
-			var firstSystem = hciSystems.Results.First();
-
-			var system = await client.System.GetHciSystemAsync(firstSystem.Id, cancellationToken: CancellationToken);
-			system.Should().NotBeNull();
-			system.Id.Should().Be(firstSystem.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.System.GetHciSystemsAsync(cancellationToken: CancellationToken),
+			(client, id) => client.System.GetHciSystemAsync(id, cancellationToken: CancellationToken),
+			hciSystem => hciSystem.Id);
 
 	/// <summary>Verifies that GetNetworkSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetNetworkSystems_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var networkSystems = await client.System.GetNetworkSystemsAsync(cancellationToken: CancellationToken);
-
-		networkSystems.Should().BeOfType<CollectionResponse<NetworkSystem>>();
-		networkSystems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.System.GetNetworkSystemsAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetNetworkSystemAsync returns the correct network system by ID.</summary>
 	[Fact]
 	public async Task GetNetworkSystem_ReturnsNetworkSystem()
-	{
-		var client = CreateClient();
-
-		var networkSystems = await client.System.GetNetworkSystemsAsync(cancellationToken: CancellationToken);
-
-		networkSystems.Should().BeOfType<CollectionResponse<NetworkSystem>>();
-		networkSystems.Should().NotBeNull();
-
-		if (networkSystems.Results.Count != 0)
-		{
-			var firstNetworkSystem = networkSystems.Results.First();
-
-			var networkSystem = await client.System.GetNetworkSystemAsync(firstNetworkSystem.Id, cancellationToken: CancellationToken);
-			networkSystem.Should().NotBeNull();
-			networkSystem.Id.Should().Be(firstNetworkSystem.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.System.GetNetworkSystemsAsync(cancellationToken: CancellationToken),
+			(client, id) => client.System.GetNetworkSystemAsync(id, cancellationToken: CancellationToken),
+			networkSystem => networkSystem.Id);
 
 	/// <summary>Verifies that GetServerSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetServerSystems_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var serverSystems = await client.System.GetServerSystemsAsync(cancellationToken: CancellationToken);
-
-		serverSystems.Should().BeOfType<CollectionResponse<ServerSystem>>();
-		serverSystems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.System.GetServerSystemsAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetServerSystemAsync returns the correct server system by ID.</summary>
 	[Fact]
 	public async Task GetServerSystem_ReturnsServerSystem()
-	{
-		var client = CreateClient();
-
-		var serverSystems = await client.System.GetServerSystemsAsync(cancellationToken: CancellationToken);
-
-		serverSystems.Should().BeOfType<CollectionResponse<ServerSystem>>();
-		serverSystems.Should().NotBeNull();
-
-		if (serverSystems.Results.Count != 0)
-		{
-			var firstServerSystem = serverSystems.Results.First();
-
-			var serverSystem = await client.System.GetServerSystemAsync(firstServerSystem.Id, cancellationToken: CancellationToken);
-			serverSystem.Should().NotBeNull();
-			serverSystem.Id.Should().Be(firstServerSystem.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.System.GetServerSystemsAsync(cancellationToken: CancellationToken),
+			(client, id) => client.System.GetServerSystemAsync(id, cancellationToken: CancellationToken),
+			serverSystem => serverSystem.Id);
 
 	/// <summary>Verifies that GetStorageSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetStorageSystems_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var storageSystems = await client.System.GetStorageSystemsAsync(cancellationToken: CancellationToken);
-
-		storageSystems.Should().BeOfType<CollectionResponse<StorageSystem>>();
-		storageSystems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.System.GetStorageSystemsAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetStorageSystemAsync returns the correct storage system by ID.</summary>
 	[Fact]
 	public async Task GetStorageSystem_ReturnsServerSystem()
-	{
-		var client = CreateClient();
-
-		var storageSystems = await client.System.GetStorageSystemsAsync(cancellationToken: CancellationToken);
-
-		storageSystems.Should().BeOfType<CollectionResponse<StorageSystem>>();
-		storageSystems.Should().NotBeNull();
-
-		if (storageSystems.Results.Count != 0)
-		{
-			var firstSstorageSystem = storageSystems.Results.First();
-
-			var storageSystem = await client.System.GetStorageSystemAsync(firstSstorageSystem.Id, cancellationToken: CancellationToken);
-			storageSystem.Should().NotBeNull();
-			storageSystem.Id.Should().Be(firstSstorageSystem.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.System.GetStorageSystemsAsync(cancellationToken: CancellationToken),
+			(client, id) => client.System.GetStorageSystemAsync(id, cancellationToken: CancellationToken),
+			storageSystem => storageSystem.Id);
 
 	/// <summary>Verifies that GetSystemsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetSystems_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var systems = await client.System.GetSystemsAsync();
-
-		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
-		systems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(client => client.System.GetSystemsAsync());
 
 	/// <summary>Verifies that GetSystemsAllAsync retrieves all systems across all pages.</summary>
 	[Fact]
 	public async Task GetSystemsAll_ReturnsAll()
-	{
-		var client = CreateClient();
-
-		var systems = await client.System.GetSystemsAllAsync(cancellationToken: CancellationToken);
-
-		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
-		systems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.System.GetSystemsAllAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetSystemsAllAsync with a filter retrieves only matching systems.</summary>
 	[Fact]
 	public async Task GetSystemsAll_WithFilter_ReturnsAllFiltered()
-	{
-		var client = CreateClient();
-
-		var systems = await client.System.GetSystemsAllAsync(filter: "type eq 'POWEREDGE'", cancellationToken: CancellationToken);
-
-		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
-		systems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.System.GetSystemsAllAsync(filter: "type eq 'POWEREDGE'", cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetSystemAsync returns the correct system by ID.</summary>
 	[Fact]
 	public async Task GetSystem_ReturnsSystem()
-	{
-		var client = CreateClient();
-
-		var systems = await client.System.GetSystemsAsync();
-
-		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
-		systems.Should().NotBeNull();
-
-		if (systems.Results.Count != 0)
-		{
-			var firstSystem = systems.Results.First();
-
-			var system = await client.System.GetSystemAsync(firstSystem.Id, cancellationToken: CancellationToken);
-			system.Should().NotBeNull();
-			system.Id.Should().Be(firstSystem.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.System.GetSystemsAsync(),
+			(client, id) => client.System.GetSystemAsync(id, cancellationToken: CancellationToken),
+			system => system.Id);
 
 	/// <summary>Verifies that GetSystemsAsync with a filter returns only matching systems.</summary>
 	[Fact]
 	public async Task GetSystems_WithFilter_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var systems = await client.System.GetSystemsAsync(filter: "type eq 'POWEREDGE'");
-
-		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
-		systems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(client => client.System.GetSystemsAsync(filter: "type eq 'POWEREDGE'"));
 
 	/// <summary>Verifies that GetSystemsAsync with a select list returns only the requested properties.</summary>
 	[Fact]
 	public async Task GetSystems_WithSelect_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var systems = await client.System.GetSystemsAsync(select: ["id", "model"]);
-
-		systems.Should().BeOfType<CollectionResponse<CloudIQSystem>>();
-		systems.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(client => client.System.GetSystemsAsync(select: ["id", "model"]));
 
 	/// <summary>Verifies that GetSystemsAsync with an invalid filter throws an <see cref="ApiException"/>.</summary>
 	[Fact]

@@ -7,32 +7,14 @@ public class GetStorageTests(ITestOutputHelper testOutputHelper) : TestBase(test
 	/// <summary>Verifies that GetStorageGroupsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetStorageGroups_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var storageGroups = await client.Storage.GetStorageGroupsAsync(cancellationToken: CancellationToken);
-
-		storageGroups.Should().BeOfType<CollectionResponse<StorageGroup>>();
-		storageGroups.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.Storage.GetStorageGroupsAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetStorageGroupAsync returns the correct storage group by ID.</summary>
 	[Fact]
 	public async Task GetStorageGroup_ReturnsGroup()
-	{
-		var client = CreateClient();
-
-		var storageGroups = await client.Storage.GetStorageGroupsAsync(cancellationToken: CancellationToken);
-
-		storageGroups.Should().BeOfType<CollectionResponse<StorageGroup>>();
-		storageGroups.Should().NotBeNull();
-		if (storageGroups.Results.Count != 0)
-		{
-			var firstStorageGroup = storageGroups.Results.First();
-
-			var storageGroup = await client.Storage.GetStorageGroupAsync(firstStorageGroup.Id, cancellationToken: CancellationToken);
-			storageGroup.Should().NotBeNull();
-			storageGroup.Id.Should().Be(firstStorageGroup.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.Storage.GetStorageGroupsAsync(cancellationToken: CancellationToken),
+			(client, id) => client.Storage.GetStorageGroupAsync(id, cancellationToken: CancellationToken),
+			storageGroup => storageGroup.Id);
 }

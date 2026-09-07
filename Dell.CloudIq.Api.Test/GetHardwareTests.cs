@@ -7,76 +7,34 @@ public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(tes
 	/// <summary>Verifies that GetEsxiHostsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetESXiHosts_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync(cancellationToken: CancellationToken);
-
-		eSXiHosts.Should().BeOfType<CollectionResponse<EsxiHost>>();
-		eSXiHosts.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.Hardware.GetEsxiHostsAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetEsxiHostsAllAsync retrieves all ESXi hosts across all pages.</summary>
 	[Fact]
 	public async Task GetESXiHostsAll_ReturnsAll()
-	{
-		var client = CreateClient();
-
-		var eSXiHosts = await client.Hardware.GetEsxiHostsAllAsync(cancellationToken: CancellationToken);
-
-		eSXiHosts.Should().BeOfType<CollectionResponse<EsxiHost>>();
-		eSXiHosts.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.Hardware.GetEsxiHostsAllAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetEsxiHostAsync returns the correct ESXi host by ID.</summary>
 	[Fact]
 	public async Task GetESXiHost_ReturnsESXiHost()
-	{
-		var client = CreateClient();
-
-		var eSXiHosts = await client.Hardware.GetEsxiHostsAsync(cancellationToken: CancellationToken);
-
-		eSXiHosts.Should().BeOfType<CollectionResponse<EsxiHost>>();
-		eSXiHosts.Should().NotBeNull();
-		if (eSXiHosts.Results.Count != 0)
-		{
-			var firstESXiHost = eSXiHosts.Results.First();
-
-			var ESXiHost = await client.Hardware.GetEsxiHostAsync(firstESXiHost.Id, cancellationToken: CancellationToken);
-			ESXiHost.Should().NotBeNull();
-			ESXiHost.Id.Should().Be(firstESXiHost.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.Hardware.GetEsxiHostsAsync(cancellationToken: CancellationToken),
+			(client, id) => client.Hardware.GetEsxiHostAsync(id, cancellationToken: CancellationToken),
+			esxiHost => esxiHost.Id);
 
 	/// <summary>Verifies that GetPortsAsync returns a non-null collection.</summary>
 	[Fact]
 	public async Task GetPorts_ReturnsList()
-	{
-		var client = CreateClient();
-
-		var ports = await client.Hardware.GetPortsAsync(cancellationToken: CancellationToken);
-
-		ports.Should().BeOfType<CollectionResponse<Port>>();
-		ports.Should().NotBeNull();
-	}
+		=> await AssertCollectionAsync(
+			client => client.Hardware.GetPortsAsync(cancellationToken: CancellationToken));
 
 	/// <summary>Verifies that GetPortAsync returns the correct port by ID.</summary>
 	[Fact]
 	public async Task GetPort_ReturnsPort()
-	{
-		var client = CreateClient();
-
-		var ports = await client.Hardware.GetPortsAsync(cancellationToken: CancellationToken);
-
-		ports.Should().BeOfType<CollectionResponse<Port>>();
-		ports.Should().NotBeNull();
-		if (ports.Results.Count != 0)
-		{
-			var firstPort = ports.Results.First();
-
-			var port = await client.Hardware.GetPortAsync(firstPort.Id, cancellationToken: CancellationToken);
-			port.Should().NotBeNull();
-			port.Id.Should().Be(firstPort.Id);
-		}
-	}
+		=> await AssertFirstItemFetchableByIdAsync(
+			client => client.Hardware.GetPortsAsync(cancellationToken: CancellationToken),
+			(client, id) => client.Hardware.GetPortAsync(id, cancellationToken: CancellationToken),
+			port => port.Id);
 }
