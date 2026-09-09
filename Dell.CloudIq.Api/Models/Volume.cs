@@ -1,29 +1,10 @@
-namespace Dell.CloudIq.Api;
+﻿namespace Dell.CloudIq.Api;
 
 /// <summary>
 /// The volume object.
 /// </summary>
-public class Volume : CloudIqModel
+public class Volume : StorageResourceBase
 {
-	/// <summary>
-	/// Identifier of the volume.
-	/// </summary>
-	[JsonPropertyName("id")]
-
-	public string Id { get; set; } = string.Empty;
-
-	/// <summary>
-	/// Unique identifier for the device or appliance.
-	/// </summary>
-	[JsonPropertyName("system_id")]
-	public string? SystemId { get; set; }
-
-	/// <summary>
-	/// Type of the system for the volume.
-	/// </summary>
-	[JsonPropertyName("system_type")]
-	public string? SystemType { get; set; }
-
 	/// <summary>
 	/// The allocated size of the volume - Unit: bytes
 	/// </summary>
@@ -85,18 +66,6 @@ public class Volume : CloudIqModel
 	public bool? IsThinEnabled { get; set; }
 
 	/// <summary>
-	/// Number of health issues that are present on the volume.
-	/// </summary>
-	[JsonPropertyName("issue_count")]
-	public long? IssueCount { get; set; }
-
-	/// <summary>
-	/// User defined tags.
-	/// </summary>
-	[JsonPropertyName("tags")]
-	public object? Tags { get; set; }
-
-	/// <summary>
 	/// The latency for the volume. Aggregated for a rolling average over the last 24 hours - Unit: microseconds
 	/// </summary>
 	[JsonPropertyName("latency")]
@@ -107,24 +76,6 @@ public class Volume : CloudIqModel
 	/// </summary>
 	[JsonPropertyName("logical_size")]
 	public long? LogicalSize { get; set; }
-
-	/// <summary>
-	/// The name of the volume.
-	/// </summary>
-	[JsonPropertyName("object_name")]
-	public string? ObjectName { get; set; }
-
-	/// <summary>
-	/// Identifier of the object, defined by the system.
-	/// </summary>
-	[JsonPropertyName("object_native_id")]
-	public string? ObjectNativeId { get; set; }
-
-	/// <summary>
-	/// Type of the object, which is either LUN or VOLUME.
-	/// </summary>
-	[JsonPropertyName("object_type")]
-	public string? ObjectType { get; set; }
 
 	/// <summary>
 	/// The pool identifier for the volume.
@@ -173,42 +124,6 @@ public class Volume : CloudIqModel
 	/// </summary>
 	[JsonPropertyName("storage_resource_native_id")]
 	public string? StorageResourceNativeId { get; set; }
-
-	/// <summary>
-	/// User defined tags.
-	/// </summary>
-	[JsonPropertyName("system_tags")]
-	public object? SystemTags { get; set; }
-
-	/// <summary>
-	/// The model of the system.
-	/// </summary>
-	[JsonPropertyName("system_model")]
-	public string? SystemModel { get; set; }
-
-	/// <summary>
-	/// Name of the system for the volume.
-	/// </summary>
-	[JsonPropertyName("system_name")]
-	public string? SystemName { get; set; }
-
-	/// <summary>
-	/// The total provisioned size of the volume - Unit: bytes
-	/// </summary>
-	[JsonPropertyName("total_size")]
-	public long? TotalSize { get; set; }
-
-	/// <summary>
-	/// The type of the volume, such as standalone, generic, or regular.
-	/// </summary>
-	[JsonPropertyName("type")]
-	public string? Type { get; set; }
-
-	/// <summary>
-	/// The used size of the volume - Unit: bytes
-	/// </summary>
-	[JsonPropertyName("used_size")]
-	public long? UsedSize { get; set; }
 
 	/// <summary>
 	/// The unique used size of the volume - Unit: bytes
