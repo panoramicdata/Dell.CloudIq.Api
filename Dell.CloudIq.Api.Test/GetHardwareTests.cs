@@ -2,6 +2,8 @@
 
 /// <summary>Integration tests for Dell CloudIQ hardware endpoints.</summary>
 /// <param name="testOutputHelper">The xUnit test output helper.</param>
+// Calls the live CloudIQ API with credentials CI does not hold; excluded there by Category!=Integration.
+[Trait("Category", "Integration")]
 public class GetHardwareTests(ITestOutputHelper testOutputHelper) : TestBase(testOutputHelper)
 {
 	/// <summary>Verifies that GetEsxiHostsAsync returns a non-null collection.</summary>
