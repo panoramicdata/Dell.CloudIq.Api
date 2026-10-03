@@ -27,14 +27,9 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
 
+    # Integration tests call the live CloudIQ API and are run locally, never in CI.
     - name: Test
-      run: dotnet test --configuration Release --no-build --verbosity normal
-      env:
-        # The CloudIQ integration tests skip themselves when these are not set, so a runner without
-        # credentials does not fail the build and block a tagged release from reaching nuget.org.
-        CLOUDIQ_ClientId: ${{ secrets.CLOUDIQ_CLIENT_ID }}
-        CLOUDIQ_ClientSecret: ${{ secrets.CLOUDIQ_CLIENT_SECRET }}
-        CLOUDIQ_BaseUri: ${{ secrets.CLOUDIQ_BASE_URI }}
+      run: dotnet test --configuration Release --no-build --verbosity normal --filter "Category!=Integration"
 
     - name: Pack
       run: dotnet pack --configuration Release --no-build --output ./artifacts

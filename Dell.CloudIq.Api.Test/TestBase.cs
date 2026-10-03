@@ -22,9 +22,8 @@ abstract public class TestBase(ITestOutputHelper testOutputHelper)
 	protected static CancellationToken CancellationToken => TestContext.Current.CancellationToken;
 
 	/// <summary>
-	/// Gets a value indicating whether CloudIQ credentials are configured. Without them the tests
-	/// that talk to CloudIQ cannot run, so they are skipped rather than failed — a runner with no
-	/// credentials must not break the build, or a tag never reaches nuget.org.
+	/// Gets a value indicating whether CloudIQ credentials are configured. CI does not run these tests:
+	/// they carry Category=Integration and are filtered out there.
 	/// </summary>
 	public static bool HasCredentials =>
 		!string.IsNullOrWhiteSpace(Configuration["ClientId"])
@@ -32,7 +31,7 @@ abstract public class TestBase(ITestOutputHelper testOutputHelper)
 		&& !string.IsNullOrWhiteSpace(Configuration["BaseUri"]);
 
 	/// <summary>
-	/// Creates a client for talking to CloudIQ, skipping the calling test when no credentials are
+	/// Creates a client for talking to CloudIQ, failing the calling test when no credentials are
 	/// configured.
 	/// </summary>
 	/// <returns>A <see cref="CloudIqClient"/> configured from user secrets or the environment.</returns>
@@ -109,9 +108,10 @@ abstract public class TestBase(ITestOutputHelper testOutputHelper)
 	/// <returns>A configured <see cref="CloudIqClientOptions"/> instance.</returns>
 	private static CloudIqClientOptions GetClientOptions()
 	{
-		Assert.SkipUnless(
-			HasCredentials,
-			"CloudIQ credentials are not configured. Set ClientId, ClientSecret and BaseUri in user secrets (see userSecrets.example.json), or as CLOUDIQ_ClientId, CLOUDIQ_ClientSecret and CLOUDIQ_BaseUri environment variables.");
+		if (!HasCredentials)
+		{
+			throw new InvalidOperationException("CloudIQ credentials are not configured. Set ClientId, ClientSecret and BaseUri in user secrets (see userSecrets.example.json), or as CLOUDIQ_ClientId, CLOUDIQ_ClientSecret and CLOUDIQ_BaseUri environment variables.");
+		}
 
 		return new CloudIqClientOptions
 		{
