@@ -5,7 +5,7 @@
   </PropertyGroup>
   <!-- Main project packages -->
   <ItemGroup>
-    <PackageVersion Include="FluentValidation" Version="12.1.1" />
+    <PackageVersion Include="FluentValidation" Version="12.2.0" />
     <PackageVersion Include="Macross.Json.Extensions" Version="3.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.12" />
     <PackageVersion Include="Nerdbank.GitVersioning" Version="3.10.94" />
