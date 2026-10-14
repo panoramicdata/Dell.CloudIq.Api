@@ -17,12 +17,7 @@ public class BasicSystemInformationTests
 			SupportedApiVersions = ["1.0", "1.1"]
 		};
 
-		info.Id.Should().Be("0");
-		info.Name.Should().Be("sys");
-		info.Model.Should().Be("PowerStore");
-		info.ServiceTag.Should().Be("TAG123");
-		info.ReleaseVersion.Should().Be("1.0");
-		info.SupportedApiVersions.Should().Equal(["1.0", "1.1"]);
+		AssertValues(info, ["1.0", "1.1"]);
 	}
 
 	/// <summary>Verifies that <c>BasicSystemInformation</c> deserialises from the JSON shape CloudIQ returns.</summary>
@@ -34,11 +29,16 @@ public class BasicSystemInformationTests
 		var info = JsonSerializer.Deserialize<BasicSystemInformation>(json);
 
 		info.Should().NotBeNull();
-		info!.Id.Should().Be("0");
+		AssertValues(info!, ["1.0"]);
+	}
+
+	private static void AssertValues(BasicSystemInformation info, string[] expectedApiVersions)
+	{
+		info.Id.Should().Be("0");
 		info.Name.Should().Be("sys");
 		info.Model.Should().Be("PowerStore");
 		info.ServiceTag.Should().Be("TAG123");
 		info.ReleaseVersion.Should().Be("1.0");
-		info.SupportedApiVersions.Should().Equal(["1.0"]);
+		info.SupportedApiVersions.Should().Equal(expectedApiVersions);
 	}
 }

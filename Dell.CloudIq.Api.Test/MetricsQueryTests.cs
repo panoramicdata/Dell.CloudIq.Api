@@ -17,12 +17,7 @@ public class MetricsQueryTests
 			To = 20
 		};
 
-		query.ResourceType.Should().Be(MetricMetadataResourceType.Volume);
-		query.Ids.Should().Equal(["id-1"]);
-		query.Metrics.Should().Equal(["cpu"]);
-		query.Interval.Should().Be(MetricsInterval.PT5M);
-		query.From.Should().Be(10);
-		query.To.Should().Be(20);
+		AssertExpectedValues(query);
 	}
 
 	/// <summary>Verifies that <c>MetricsQuery</c> deserialises from the JSON shape CloudIQ uses.</summary>
@@ -32,9 +27,15 @@ public class MetricsQueryTests
 		var json = """{"resource_type":"volume","ids":["id-1"],"metrics":["cpu"],"interval":"PT5M","from":10,"to":20}""";
 
 		var query = JsonSerializer.Deserialize<MetricsQuery>(json);
-
 		query.Should().NotBeNull();
-		query!.ResourceType.Should().Be(MetricMetadataResourceType.Volume);
+
+		AssertExpectedValues(query);
+	}
+
+	/// <summary>Asserts every <see cref="MetricsQuery"/> field holds the value both tests use.</summary>
+	private static void AssertExpectedValues(MetricsQuery query)
+	{
+		query.ResourceType.Should().Be(MetricMetadataResourceType.Volume);
 		query.Ids.Should().Equal(["id-1"]);
 		query.Metrics.Should().Equal(["cpu"]);
 		query.Interval.Should().Be(MetricsInterval.PT5M);

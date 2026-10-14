@@ -7,7 +7,7 @@ public class ErrorMessagesTests
 	[Fact]
 	public void Properties_ReadBackWhatWasWritten()
 	{
-		var message = new ErrorMessages
+		VerifyFields(new ErrorMessages
 		{
 			Code = "E01",
 			Timestamp = 123,
@@ -15,14 +15,7 @@ public class ErrorMessagesTests
 			Message = "boom",
 			MessageL10n = "explosion",
 			Arguments = ["a", "b"]
-		};
-
-		message.Code.Should().Be("E01");
-		message.Timestamp.Should().Be(123);
-		message.Severity.Should().Be(Severity.CRITICAL);
-		message.Message.Should().Be("boom");
-		message.MessageL10n.Should().Be("explosion");
-		message.Arguments.Should().Equal(["a", "b"]);
+		});
 	}
 
 	/// <summary>Verifies that <c>ErrorMessages</c> deserialises from the JSON shape CloudIQ returns.</summary>
@@ -34,7 +27,12 @@ public class ErrorMessagesTests
 		var message = JsonSerializer.Deserialize<ErrorMessages>(json);
 
 		message.Should().NotBeNull();
-		message!.Code.Should().Be("E01");
+		VerifyFields(message!);
+	}
+
+	private static void VerifyFields(ErrorMessages message)
+	{
+		message.Code.Should().Be("E01");
 		message.Timestamp.Should().Be(123);
 		message.Severity.Should().Be(Severity.CRITICAL);
 		message.Message.Should().Be("boom");
