@@ -1,6 +1,5 @@
 namespace Dell.CloudIq.Api.Test;
 
-using System.Linq.Expressions;
 using Dell.CloudIq.Api.Interfaces;
 
 /// <summary>Tests for the <see cref="StorageExtensions"/> all-pages paging helpers.</summary>
@@ -21,23 +20,14 @@ public class StorageExtensionsTests
 		};
 	}
 
-	private static IStorage CreateMock<T>(
-		Expression<Func<IStorage, Task<CollectionResponse<T>>>> setup,
-		int count = 2) where T : new()
+	private static async Task VerifyAll<T>(
+		System.Linq.Expressions.Expression<Func<IStorage, Task<CollectionResponse<T>>>> setup,
+		System.Func<IStorage, Task<CollectionResponse<T>>> all) where T : new()
 	{
 		var mock = new Mock<IStorage>();
-		mock.Setup(setup).ReturnsAsync(() => BuildPage<T>(count, count));
-		return mock.Object;
-	}
-
-	private static async Task VerifyAll<T>(
-		Expression<Func<IStorage, Task<CollectionResponse<T>>>> setup,
-		Func<IStorage, Task<CollectionResponse<T>>> all,
-		int expectedCount = 2) where T : new()
-	{
-		var storage = CreateMock<T>(setup, expectedCount);
-		var result = await all(storage);
-		result.Results.Should().HaveCount(expectedCount);
+		mock.Setup(setup).ReturnsAsync(() => BuildPage<T>(2, 2));
+		var result = await all(mock.Object);
+		result.Results.Should().HaveCount(2);
 	}
 
 	/// <summary>Verifies that GetDatastoresAllAsync returns every result across all pages.</summary>
