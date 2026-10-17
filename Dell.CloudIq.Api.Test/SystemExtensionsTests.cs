@@ -5,28 +5,22 @@ using Dell.CloudIq.Api.Interfaces;
 /// <summary>Tests for the <see cref="SystemExtensions"/> all-pages paging helpers.</summary>
 public class SystemExtensionsTests
 {
-	private static CollectionResponse<T> BuildPage<T>(int count, long total) where T : new()
+	private static CollectionResponse<T> BuildPage<T>() where T : new()
 	{
-		var results = new List<T>();
-		for (var i = 0; i < count; i++)
-		{
-			results.Add(new T());
-		}
-
 		return new CollectionResponse<T>
 		{
-			Results = results,
-			Paging = new Paging { TotalInstances = total }
+			Results = new List<T> { new T(), new T() },
+			Paging = new Paging { TotalInstances = 2 }
 		};
 	}
 
-	/// <summary>Runs one all-pages test: configures the mock, invokes the target and asserts the result count.</summary>
+	/// <summary>Verifies that an all-pages helper returns every result across all pages.</summary>
 	private static async Task RunAllPagesTest<T>(
 		System.Linq.Expressions.Expression<Func<ISystem, Task<CollectionResponse<T>>>> setup,
 		System.Func<ISystem, Task<CollectionResponse<T>>> invoke) where T : new()
 	{
 		var mock = new Mock<ISystem>();
-		mock.Setup(setup).ReturnsAsync(() => BuildPage<T>(2, 2));
+		mock.Setup(setup).ReturnsAsync(() => BuildPage<T>());
 
 		var result = await invoke(mock.Object);
 
