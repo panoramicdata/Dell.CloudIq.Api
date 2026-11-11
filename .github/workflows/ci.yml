@@ -83,7 +83,7 @@ jobs:
     # this job. (The build job's own test step still runs them with the repository's CLOUDIQ_ secrets.)
     - name: Run tests with coverage
       run: >-
-        ./Dell.CloudIq.Api.Test/bin/Debug/net10.0/Dell.CloudIq.Api.Test
+        ./Dell.CloudIq.Api.Test/bin/Debug/net11.0/Dell.CloudIq.Api.Test
         --coverage
         --coverage-settings ${{ github.workspace }}/coverage.config
         --coverage-output-format cobertura
@@ -98,7 +98,7 @@ jobs:
       uses: codacy/codacy-coverage-reporter-action@v1
       with:
         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-        coverage-reports: Dell.CloudIq.Api.Test/bin/Debug/net10.0/TestResults/coverage.cobertura.xml
+        coverage-reports: Dell.CloudIq.Api.Test/bin/Debug/net11.0/TestResults/coverage.cobertura.xml
 
     - name: Upload coverage artifact
       if: always()
@@ -106,7 +106,7 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: coverage
-        path: Dell.CloudIq.Api.Test/bin/Debug/net10.0/TestResults/coverage.cobertura.xml
+        path: Dell.CloudIq.Api.Test/bin/Debug/net11.0/TestResults/coverage.cobertura.xml
         retention-days: 7
 
   publish:
