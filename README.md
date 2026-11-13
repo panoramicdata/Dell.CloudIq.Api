@@ -7,6 +7,8 @@
 
 API client for the Dell Cloud IQ REST API
 
+Supports .NET 11.0.
+
 To use the package, follow the instructions below:
 
 # Visual Studio
